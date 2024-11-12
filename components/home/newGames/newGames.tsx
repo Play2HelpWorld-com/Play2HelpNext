@@ -87,7 +87,7 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to Alzheimer.',
         'So start smashing those GRRR! Orcs now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/grrrOrcsGame/',
+      playLink: 'https://play2helpgameserver.onrender.com',
       isComingSoon: false,
     },
     {
@@ -99,7 +99,7 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to UNICEF.',
         'So start smashing those crazy rockets now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/flyRocketsGame/',
+      playLink: 'http://play2help.unaux.com/games/spaceShotter/',
       isComingSoon: false,
     },
     {
