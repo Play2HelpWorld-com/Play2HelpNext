@@ -33,8 +33,8 @@ export default function Header() {
           {/* Navbar */}
           <nav className="hidden lg:flex space-x-6">
             <Link href="http://play2helpup.free.nf/" target="_blank" className="text-black hover:line-through">Play</Link>
-            <Link href="/highscorers.php" target="_blank" className="text-black hover:line-through">Rewards</Link>
-            <Link href="/charities.php" className="text-black hover:line-through">Charities</Link>
+            <Link href="/highScorers" target="_blank" className="text-black hover:line-through">Rewards</Link>
+            <Link href="/charities" className="text-black hover:line-through">Charities</Link>
 
             {/* Dropdown Menu */}
             <div className="relative group">
@@ -86,8 +86,8 @@ export default function Header() {
             </div>
             <nav className="mt-4 space-y-2">
               <Link href="http://play2helpup.free.nf/" target="_blank" className="block py-2 border-b text-black hover:line-through">Play</Link>
-              <Link href="/highscorers.php" target="_blank" className="block py-2 border-b text-black hover:line-through">Rewards</Link>
-              <Link href="/charities.php" className="block py-2 border-b text-black hover:line-through">Charities</Link>
+              <Link href="/highScorers" target="_blank" className="block py-2 border-b text-black hover:line-through">Rewards</Link>
+              <Link href="/charities" className="block py-2 border-b text-black hover:line-through">Charities</Link>
               <div className="relative group">
                 <button className="w-full text-left py-2 border-b text-black hover:line-through">Join In</button>
                 <div className="mt-1 bg-white shadow-lg rounded">
