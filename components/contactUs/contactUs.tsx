@@ -67,7 +67,7 @@ export const ContactUs = () => {
           {/* Message Box */}
           <textarea
             placeholder="Message"
-            rows="4"
+            rows={4}
             className="w-full p-4 text-white bg-gray-800 rounded-3xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-600"
           />
 
