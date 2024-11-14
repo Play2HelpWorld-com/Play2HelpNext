@@ -35,6 +35,7 @@ export default function Header() {
             <Link href="http://play2helpup.free.nf/" target="_blank" className="text-black hover:line-through">Play</Link>
             <Link href="/highScorers" target="_blank" className="text-black hover:line-through">Rewards</Link>
             <Link href="/charities" className="text-black hover:line-through">Charities</Link>
+            <Link href="/booster" className="text-black hover:line-through">Booster</Link>
 
             {/* Dropdown Menu */}
             <div className="relative group">
@@ -48,8 +49,8 @@ export default function Header() {
                 <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Signin</Link>
               </div>
             </div>
-            <Link href="/aboutus.php" target="_blank" className="text-black hover:line-through">Why</Link>
-            <Link href="/contactus.php" className="text-black hover:line-through">Contact Us</Link>
+            <Link href="/aboutUs" target="_blank" className="text-black hover:line-through">Why</Link>
+            <Link href="/contactUs" className="text-black hover:line-through">Contact Us</Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -88,6 +89,7 @@ export default function Header() {
               <Link href="http://play2helpup.free.nf/" target="_blank" className="block py-2 border-b text-black hover:line-through">Play</Link>
               <Link href="/highScorers" target="_blank" className="block py-2 border-b text-black hover:line-through">Rewards</Link>
               <Link href="/charities" className="block py-2 border-b text-black hover:line-through">Charities</Link>
+              <Link href="/charities" className="block py-2 border-b text-black hover:line-through">Booster</Link>
               <div className="relative group">
                 <button className="w-full text-left py-2 border-b text-black hover:line-through">Join In</button>
                 <div className="mt-1 bg-white shadow-lg rounded">
@@ -98,8 +100,8 @@ export default function Header() {
                   <Link href="https://www.facebook.com/Play2.HelpWorld/photos/a.210431825738952/5317915491657201/" target="_blank" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Job</Link>
                 </div>
               </div>
-              <Link href="/aboutus.php" target="_blank" className="block py-2 border-b text-black hover:line-through">Why</Link>
-              <Link href="/contactus.php" className="block py-2 border-b text-black hover:line-through">Contact Us</Link>
+              <Link href="/aboutUs" target="_blank" className="block py-2 border-b text-black hover:line-through">Why</Link>
+              <Link href="/contactUs" className="block py-2 border-b text-black hover:line-through">Contact Us</Link>
             </nav>
           </div>
         )}
