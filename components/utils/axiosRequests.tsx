@@ -42,6 +42,7 @@ export const AxiosRequests = (router? : CustomRouter) => {
             req.headers.AccessToken = JSON.stringify(newToken);
             // toast.success("Token regenereted successfully")
           }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error : any) {
           if (error.response.status === 401) {
             if (router) {router.push('/signin')}
