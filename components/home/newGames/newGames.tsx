@@ -51,7 +51,7 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to WWF.',
         'So start smashing those snakes now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/snakeGame/',
+      playLink: 'https://play2helpworld-com.github.io/Play2HelpServerLessGames/snakeGame/',
       isComingSoon: false,
     },
     {
@@ -63,7 +63,7 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to Red Cross.',
         'So start smashing those roads now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/racingGame/',
+      playLink: 'https://play2helpworld-com.github.io/Play2HelpServerLessGames/racingGame/',
       isComingSoon: false,
     },
     {
@@ -75,7 +75,7 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to MSF.',
         'So start smashing those rails rush now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/railrushGame/',
+      playLink: 'https://play2helpworld-com.github.io/Play2HelpServerLessGames/railrushGame/',
       isComingSoon: false,
     },
     {
@@ -99,7 +99,7 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to UNICEF.',
         'So start smashing those crazy rockets now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/spaceShotter/',
+      playLink: 'https://play2helpworld-com.github.io/Play2HelpServerLessGames/spaceShotter/',
       isComingSoon: false,
     },
     {
@@ -111,8 +111,8 @@ const NewGamesSection: React.FC = () => {
         'Every point you gain will increase a $ donation to Kiva.',
         'So start smashing those GO invaders now. See social media for tips tricks.',
       ],
-      playLink: 'http://play2help.unaux.com/games/goInvadersGame/',
-      isComingSoon: true,
+      playLink: 'https://play2helpworld-com.github.io/Play2HelpServerLessGames/goGame/',
+      isComingSoon: false,
     },
   ];
 
