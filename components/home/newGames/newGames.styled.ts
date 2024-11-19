@@ -11,11 +11,11 @@ export const NewGamesWrapper = styled.section`
 `;
 
 // Wrapper for each card container
-export const CardWrapper = styled.div<{ imgSrc: string }>`
+export const CardWrapper = styled.div<{ $imgSrc: string }>`
   position: relative;
   width: 100%;
   height: 300px; /* Adjust the height to fit your design */
-  background-image: url(${(props) => props.imgSrc});
+  background-image: url(${(props) => props.$imgSrc});
   background-size: cover;
   background-position: center;
   border-radius: 10px;

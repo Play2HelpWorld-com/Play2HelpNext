@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 interface HeaderWrapperProps {
-  isscrolled: boolean;
+  $isscrolled: boolean;
 }
 
-export const HeaderWrapper = styled.div<HeaderWrapperProps>`
+export const HeaderWrapper = styled.div<HeaderWrapperProps> `
   position: sticky;
   top: 0;
   z-index: 99; /* Ensures it's on top of all other components */
@@ -14,8 +14,8 @@ export const HeaderWrapper = styled.div<HeaderWrapperProps>`
   background-position: center;
 
   .navbar-container {
-    background: ${({ isscrolled }) =>
-      isscrolled ? "rgba(0, 0, 0, 0.8)" : "transparent"};
+    background: ${({ $isscrolled }) =>
+      $isscrolled ? "rgba(0, 0, 0, 0.8)" : "transparent"};
     transition: background 0.3s ease;
 
     display: flex;

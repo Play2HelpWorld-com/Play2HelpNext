@@ -30,7 +30,7 @@ export default function Header() {
   }, []);
 
   return (
-    <HeaderWrapper isscrolled={isscrolled}>
+    <HeaderWrapper $isscrolled={isscrolled}>
       <header>
         <div
           className={`navbar-container flex justify-between items-center ${

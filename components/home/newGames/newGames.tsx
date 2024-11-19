@@ -26,7 +26,7 @@ const GameCard: React.FC<GameCardProps> = ({
   isComingSoon,
 }) => {
   return (
-    <CardWrapper imgSrc={imgSrc}>
+    <CardWrapper $imgSrc={imgSrc}>
       <CardContent className="card-content">
         <GameTitle>{title}</GameTitle>
         <DescriptionList>
