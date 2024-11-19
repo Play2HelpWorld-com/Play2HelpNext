@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { HeaderWrapper } from './nav.styled';
 import logo from '@/public/images/play2help_logo.webp';
 import { Menu, X } from 'lucide-react';
+import { HandleGoogleSignIn } from '../accounts/signin';
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,6 +13,10 @@ export default function Header() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const HandleSignin = () => {
+    HandleGoogleSignIn();
+  };
+  
   return (
     <HeaderWrapper>
       <header>
@@ -46,7 +51,7 @@ export default function Header() {
                 <Link href="https://www.eventbrite.com/e/full-community-meetup-tickets-346061678797" target="_blank" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Events</Link>
                 <Link href="https://www.surveymonkey.com/r/ZKM37SK" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Votes</Link>
                 <Link href="https://www.facebook.com/Play2.HelpWorld/photos/a.210431825738952/5317915491657201/" target="_blank" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Job</Link>
-                <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Signin</Link>
+                <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through"  onClick={HandleSignin}>Signin</Link>
               </div>
             </div>
             <Link href="/aboutUs" target="_blank" className="text-black hover:line-through">Why</Link>
@@ -102,6 +107,7 @@ export default function Header() {
               </div>
               <Link href="/aboutUs" target="_blank" className="block py-2 border-b text-black hover:line-through">Why</Link>
               <Link href="/contactUs" className="block py-2 border-b text-black hover:line-through">Contact Us</Link>
+              <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100 hover:line-through">Signin</Link>
             </nav>
           </div>
         )}
