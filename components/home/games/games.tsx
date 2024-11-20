@@ -64,9 +64,9 @@ const GameSection = () => {
             <li>Every point you gain will increase a $ donation to OXFAM.</li>
             <li>
               Start catching those ingredients now. See{' '}
-              <Link href="https://www.facebook.com/Play2.HelpWorld" passHref>
-                <Link href="#" className="text-blue-500 underline">social media</Link>
-              </Link>{' '}
+              <Link href="https://www.facebook.com/Play2.HelpWorld" className="text-blue-500 underline">
+                social media
+              </Link>
               for tips and tricks.
             </li>
           </ul>
@@ -92,10 +92,9 @@ const GameSection = () => {
             <li>If you can, you can help charity WaterAid.</li>
             <li>Every point you gain will increase a $ donation to WaterAid.</li>
             <li>
-              Start smashing those bubbles now. See{' '}
-              <Link href="https://www.facebook.com/Play2.HelpWorld" passHref>
-                <Link href="#" className="text-blue-500 underline">social media</Link>
-              </Link>{' '}
+              Start smashing those bubbles now. See
+                <Link href="https://www.facebook.com/Play2.HelpWorld" className="text-blue-500 underline">social media
+                </Link>
               for tips and tricks.
             </li>
           </ul>
