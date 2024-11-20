@@ -14,6 +14,8 @@ const ExtraRewards: React.FC = () => {
 
   return (
     <ExtraRewardsWrapper>
+      <h1 className="main-title">GRAB EXTRA $$REWARDS</h1>
+
       <div className="content-wrapper">
         {/* Large Card */}
         <div className="large-card">
@@ -26,8 +28,8 @@ const ExtraRewards: React.FC = () => {
             className="background-image"
           />
           <div className="card-content">
-            <h1>GRAB EXTRA $$REWARDS</h1>
-            <h2>You can have more cash with 3 easy fun steps:</h2>
+            {/* <h1>GRAB EXTRA $$REWARDS</h1> */}
+            <h1>You can have more cash with 3 easy fun steps</h1>
             <ul>
               <li>1. Sign up your account for free and get bonuses</li>
               <li>2. Play games, watch ads or answer surveys</li>

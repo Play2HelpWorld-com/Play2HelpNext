@@ -10,6 +10,14 @@ export const ExtraRewardsWrapper = styled.section`
   background-color: transparent;
   padding: 4rem 2rem;
 
+  .main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6a00;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
   .content-wrapper {
     display: flex;
     flex-direction: row;
@@ -37,7 +45,8 @@ export const ExtraRewardsWrapper = styled.section`
 
     .background-image {
       width: 100%;
-      height: auto;
+      height: 100%;
+      max-height: 560px;
       object-fit: fill;
     }
 
