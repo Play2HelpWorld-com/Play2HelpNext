@@ -15,10 +15,9 @@ import Hero from "@/components/home/hero/hero";
 
 const theme = {
   colors: {
-    primary: '#0070f3',
+    primary: "#0070f3",
   },
 };
-
 
 const ReduxInitializer = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useAppDispatch();
@@ -43,7 +42,7 @@ export default function RootLayout({
               <Header />
               <Hero />
               <ToastContainer />
-              <div className="min-h-screen bg-white">{children}</div>
+              <div className="min-h-screen">{children}</div>
               <Footer />
             </ReduxInitializer>
           </ThemeProvider>
