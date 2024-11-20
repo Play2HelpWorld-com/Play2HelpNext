@@ -98,7 +98,7 @@ export default function Hero() {
       <HeroContent>
         <h1>{currentGame.title}</h1>
         <h3>{currentGame.subtitle}</h3>
-        <p>{currentGame.description}</p>
+        {/* <p>{currentGame.description}</p> */}
         <PlayButton>Play Now</PlayButton>
       </HeroContent>
     </HeroContainer>

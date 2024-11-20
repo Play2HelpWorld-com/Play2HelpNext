@@ -3,30 +3,30 @@ import styled, { keyframes } from "styled-components";
 const pulseAnimation = keyframes`
   0% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 155, 255, 0.5);
   }
   50% {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(255, 155, 155, 0.8);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 155, 255, 0.5);
   }
 `;
 
 const textAnimation = keyframes`
   0% {
     transform: scale(1);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 25, 25, 0.5);
   }
   50% {
-    transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transform: scale(1.001);
+    text-shadow: 0 0 20px rgba(215, 55, 55, 0.8);
   }
   100% {
     transform: scale(1);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 25, 25, 0.5);
   }
 `;
 
@@ -53,7 +53,7 @@ export const HeroContent = styled.div`
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
-  text-align: left;
+  text-align: center;
   color: white;
   z-index: 10;
   max-width: 600px;
@@ -62,7 +62,7 @@ export const HeroContent = styled.div`
     font-size: 4rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #ff4500;
+    color: #e63946;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
     animation: ${textAnimation} 2s infinite;
   }
@@ -70,7 +70,7 @@ export const HeroContent = styled.div`
   h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #ffd700;
+    color: #e63946;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -83,7 +83,7 @@ export const HeroContent = styled.div`
 `;
 
 export const PlayButton = styled.button`
-  background-color: #ff4500;
+  background-color: #e63946;
   color: white;
   font-size: 1.5rem;
   padding: 1rem 2rem;
