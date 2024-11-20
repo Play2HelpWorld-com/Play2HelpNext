@@ -4,8 +4,10 @@ export const ExtraRewardsWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 100vw;
   min-height: 100vh;
-  background-color: #091428;
+  // background-color: #091428;
+  background-color: transparent;
   padding: 4rem 2rem;
 
   .content-wrapper {
@@ -112,7 +114,7 @@ export const ExtraRewardsWrapper = styled.section`
       transition: transform 0.3s ease;
 
       &:hover {
-        transform: scale(1.03);
+        transform: scale(1.01);
       }
 
       .content {

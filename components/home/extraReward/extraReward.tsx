@@ -57,7 +57,7 @@ const ExtraRewards: React.FC = () => {
                   src={card.image}
                   alt={card.title}
                   width={200}
-                  height={200}
+                  height={300}
                 />
               </div>
             </div>

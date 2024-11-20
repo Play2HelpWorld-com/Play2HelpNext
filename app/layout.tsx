@@ -35,14 +35,14 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <body className="bg-[#091428]">
+        <body className="bg-[#091428] ">
           <ThemeProvider theme={theme}>
             <ReduxInitializer>
               {/* <Navbar /> */}
               <Header />
               <Hero />
               <ToastContainer />
-              <div className="min-h-screen">{children}</div>
+              <div className="min-h-screen ">{children}</div>
               <Footer />
             </ReduxInitializer>
           </ThemeProvider>
