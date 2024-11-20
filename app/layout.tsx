@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <body className="bg-black">
+        <body className="bg-[#091428]">
           <ThemeProvider theme={theme}>
             <ReduxInitializer>
               {/* <Navbar /> */}

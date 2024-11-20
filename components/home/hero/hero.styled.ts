@@ -34,7 +34,7 @@ export const HeroContainer = styled.div`
   position: relative;
   top: -97px;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   z-index: 0;
 `;

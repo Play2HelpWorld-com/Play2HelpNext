@@ -2,61 +2,69 @@ import styled from "styled-components";
 export const ExtraRewardsWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   min-height: 100vh;
   background-color: #091428;
-  padding: 2rem;
-  gap: 2rem;
+  padding: 4rem 2rem;
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1920px;
+    padding: 0 1rem;
+  }
 
   /* Large Card */
   .large-card {
-    position: relative;
-    width: 100%;
-    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     border-radius: 1rem;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    background-color: #1a1a2e;
+    // flex: 3;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 
     .background-image {
-      position: absolute;
-      object-fit: cover;
       width: 100%;
-      height: 100%;
-      z-index: 0;
+      height: auto;
+      object-fit: fill;
     }
 
     .card-content {
-      position: relative;
-      z-index: 1;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
       color: white;
       padding: 2rem;
       text-align: center;
-      width: 100%;
-      box-sizing: border-box;
 
       h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 2vw, 3rem);
         font-weight: bold;
         color: #ff6a00;
         margin-bottom: 1rem;
       }
 
       h2 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        margin-bottom: 1.5rem;
         color: #e6e6e6;
       }
 
       ul {
         list-style: none;
         padding: 0;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
 
         li {
-          font-size: 1rem;
+          font-size: clamp(0.9rem, 1vw, 1rem);
           color: #cfcfcf;
           margin: 0.5rem 0;
 
@@ -70,8 +78,8 @@ export const ExtraRewardsWrapper = styled.section`
         display: inline-block;
         background-color: #ff6a00;
         color: white;
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        font-size: clamp(0.9rem, 1vw, 1rem);
+        padding: 0.8rem 1.5rem;
         border-radius: 2rem;
         font-weight: bold;
         cursor: pointer;
@@ -86,21 +94,22 @@ export const ExtraRewardsWrapper = styled.section`
 
   /* Small Cards */
   .small-cards {
+    flex: 2;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 1rem;
 
     .small-card {
       background: linear-gradient(145deg, #091428, #111119);
       border-radius: 1rem;
-      padding: 1rem;
+      padding: 1.5rem;
       display: flex;
       justify-content: space-between;
+      height: 100%;
       align-items: center;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease;
-      width: calc(50% - 1rem);
 
       &:hover {
         transform: scale(1.03);
@@ -108,17 +117,16 @@ export const ExtraRewardsWrapper = styled.section`
 
       .content {
         flex: 1;
-        margin-right: 1rem;
 
         h1 {
-          font-size: 1.2rem;
+          font-size: clamp(1rem, 1.2vw, 1.5rem);
           font-weight: bold;
           color: #ff6a00;
           margin-bottom: 0.5rem;
         }
 
         p {
-          font-size: 1rem;
+          font-size: clamp(0.8rem, 1vw, 1rem);
           color: #dcdcdc;
           margin-bottom: 0.5rem;
         }
@@ -127,7 +135,7 @@ export const ExtraRewardsWrapper = styled.section`
           display: inline-block;
           background-color: #ff6a00;
           color: white;
-          font-size: 1rem;
+          font-size: clamp(0.8rem, 1vw, 0.9rem);
           padding: 0.5rem 1rem;
           border-radius: 1rem;
           font-weight: bold;
@@ -142,6 +150,8 @@ export const ExtraRewardsWrapper = styled.section`
 
       .reward-image {
         flex-shrink: 0;
+        margin-left: 1rem;
+
         img {
           border-radius: 1rem;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -151,38 +161,47 @@ export const ExtraRewardsWrapper = styled.section`
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) {
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0;
+    }
+
     .large-card {
-      height: 40vh;
-
-      .card-content {
-        h1 {
-          font-size: 2rem;
-        }
-
-        h2 {
-          font-size: 1rem;
-        }
-
-        ul li {
-          font-size: 0.9rem;
-        }
-      }
+      width: 100%;
     }
 
     .small-cards {
-      .small-card {
-        width: 100%;
-        flex-direction: column;
+      width: 100%;
+    }
+  }
 
-        .content {
-          margin-right: 0;
-          text-align: center;
-        }
+  @media (max-width: 768px) {
+    .small-card {
+      flex-direction: column;
+      text-align: center;
 
-        .reward-image {
-          margin-top: 1rem;
-        }
+      .reward-image {
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-content {
+      padding: 1.5rem;
+
+      h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+      }
+
+      h2 {
+        font-size: clamp(0.8rem, 1vw, 1rem);
+      }
+
+      ul li {
+        font-size: clamp(0.8rem, 1vw, 0.9rem);
       }
     }
   }
