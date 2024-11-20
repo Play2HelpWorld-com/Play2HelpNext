@@ -52,7 +52,7 @@ export default function Header() {
                   <Link href="/charities" className="dropdown-item">
                     Charities
                   </Link>
-                  <Link href="/why" className="dropdown-item">
+                  <Link href="/aboutUs" className="dropdown-item">
                     Why
                   </Link>
                 </div>
@@ -60,13 +60,13 @@ export default function Header() {
               <div className="relative group">
                 <button className="nav-link">WORK WITH US</button>
                 <div className="dropdown">
-                  <Link href="/rewards" className="dropdown-item">
+                  <Link href="/highScorers" className="dropdown-item">
                     Rewards
                   </Link>
-                  <Link href="/boosters" className="dropdown-item">
+                  <Link href="/booster" className="dropdown-item">
                     Boosters
                   </Link>
-                  <Link href="/contact-us" className="dropdown-item">
+                  <Link href="/contactUs" className="dropdown-item">
                     Contact Us
                   </Link>
                 </div>
