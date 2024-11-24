@@ -42,7 +42,7 @@ export const SignUP = () => {
         password: formData.password,
         password2: formData.confirmPassword,
       });
-      router.push('/accounts/signIn');
+      router.push('/accounts/signin');
     } catch (err) {
       if (err instanceof Error) {
         if (axios.isAxiosError(err) && err.response) {
