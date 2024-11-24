@@ -17,7 +17,6 @@ export const HighScorers = () => {
         el.parentNode?.insertBefore(js, el);
       }
     };
-
     // Define widget URLs
     const protocol = window.location.toString().startsWith("https") ? "https" : "http";
     const widgets = [
@@ -231,8 +230,6 @@ export const HighScorers = () => {
 
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
