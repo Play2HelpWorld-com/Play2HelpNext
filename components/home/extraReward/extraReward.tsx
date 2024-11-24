@@ -1,52 +1,65 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
+import { ExtraRewardsWrapper } from "./extraRewards.styled";
 
-const ExtraRewards = () => {
+const ExtraRewards: React.FC = () => {
+  const smallCards = [
+    { title: "Join Now", image: "/images/extra/extra1.png", link: "#" },
+    { title: "Watch Ads", image: "/images/extra/extra2.png", link: "#" },
+    { title: "Play Games", image: "/images/extra/extra3.png", link: "#" },
+    { title: "Complete Surveys", image: "/images/extra/extra4.png", link: "#" },
+  ];
+
   return (
-    <div className="container mx-auto mt-5 px-4">
-      <div className="flex justify-center">
-        <div className="max-w-2xl bg-white text-center shadow-lg p-8 rounded-lg">
-          {/* Affiliate Link */}
-          <Link href="https://www.swagbucks.com/lp-savings-button?cmp=695&cxid=swagbuttonref&rb=127116045&extRefCmp=1&extRb=127116045" target="_blank" passHref>
-              <div className="price mb-4">
-                <h1 className="text-2xl font-bold text-gray-800 md:text-3xl">GRAB EXTRA $$REWARDS</h1>
-                <Image
-                  src="/images/watch_ads.png"
-                  alt="games and rewards image"
-                  width={300}
-                  height={200}
-                  className="mx-auto my-4 rounded"
-                  layout="responsive"
-                />
-              </div>
-          </Link>
-
-          {/* Sharing Buttons */}
-          <div className="sharethis-inline-reaction-buttons mb-4"></div>
-
-          {/* Description */}
-          <h2 className="text-lg md:text-xl text-gray-700 font-semibold mb-4">
-            You can have more cash with 3 easy fun steps.
-          </h2>
-          <ul className="text-gray-600 space-y-2">
-            <li>1. Sign up</li>
+    <ExtraRewardsWrapper>
+      {/* Large Card */}
+      <div className="large-card">
+        <Image
+          src="/images/watch_ads.png"
+          alt="Games and Rewards"
+          fill
+          className="background-image"
+        />
+        <div className="card-content">
+          <h1>GRAB EXTRA $$REWARDS</h1>
+          <h2>You can have more cash with 3 easy fun steps:</h2>
+          <ul>
+            <li>1. Sign up your account for free and get bonuses</li>
             <li>2. Play games, watch ads or answer surveys</li>
-            <li><strong>3. Get more extra fun rewards!</strong></li>
+            <li>
+              <strong>3. Get more extra fun rewards!</strong>
+            </li>
           </ul>
-
-          {/* Join Button */}
-          <Link href="https://www.swagbucks.com/lp-savings-button?cmp=695&cxid=swagbuttonref&rb=127116045&extRefCmp=1&extRb=127116045" passHref>
-            <Link
-              href="#"
-              className="inline-block mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition-colors"
-              target="_blank"
-            >
-              JOIN NOW
-            </Link>
+          <Link href="#" passHref>
+            <span className="join-now">JOIN NOW</span>
           </Link>
         </div>
       </div>
-    </div>
+
+      {/* Small Cards */}
+      <div className="small-cards">
+        {smallCards.map((card, index) => (
+          <div className="small-card" key={index}>
+            <div className="content">
+              <h1>{card.title}</h1>
+              <p>Click below to explore rewards!</p>
+              <Link href={card.link} passHref>
+                <span className="explore-link">Explore</span>
+              </Link>
+            </div>
+            <div className="reward-image">
+              <Image
+                src={card.image}
+                alt={card.title}
+                width={150}
+                height={150}
+                className="rounded"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </ExtraRewardsWrapper>
   );
 };
 
