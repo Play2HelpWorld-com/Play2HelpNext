@@ -11,8 +11,7 @@ export enum UserRole {
 
 export interface UserInterface {
   _id: string;
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
   password?: string;
   image?: string | null;
