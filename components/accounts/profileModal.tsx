@@ -41,7 +41,7 @@ export const ProfileModal = () => {
           )}
         </div>
       ) : (
-        <Link href="/accounts/signIn" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+        <Link href="/accounts/signin" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
           SIGN IN
         </Link>
       )}

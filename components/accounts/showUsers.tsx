@@ -27,7 +27,7 @@ export const ShowUsers = () => {
       }
     };
     fetchUsers();
-  }, []);
+  }, [protectedRoute]);
 
   if (loading) {
     return <div>Loading...</div>;
