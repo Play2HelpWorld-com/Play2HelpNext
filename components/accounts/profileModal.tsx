@@ -20,7 +20,6 @@ export const ProfileModal = () => {
     <>
       {authState.isAuthenticated ? (
         <div className="relative group">
-          {/* Display Logged-In User Name */}
           <button type="button" className="text-white font-medium cursor-pointer hover:underline" onClick={() => { setIsModalOpen(!isModalOpen); console.log('name clicked') }}>
             {authState.loogedInUser.name}
           </button>
@@ -40,14 +39,10 @@ export const ProfileModal = () => {
               </button>
             </div>
           )}
-          {/* Dropdown Menu */}
-
         </div>
       ) : (
-        <Link href="/accounts/signIn">
-          <button className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-            SIGN IN
-          </button>
+        <Link href="/accounts/signIn" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+          SIGN IN
         </Link>
       )}
     </>
