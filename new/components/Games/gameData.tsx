@@ -3,33 +3,33 @@ import { Game } from "@/types/game";
 const GameData: Game[] = [
   {
     id: 1,
-    title: "Built-in Tools",
+    title: "UP!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra1.png",
     alt: "Workflow 01",
     buttonText: "Built-in Tools",
-    playLink: "/game-1",
+    playLink: "http://play2helpup.free.nf/",
   },
   {
     id: 2,
-    title: "Scale Instantly",
+    title: "YUM Game",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra2.png",
     alt: "Workflow 02",
     buttonText: "Scale Instantly",
-    playLink: "/game-1",
+    playLink: "http://play2helpyum.free.nf",
   },
   {
     id: 3,
-    title: "Tailored Flows",
+    title: "POP!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra3.png",
     alt: "Workflow 03",
     buttonText: "Tailored Flows",
-    playLink: "/game-1",
+    playLink: "https://daf7f8k0buj1j.cloudfront.net/bubble-invasion/index.html",
   },
   {
     id: 4,
