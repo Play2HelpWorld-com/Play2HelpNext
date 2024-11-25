@@ -12,6 +12,7 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
+import GameSection from "@/components/Games/gameSection";
 
 export const metadata: Metadata = {
   title: "Play2Help | Play for Free Donation",
@@ -26,6 +27,7 @@ export default function Home() {
       <Brands />
       <Feature />
       <About />
+      <GameSection />
       <FeaturesTab />
       <FunFact />
       <Integration />
