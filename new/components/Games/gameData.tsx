@@ -33,33 +33,78 @@ const GameData: Game[] = [
   },
   {
     id: 4,
-    title: "Built-in Tools",
-    description:
-      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
+    title: "HISS!",
+    description: "Can you stop the HISS snake to save the world? 🐍",
     image: "/images/games/extra4.png",
     alt: "Workflow 01",
     buttonText: "Built-in Tools",
-    playLink: "/game-1",
+    playLink:
+      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/snakeGame/",
   },
   {
     id: 5,
-    title: "Scale Instantly",
+    title: "3-2-1!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra5.png",
     alt: "Workflow 02",
     buttonText: "Scale Instantly",
-    playLink: "/game-1",
+    playLink:
+      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/racingGame/",
   },
   {
     id: 6,
-    title: "Tailored Flows",
+    title: "MORE!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra2.png",
     alt: "Workflow 03",
     buttonText: "Tailored Flows",
-    playLink: "/game-1",
+    playLink:
+      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/railrushGame/",
+  },
+  {
+    id: 7,
+    title: "GRRR!",
+    description:
+      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
+    image: "/images/games/extra3.png",
+    alt: "Workflow 01",
+    buttonText: "Built-in Tools",
+    playLink: "https://play2helpgameserver.onrender.com",
+  },
+  {
+    id: 8,
+    title: "FLY!",
+    description:
+      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
+    image: "/images/games/extra4.png",
+    alt: "Workflow 02",
+    buttonText: "Scale Instantly",
+    playLink:
+      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/spaceShotter/",
+  },
+  {
+    id: 9,
+    title: "RUSH!",
+    description:
+      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
+    image: "/images/games/extra5.png",
+    alt: "Workflow 03",
+    buttonText: "Tailored Flows",
+    playLink:
+      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/rushGame/",
+  },
+  {
+    id: 10,
+    title: "GO!",
+    description:
+      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
+    image: "/images/games/extra1.png",
+    alt: "Workflow 01",
+    buttonText: "Built-in Tools",
+    playLink:
+      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/goGame/",
   },
 ];
 
