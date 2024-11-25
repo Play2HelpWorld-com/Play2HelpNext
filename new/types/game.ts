@@ -5,4 +5,5 @@ export type Game = {
   image: string;
   alt: string;
   buttonText: string;
+  playLink: string;
 };
