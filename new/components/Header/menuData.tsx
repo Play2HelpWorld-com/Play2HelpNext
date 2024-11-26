@@ -5,7 +5,7 @@ const menuData: Menu[] = [
     id: 1,
     title: "Play",
     newTab: false,
-    path: "/#play",
+    path: "/games",
   },
   {
     id: 2,
