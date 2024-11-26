@@ -17,9 +17,9 @@ const RelatedPost = async () => {
               className="mb-7.5 flex flex-wrap gap-4 xl:flex-nowrap 2xl:gap-6"
               key={key}
             >
-              <div className="max-w-45 relative h-18 w-45">
-                {post.mainImage ? (
-                  <Image fill src={post.mainImage} alt="Blog" />
+              <div className="relative h-18 w-45 max-w-45">
+                {post.src ? (
+                  <Image fill src={post.src} alt="Blog" />
                 ) : (
                   "No image"
                 )}
