@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+interface SidebarLinkProps {
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+}
 
-const SidebarLink = () => {
-  const searchParams = useSearchParams();
-  const activeLink = searchParams?.get("section"); // Optional chaining for safety
-
+const SidebarLink = ({ activeSection, setActiveSection }: SidebarLinkProps) => {
   // Links data
   const links = [
     { label: "Introduction", section: "introduction" },
@@ -19,16 +18,16 @@ const SidebarLink = () => {
     <>
       {links.map((link) => (
         <li key={link.section} className="block">
-          <Link
-            href={`/docs?section=${link.section}`}
+          <button
+            onClick={() => setActiveSection(link.section)}
             className={`flex w-full rounded-sm px-3 py-2 text-base ${
-              activeLink === link.section
+              activeSection === link.section
                 ? "bg-stroke text-black dark:bg-blackho dark:text-white"
                 : "text-black dark:text-white"
             }`}
           >
             {link.label}
-          </Link>
+          </button>
         </li>
       ))}
     </>
