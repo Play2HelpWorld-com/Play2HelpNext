@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "./utils";
+import { cn } from "../../utils/lib/cn";
 import { AnimatedList } from "./animated-list";
 
 interface Item {
