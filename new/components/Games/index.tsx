@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Spotlight from "@/components/Games/spotlight";
 import GameData from "@/components/Games/gameData";
