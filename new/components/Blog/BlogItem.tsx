@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import Link from "next/link";
 import BlogData from "./blogData";
 import { Charity } from "@/types/charity";
@@ -10,8 +10,10 @@ interface BlogItemProps {
 }
 
 const BlogItem: React.FC<BlogItemProps> = ({ blog }) => {
+  const widgets = useMemo(() => [{ ...blog }], []);
+
   useEffect(() => {
-    BlogData.forEach((widget) => {
+    widgets.forEach((widget) => {
       const { id, src } = widget;
       const pfx = window.location.protocol === "https:" ? "https" : "http";
       const el = document.getElementById(id);
@@ -21,11 +23,11 @@ const BlogItem: React.FC<BlogItemProps> = ({ blog }) => {
         el.appendChild(script);
       }
     });
-  }, []);
+  }, [widgets]);
 
   return (
     <>
-      {BlogData.map((widget) => (
+      {widgets.map((widget) => (
         <motion.div
           key={widget.id}
           variants={{
