@@ -1,6 +1,6 @@
 export type Charity = {
   id: string;
-  src?: string;
+  src: string;
   title: string;
-  metadata?: string;
+  metadata: string;
 };
