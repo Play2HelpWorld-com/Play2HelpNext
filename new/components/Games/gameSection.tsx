@@ -73,7 +73,7 @@ export default function GameSection() {
           </Spotlight>
           <div className="mt-12 flex justify-center">
             <a
-              href="#0"
+              href="/games"
               className="relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-lg bg-gray-800 p-3 text-lg font-semibold text-indigo-200 transition-all duration-500 before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-lg before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-lg after:bg-gradient-to-br after:from-indigo-400/50 after:to-indigo-600/50 after:opacity-0 after:transition-opacity after:duration-500 hover:text-white hover:before:opacity-100 hover:after:opacity-100"
             >
               <span>Discover More Games</span>
