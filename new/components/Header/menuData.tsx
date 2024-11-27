@@ -21,7 +21,7 @@ const menuData: Menu[] = [
   },
   {
     id: 4,
-    title: "Why Play2Help",
+    title: "Why Us",
     newTab: false,
     path: "/docs",
   },
