@@ -8,7 +8,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra1.png",
     alt: "Workflow 01",
-    buttonText: "Built-in Tools",
+    buttonText: "Play Now",
     playLink: "http://play2helpup.free.nf/",
   },
   {
@@ -18,7 +18,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra2.png",
     alt: "Workflow 02",
-    buttonText: "Scale Instantly",
+    buttonText: "Play Now",
     playLink: "http://play2helpyum.free.nf",
   },
   {
@@ -28,7 +28,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra3.png",
     alt: "Workflow 03",
-    buttonText: "Tailored Flows",
+    buttonText: "Play Now",
     playLink: "https://daf7f8k0buj1j.cloudfront.net/bubble-invasion/index.html",
   },
   {
@@ -37,7 +37,7 @@ const GameData: Game[] = [
     description: "Can you stop the HISS snake to save the world? 🐍",
     image: "/images/games/extra4.png",
     alt: "Workflow 01",
-    buttonText: "Built-in Tools",
+    buttonText: "Play Now",
     playLink:
       "https://play2helpworld-com.github.io/Play2HelpServerLessGames/snakeGame/",
   },
@@ -48,7 +48,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra5.png",
     alt: "Workflow 02",
-    buttonText: "Scale Instantly",
+    buttonText: "Play Now",
     playLink:
       "https://play2helpworld-com.github.io/Play2HelpServerLessGames/racingGame/",
   },
@@ -59,7 +59,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra2.png",
     alt: "Workflow 03",
-    buttonText: "Tailored Flows",
+    buttonText: "Play Now",
     playLink:
       "https://play2helpworld-com.github.io/Play2HelpServerLessGames/railrushGame/",
   },
@@ -70,7 +70,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra3.png",
     alt: "Workflow 01",
-    buttonText: "Built-in Tools",
+    buttonText: "Play Now",
     playLink: "https://play2helpgameserver.onrender.com",
   },
   {
@@ -80,7 +80,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra4.png",
     alt: "Workflow 02",
-    buttonText: "Scale Instantly",
+    buttonText: "Play Now",
     playLink:
       "https://play2helpworld-com.github.io/Play2HelpServerLessGames/spaceShotter/",
   },
@@ -91,7 +91,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra5.png",
     alt: "Workflow 03",
-    buttonText: "Tailored Flows",
+    buttonText: "Play Now",
     playLink:
       "https://play2helpworld-com.github.io/Play2HelpServerLessGames/rushGame/",
   },
@@ -102,7 +102,7 @@ const GameData: Game[] = [
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra1.png",
     alt: "Workflow 01",
-    buttonText: "Built-in Tools",
+    buttonText: "Play Now",
     playLink:
       "https://play2helpworld-com.github.io/Play2HelpServerLessGames/goGame/",
   },
