@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ProfileModal } from "../accounts/profileModal";
 
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
@@ -31,7 +32,7 @@ const Header = () => {
     <header
       className={`fixed left-0 top-0 z-99999 w-full py-7 ${
         stickyMenu
-          ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
+          ? "!py-4 shadow transition duration-100 dark:bg-black"
           : ""
       }`}
     >
@@ -154,12 +155,15 @@ const Header = () => {
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
 
-            <Link
+            {/* <Link
               href="/accounts/signin"
               className="text-regular font-medium text-waterloo hover:text-primary"
             >
               Sign In
-            </Link>
+            </Link> */}
+
+            <ProfileModal />
+
           </div>
         </div>
       </div>
