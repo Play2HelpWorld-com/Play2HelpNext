@@ -12,6 +12,7 @@ import StoreProvider from "./utils/provider/StoreProvider";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/configs/redux/hooks";
 import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
+import { GetGameScore } from "@/components/gameScore/getGameScore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ const ReduxInitializer = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     dispatch(fetchLoggedInUser());
   }, [dispatch]);
-  // GetGameScore();
+  GetGameScore();
   return <>{children}</>;
 };
 
@@ -39,7 +40,6 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="light"
           >
-
             <ReduxInitializer>
             <Lines />
             <Header />
@@ -48,7 +48,6 @@ export default function RootLayout({
             <Footer />
             <ScrollToTop />
             </ReduxInitializer>
-
           </ThemeProvider>
         </body>
       </html>
