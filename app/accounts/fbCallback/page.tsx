@@ -1,4 +1,4 @@
-import { FacebookCallback } from "@/utils/accounts/callBacks/facebookCallback";
+import { FacebookCallback } from "@/components/accounts/callBacks/facebookCallback";
 
 export default function Page() {
   return <FacebookCallback />;

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { AxiosReqInstance } from "@/utils/accounts/axiosInstance";
+import { AxiosReqInstance } from "@/components/accounts/utils/axiosInstance";
 import { UserInterface } from "@/types/interface";
 
 interface AuthState {

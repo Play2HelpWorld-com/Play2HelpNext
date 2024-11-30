@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useAppSelector } from "@/lib/hooks";
+import { useAppSelector } from "@/configs/redux/hooks";
 import { useState } from "react";
-import { useAppDispatch } from "@/lib/hooks";
-import { fetchLoggedInUser } from "@/lib/features/auth/authSlice";
+import { useAppDispatch } from "@/configs/redux/hooks";
+import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
 
 
 export const ProfileModal = () => {
@@ -20,7 +20,7 @@ export const ProfileModal = () => {
     <>
       {authState.isAuthenticated ? (
         <div className="relative group">
-          <button type="button" className="text-white font-medium cursor-pointer hover:underline" onClick={() => { setIsModalOpen(!isModalOpen); console.log('name clicked') }}>
+          <button type="button" className="text-[#757693] dark:text-white font-medium cursor-pointer hover:underline" onClick={() => { setIsModalOpen(!isModalOpen); console.log('name clicked') }}>
             {authState.loogedInUser.name}
           </button>
           {isModalOpen && (
@@ -32,6 +32,7 @@ export const ProfileModal = () => {
                 Profile
               </Link>
               <button
+                type="button"
                 className="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
                 onClick={handleLogout}
               >

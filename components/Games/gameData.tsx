@@ -39,7 +39,7 @@ const GameData: Game[] = [
     alt: "Workflow 01",
     buttonText: "Play Now",
     playLink:
-      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/snakeGame/",
+      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/snakeGame/`,
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const GameData: Game[] = [
     alt: "Workflow 02",
     buttonText: "Play Now",
     playLink:
-      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/racingGame/",
+      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/racingGame/`,
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ const GameData: Game[] = [
     alt: "Workflow 03",
     buttonText: "Play Now",
     playLink:
-      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/railrushGame/",
+      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/railrushGame/`,
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ const GameData: Game[] = [
     image: "/images/games/extra3.png",
     alt: "Workflow 01",
     buttonText: "Play Now",
-    playLink: "https://play2helpgameserver.onrender.com",
+    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/grrGame`,
   },
   {
     id: 8,
@@ -82,7 +82,7 @@ const GameData: Game[] = [
     alt: "Workflow 02",
     buttonText: "Play Now",
     playLink:
-      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/spaceShotter/",
+      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/spaceShotter/`,
   },
   {
     id: 9,
@@ -93,7 +93,7 @@ const GameData: Game[] = [
     alt: "Workflow 03",
     buttonText: "Play Now",
     playLink:
-      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/rushGame/",
+      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/rushGame/`,
   },
   {
     id: 10,
@@ -104,7 +104,7 @@ const GameData: Game[] = [
     alt: "Workflow 01",
     buttonText: "Play Now",
     playLink:
-      "https://play2helpworld-com.github.io/Play2HelpServerLessGames/goGame/",
+      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/goGame/`,
   },
 ];
 

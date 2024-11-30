@@ -1,7 +1,7 @@
 
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from '@/lib/hooks';
-import { fetchLoggedInUser } from '@/lib/features/auth/authSlice';
+import { useAppDispatch } from "@/configs/redux/hooks";
+import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
 
 
 interface Tokens {
