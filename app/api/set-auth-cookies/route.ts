@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json({ 
       message: 'Cookies set successfully' 
     });
-
+    console.log('process.env.Node_ENV:', process.env.NODE_ENV);
     // Set access token cookie with domain
     response.cookies.set('accessToken2', accessToken, {
       httpOnly: true,

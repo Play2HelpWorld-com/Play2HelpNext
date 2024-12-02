@@ -42,7 +42,7 @@ export default function Game() {
   const HandleLinkClick = async(game) => {
     console.log('game clicked');
     try {
-      await fetch('https://play2helpgamesserver.onrender.com/api/test', {
+      await fetch('http://localhost:3003/api/test', {
         method: 'POST',
         credentials: 'include',
         headers: {
