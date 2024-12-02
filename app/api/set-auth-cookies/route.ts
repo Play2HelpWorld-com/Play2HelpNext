@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
       message: 'Cookies set successfully' 
     });
     console.log('process.env.Node_ENV:', process.env.NODE_ENV);
+    console.log('process.env.COOKIE_DOMAIN:', process.env.COOKIE_DOMAIN);
     // Set access token cookie with domain
     response.cookies.set('accessToken2', accessToken, {
       httpOnly: true,

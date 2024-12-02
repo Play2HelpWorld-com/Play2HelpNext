@@ -41,8 +41,9 @@ export default function Game() {
 
   const HandleLinkClick = async(game) => {
     console.log('game clicked');
+    const url = `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/api/test`;
     try {
-      await fetch('http://localhost:3003/api/test', {
+      await fetch(url, {
         method: 'POST',
         credentials: 'include',
         headers: {
