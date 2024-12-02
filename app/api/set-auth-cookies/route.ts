@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     // Set access token cookie with domain
     response.cookies.set('accessToken', accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: process.env.HTTPS === 'true' || process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 60 * 60,
       domain: process.env.COOKIE_DOMAIN || 'localhost',

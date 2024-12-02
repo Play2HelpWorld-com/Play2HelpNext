@@ -14,12 +14,10 @@ export const useSaveTokens = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const setHeader = async(tokens: Tokens) => {
-    // Set refresh token as a secure, httpOnly cookie
     await axios.post('/api/set-auth-cookies', {
       accessToken: tokens.accessToken,
-      refreshToken: tokens.refreshToken
     }, {
-      withCredentials: true // Important for cookie handling
+      withCredentials: true
     });
   }
   const SaveTokensToLocal = (Tokens: Tokens): void => {
