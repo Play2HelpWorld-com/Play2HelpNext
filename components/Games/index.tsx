@@ -2,36 +2,19 @@
 import Image from "next/image";
 import Spotlight from "@/components/Games/spotlight";
 import GameData from "@/components/Games/gameData";
-import axios from "axios";
 import { GameInterface } from "@/types/game";
 
 export default function Game() {
 
   const HandleLinkClick = async (game: GameInterface): Promise<void> => {
     console.log('game clicked');
-    const url = `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/api/storeAccessToken`;
     const accessToken = localStorage.getItem('accessToken');
     console.log('the accessToken is:', accessToken);
-    try {
-      const response = await axios.post(
-        url,
-        {},
-        {
-          method: 'POST',
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${accessToken}`
-          },
-        }
-      );
-      const { sessionId } = response.data;
-      console.log('sessionId:', sessionId);
-      const playLinkWithSession = `${game.playLink}?sessionId=${encodeURIComponent(sessionId)}`;
-      window.open(playLinkWithSession, '_blank');
-    } catch (error) {
-      console.error('Score submission error:', error);
+    if (!accessToken) {
+      alert('You are not logged in. Your score will not be saved. Please login to save your score.');
     }
+    const playLinkWithSession = `${game.playLink}?to=${encodeURIComponent(accessToken || '')}`;
+    window.open(playLinkWithSession, '_blank');
   };
 
   return (
