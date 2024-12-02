@@ -13,13 +13,6 @@ interface Tokens {
 export const useSaveTokens = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const setHeader = async(tokens: Tokens) => {
-    await axios.post('/api/set-auth-cookies', {
-      accessToken: tokens.accessToken,
-    }, {
-      withCredentials: true
-    });
-  }
   const SaveTokensToLocal = (Tokens: Tokens): void => {
     const HandleFetchUser = (): void => {
       dispatch(fetchLoggedInUser());
@@ -30,7 +23,6 @@ export const useSaveTokens = () => {
     const expirationDate = new Date();
     expirationDate.setMonth(expirationDate.getMonth() + 1);
     document.cookie = `${cookieName}=${cookieValue}; expires=${expirationDate.toUTCString()}; path=/; SameSite=strict`;
-    setHeader(Tokens);
     HandleFetchUser();
     router.push('/');
   }
