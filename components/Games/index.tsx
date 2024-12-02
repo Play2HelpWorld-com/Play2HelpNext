@@ -1,9 +1,60 @@
 "use client";
+import { useEffect } from "react";
+import { io } from 'socket.io-client';
 import Image from "next/image";
 import Spotlight from "@/components/Games/spotlight";
 import GameData from "@/components/Games/gameData";
+import axios from "axios";
 
 export default function Game() {
+
+  // This will check weather the game page is loaded or not.
+  useEffect(() => {
+    const newSocket = io(process.env.NEXT_PUBLIC_GAME_SERVER_URI, {
+      transports: ['websocket'], 
+    });
+    newSocket.on('game_page_loaded', () => {
+      console.log('Game page loaded');
+      sendAccessToken();
+    });
+    return () => {
+      newSocket.disconnect();
+    };
+  }, []);
+
+  // This will send the access token to the game server.
+  const sendAccessToken = async () => {
+    const gameServerUri = process.env.NEXT_PUBLIC_GAME_SERVER_URI;
+    const subUri = 'api/setAccessToken/';
+    const url = `${gameServerUri}/${subUri}`;
+    const accessToken = localStorage.getItem('accessToken');
+    try {
+      await axios.post(url, {}, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+    } catch (error) {
+      console.log('error while sending token', error);
+    }
+  };
+
+  const HandleLinkClick = async(game) => {
+    console.log('game clicked');
+    try {
+      await fetch('http://localhost:3003/api/test', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+    } catch (error) {
+      console.error('Score submission error:', error);
+    }
+    window.open(game.playLink, '_blank');
+  }
+
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -32,12 +83,15 @@ export default function Game() {
                 className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 after:hover:opacity-20 before:group-hover:opacity-100"
               >
                 <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-gradient-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                  {/* Play Button */}
-                  <a
-                    href={game.playLink || "#"}
+                    {/* Play Button */}
+                    <a
+                    // href={game.playLink}
+                    onClick={() => HandleLinkClick(game)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="absolute bottom-8 right-8 z-50 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
                     aria-label="Play Game"
-                  >
+                    >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={50}

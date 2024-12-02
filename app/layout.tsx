@@ -12,7 +12,6 @@ import StoreProvider from "./utils/provider/StoreProvider";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/configs/redux/hooks";
 import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
-import { GetGameScore } from "@/components/gameScore/getGameScore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +20,6 @@ const ReduxInitializer = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     dispatch(fetchLoggedInUser());
   }, [dispatch]);
-  GetGameScore();
   return <>{children}</>;
 };
 

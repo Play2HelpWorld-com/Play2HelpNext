@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/configs/redux/hooks";
 import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
+import axios from "axios";
 
 
 interface Tokens {
@@ -12,17 +13,26 @@ interface Tokens {
 export const useSaveTokens = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const setHeader = async(tokens: Tokens) => {
+    // Set refresh token as a secure, httpOnly cookie
+    await axios.post('/api/set-auth-cookies', {
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken
+    }, {
+      withCredentials: true // Important for cookie handling
+    });
+  }
   const SaveTokensToLocal = (Tokens: Tokens): void => {
     const HandleFetchUser = (): void => {
       dispatch(fetchLoggedInUser());
     }
-    console.log('Tokens:', Tokens);
     localStorage.setItem('accessToken', Tokens.accessToken);
     const cookieName = "refreshToken";
     const cookieValue = Tokens.refreshToken;
     const expirationDate = new Date();
     expirationDate.setMonth(expirationDate.getMonth() + 1);
     document.cookie = `${cookieName}=${cookieValue}; expires=${expirationDate.toUTCString()}; path=/; SameSite=strict`;
+    setHeader(Tokens);
     HandleFetchUser();
     router.push('/');
   }
