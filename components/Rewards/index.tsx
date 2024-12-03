@@ -1,7 +1,8 @@
 "use client";
-
 import { cn } from "../../utils/lib/cn";
 import { AnimatedList } from "./animated-list";
+import Score from "./score";
+import { BellRing, Activity, GamepadIcon, Trophy } from 'lucide-react';
 
 interface Item {
   name: string;
@@ -11,69 +12,67 @@ interface Item {
   time: string;
 }
 
-let notifications = [
+// Generate more varied notifications
+const generateNotifications = (): Item[] => [
   {
-    name: "battleman entered into game",
-    description: "Retro",
+    name: "Battleman entered game",
+    description: "Retro Racing Challenge",
     time: "15m ago",
-
-    icon: "💸",
+    icon: "🏎️",
     color: "#00C9A7",
   },
   {
-    name: "battleman won 20 points",
-    description: "Retro",
+    name: "New High Score!",
+    description: "20 Points Milestone",
     time: "10m ago",
-    icon: "👤",
+    icon: "🏆",
     color: "#FFB800",
   },
   {
-    name: "Battleman exited",
-    description: "Retro",
+    name: "Game Session Ended",
+    description: "Retro Racing",
     time: "5m ago",
-    icon: "💬",
+    icon: "🏁",
     color: "#FF3D71",
   },
   {
-    name: "Battleman has received a new req",
-    description: "Retro",
+    name: "Achievement Unlocked",
+    description: "Speed Demon",
     time: "2m ago",
-    icon: "🗞️",
+    icon: "⚡",
     color: "#1E86FF",
   },
 ];
-
-notifications = Array.from({ length: 10 }, () => notifications).flat();
 
 const Notification = ({ name, description, icon, color, time }: Item) => {
   return (
     <figure
       className={cn(
-        " relative mx-auto min-h-fit w-full max-w-[400px] cursor-pointer overflow-hidden rounded-2xl p-4",
-        // animation styles
-        "transition-all duration-200 ease-in-out hover:scale-[103%]",
-        // light styles
-        "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-        // dark styles
-        "transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+        "relative w-full cursor-pointer overflow-hidden rounded-2xl p-4 group",
+        "transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-lg",
+        "bg-white dark:bg-gray-800/50 backdrop-blur-sm",
+        "border border-gray-100 dark:border-gray-700/50",
+        "shadow-sm hover:shadow-md"
       )}
     >
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex items-center space-x-4">
         <div
-          className="flex h-10 w-10 items-center justify-center rounded-2xl"
-          style={{
-            backgroundColor: color,
-          }}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-transform group-hover:rotate-6"
+          style={{ backgroundColor: color }}
         >
-          <span className="text-lg">{icon}</span>
+          <span className="text-2xl">{icon}</span>
         </div>
-        <div className="flex flex-col overflow-hidden">
-          <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white ">
-            <span className="text-sm sm:text-lg">{name}</span>
-            <span className="mx-1">·</span>
-            <span className="text-xs text-gray-500">{time}</span>
-          </figcaption>
-          <p className="text-sm font-normal dark:text-white/60">
+        
+        <div className="flex-grow overflow-hidden">
+          <div className="flex items-center space-x-2">
+            <h3 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-white truncate">
+              {name}
+            </h3>
+            <span className="text-xs text-gray-500 dark:text-gray-400">
+              {time}
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 truncate">
             {description}
           </p>
         </div>
@@ -83,13 +82,42 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
 };
 
 export default function AnimatedListDemo() {
+  // Generate more notifications to fill the list
+  const notifications = Array.from({ length: 10 }, () => generateNotifications()).flat();
+
   return (
-    <div className="bg-background relative flex max-h-[400px] min-h-[400px] w-full max-w-[32rem] flex-col overflow-hidden rounded-lg border p-6 shadow-lg">
-      <AnimatedList>
-        {notifications.map((item, idx) => (
-          <Notification {...item} key={idx} />
-        ))}
-      </AnimatedList>
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Score Section - Full width on small screens, half width on larger screens */}
+        <div className="w-full">
+          <Score />
+        </div>
+        
+        {/* Notifications Section */}
+        <div className="w-full">
+          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+            {/* Notifications Header */}
+            <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center space-x-3">
+              <BellRing className="w-6 h-6 text-blue-500" />
+              <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+                Rewards Notifications
+              </h2>
+            </div>
+
+            {/* Animated List Container */}
+            <div className="max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-300 dark:scrollbar-track-gray-800 dark:scrollbar-thumb-gray-600">
+              <AnimatedList>
+                {notifications.map((item, idx) => (
+                  <Notification 
+                    key={idx} 
+                    {...item} 
+                  />
+                ))}
+              </AnimatedList>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
