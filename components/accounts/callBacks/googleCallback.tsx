@@ -12,7 +12,6 @@ export const GoogleCallback = () => {
         const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
         const response = await axios.post(`${baseUrl}/api/users/getGoogleUsrInfo/`, { code });
         SaveTokensToLocal(response.data);
-        console.log('User information:', response);
       } catch (error) {
         console.error('Failed to sign in with Google', error);
       }
@@ -25,5 +24,12 @@ export const GoogleCallback = () => {
     }
   }, [SaveTokensToLocal]);
 
-  return <div>Loading...</div>;
+  return (
+    <div className="flex h-screen w-full items-center justify-center bg-gray-100">
+      <div className="relative flex flex-col items-center">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
+        <p className="mt-4 text-lg font-medium text-gray-600">Authenticating with Google...</p>
+      </div>
+    </div>
+  );
 };

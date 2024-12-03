@@ -2,8 +2,19 @@
 import Image from "next/image";
 import Spotlight from "@/components/Games/spotlight";
 import GameData from "@/components/Games/gameData";
+import { GameInterface } from "@/types/game";
 
 export default function Game() {
+
+  const HandleLinkClick = async (game: GameInterface): Promise<void> => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      alert('You are not logged in. Your score will not be saved. Please login to save your score.');
+    }
+    const playLinkWithSession = `${game.playLink}?to=${encodeURIComponent(accessToken || '')}`;
+    window.open(playLinkWithSession, '_blank');
+  };
+
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -34,7 +45,10 @@ export default function Game() {
                 <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-gradient-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
                   {/* Play Button */}
                   <a
-                    href={game.playLink || "#"}
+                    // href={game.playLink}
+                    onClick={() => HandleLinkClick(game)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="absolute bottom-8 right-8 z-50 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
                     aria-label="Play Game"
                   >

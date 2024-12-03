@@ -6,7 +6,7 @@ const GameData: Game[] = [
     title: "UP!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra1.png",
+    image: "/images/games/UP_Summer.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
     playLink: "http://play2helpup.free.nf/",
@@ -16,7 +16,7 @@ const GameData: Game[] = [
     title: "YUM Game",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra2.png",
+    image: "/images/games/YUM_Summer.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
     playLink: "http://play2helpyum.free.nf",
@@ -26,7 +26,7 @@ const GameData: Game[] = [
     title: "POP!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra3.png",
+    image: "/images/games/POP+WATER_AID.webp",
     alt: "Workflow 03",
     buttonText: "Play Now",
     playLink: "https://daf7f8k0buj1j.cloudfront.net/bubble-invasion/index.html",
@@ -35,7 +35,7 @@ const GameData: Game[] = [
     id: 4,
     title: "HISS!",
     description: "Can you stop the HISS snake to save the world? 🐍",
-    image: "/images/games/extra4.png",
+    image: "/images/games/HISS+WWF-UK.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
     playLink:
@@ -46,7 +46,7 @@ const GameData: Game[] = [
     title: "3-2-1!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra5.png",
+    image: "/images/games/321+RED_CROSS.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
     playLink:
@@ -54,10 +54,10 @@ const GameData: Game[] = [
   },
   {
     id: 6,
-    title: "MORE!",
+    title: "Rail Rush!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra2.png",
+    image: "/images/games/MORE+MSF.webp",
     alt: "Workflow 03",
     buttonText: "Play Now",
     playLink:
@@ -68,7 +68,7 @@ const GameData: Game[] = [
     title: "GRRR!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra3.png",
+    image: "/images/games/GRRR+ALZEIMERS.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
     playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/grrGame`,
@@ -78,29 +78,18 @@ const GameData: Game[] = [
     title: "FLY!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra4.png",
+    image: "/images/games/FLY+UNICEF.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
     playLink:
       `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/spaceShotter/`,
   },
   {
-    id: 9,
-    title: "RUSH!",
-    description:
-      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra5.png",
-    alt: "Workflow 03",
-    buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/rushGame/`,
-  },
-  {
     id: 10,
     title: "GO!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra1.png",
+    image: "/images/games/GO+KIVA.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
     playLink:
