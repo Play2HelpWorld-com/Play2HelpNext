@@ -7,9 +7,7 @@ import { GameInterface } from "@/types/game";
 export default function Game() {
 
   const HandleLinkClick = async (game: GameInterface): Promise<void> => {
-    console.log('game clicked');
     const accessToken = localStorage.getItem('accessToken');
-    console.log('the accessToken is:', accessToken);
     if (!accessToken) {
       alert('You are not logged in. Your score will not be saved. Please login to save your score.');
     }

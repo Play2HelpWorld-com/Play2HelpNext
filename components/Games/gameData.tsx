@@ -54,7 +54,7 @@ const GameData: Game[] = [
   },
   {
     id: 6,
-    title: "MORE!",
+    title: "Rail Rush!",
     description:
       "Streamline the product development flow with a content platform that's aligned across specs and insights.",
     image: "/images/games/extra2.png",
@@ -83,17 +83,6 @@ const GameData: Game[] = [
     buttonText: "Play Now",
     playLink:
       `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/spaceShotter/`,
-  },
-  {
-    id: 9,
-    title: "RUSH!",
-    description:
-      "Streamline the product development flow with a content platform that's aligned across specs and insights.",
-    image: "/images/games/extra5.png",
-    alt: "Workflow 03",
-    buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/rushGame/`,
   },
   {
     id: 10,
