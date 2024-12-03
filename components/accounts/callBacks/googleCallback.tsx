@@ -12,7 +12,6 @@ export const GoogleCallback = () => {
         const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
         const response = await axios.post(`${baseUrl}/api/users/getGoogleUsrInfo/`, { code });
         SaveTokensToLocal(response.data);
-        console.log('User information:', response);
       } catch (error) {
         console.error('Failed to sign in with Google', error);
       }

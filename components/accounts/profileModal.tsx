@@ -20,7 +20,7 @@ export const ProfileModal = () => {
     <>
       {authState.isAuthenticated ? (
         <div className="relative group">
-          <button type="button" className="text-[#757693] dark:text-white font-medium cursor-pointer hover:underline" onClick={() => { setIsModalOpen(!isModalOpen); console.log('name clicked') }}>
+          <button type="button" className="text-[#757693] dark:text-white font-medium cursor-pointer hover:underline" onClick={() => { setIsModalOpen(!isModalOpen);}}>
             {authState.loogedInUser.name}
           </button>
           {isModalOpen && (
