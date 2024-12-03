@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSaveTokens } from '../utils/useSaveTokens';
 
-
 export const FacebookCallback = () => {
   const SaveTokensToLocal = useSaveTokens();
   useEffect(() => {
@@ -20,5 +19,12 @@ export const FacebookCallback = () => {
     }
   }, [SaveTokensToLocal]);
 
-  return <div>Loading...</div>;
+  return (
+    <div className="flex h-screen w-full items-center justify-center bg-gray-100">
+      <div className="relative flex flex-col items-center">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
+        <p className="mt-4 text-lg font-medium text-gray-600">Authenticating with Facebook...</p>
+      </div>
+    </div>
+  );
 };

@@ -5,7 +5,7 @@ import { useAppDispatch } from "@/configs/redux/hooks";
 import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
 
 
-export const ProfileModal = () => {
+export const ProfileModal = ({setNavopen, navOpen}) => {
   const authState = useAppSelector((state) => state.auth);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -42,7 +42,7 @@ export const ProfileModal = () => {
           )}
         </div>
       ) : (
-        <Link href="/accounts/signin" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+        <Link onClick={() => setNavopen(!navOpen)} href="/accounts/signin" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
           SIGN IN
         </Link>
       )}

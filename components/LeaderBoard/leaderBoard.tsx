@@ -61,7 +61,7 @@ export const LeaderBoard: React.FC = () => {
   }, []);
 
   return (
-    <div className={`${isMobileMenuOpen ? 'mt-20' : ''} min-h-screen bg-gray-50 p-4 flex items-center justify-center`}>
+    <div className={`${isMobileMenuOpen ? 'mt-20' : ''} mt-10 min-h-screen bg-gray-50 p-4 flex items-center justify-center`}>
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
         {/* Mobile Game Selection Toggler */}
         <div className="md:hidden flex items-center justify-between bg-gray-100 p-4">
