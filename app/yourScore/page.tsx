@@ -5,7 +5,6 @@ import YourScore from "@/components/Scores";
 export const metadata: Metadata = {
   title: "Rewards Page - Play2Help | Play for Free Donation",
   description: "This is built by Moyasi",
-  // other metadata
 };
 
 const RewardsPage = () => {
