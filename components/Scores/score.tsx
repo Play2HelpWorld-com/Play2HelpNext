@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { AxiosReqInstance } from '../accounts/utils/axiosInstance';
 import { ScoreDataInterface } from './interface';
-import { Trophy, Star, GamepadIcon, Rocket, Map, Train, Car } from 'lucide-react';
+import { Trophy, Star } from 'lucide-react';
+import { getGameIcon } from './GameIcon';
 
-const ScoreCard = ({ score, index }: { score: ScoreDataInterface, index: number }) => {
+const ScoreCard = ({ score }: { score: ScoreDataInterface }) => {
   return (
-    <div 
+    <div
       className={`
         transform transition-all duration-300 ease-in-out 
         hover:scale-[1.02] hover:shadow-lg
@@ -24,28 +25,13 @@ const ScoreCard = ({ score, index }: { score: ScoreDataInterface, index: number 
           <p className="text-gray-600 font-medium">Score: {score.score}</p>
         </div>
       </div>
-      <div className="text-xl font-bold text-blue-600">
-        #{index + 1}
+      <div className="text-right">
+        <p className="text-md font-medium text-gray-600">Reward</p>
+        <p className="text-sm font-bold text-blue-600">{score.reward} Token </p>
       </div>
     </div>
   );
 };
-
-const getGameIcon = (gameName: string) => {
-  const iconClassName = "w-10 h-10 text-gray-500";
-  const gameIcons: { [key: string]: React.ReactNode } = {
-    'snakeGame': <GamepadIcon className={iconClassName} />,
-    'spaceShotter': <Rocket className={iconClassName} />,
-    'zoomLand': <Map className={iconClassName} />,
-    'Rail Rush': <Train className={iconClassName} />,
-    'carGame': <Car className={iconClassName} />,
-    'MarioGo': <Trophy className={iconClassName} />, 
-    'default': <GamepadIcon className={iconClassName} /> 
-  };
-
-  return gameIcons[gameName] || gameIcons['default'];
-};
-
 const getGameBorderColor = (gameName: string) => {
   const gameColors: { [key: string]: string } = {
     'spaceShotter': 'border-blue-500',
@@ -106,7 +92,7 @@ const Score = () => {
       ) : (
         <div className="space-y-4">
           {scoreData.map((score, index) => (
-            <ScoreCard key={index} score={score} index={index} />
+            <ScoreCard key={index} score={score} />
           ))}
         </div>
       )}

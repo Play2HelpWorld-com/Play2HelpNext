@@ -71,9 +71,22 @@ const menuData: Menu[] = [
 
   {
     id: 6,
-    title: "Rewards",
+    title: "Score",
     newTab: false,
-    path: "/rewards",
+    submenu: [
+      {
+        id: 61,
+        title: "Leaderboard",
+        newTab: false,
+        path: "/leaderboard",
+      },
+      {
+        id: 64,
+        title: "Your Score",
+        newTab: false,
+        path: "/yourScore",
+      },
+    ],
   },
 ];
 

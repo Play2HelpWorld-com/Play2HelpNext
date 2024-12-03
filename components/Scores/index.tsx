@@ -2,10 +2,10 @@
 import { cn } from "../../utils/lib/cn";
 import { AnimatedList } from "./animated-list";
 import Score from "./score";
-import { BellRing, Activity, GamepadIcon, Trophy } from 'lucide-react';
+import { BellRing} from 'lucide-react';
 
 interface Item {
-  name: string;
+  name: string; 
   description: string;
   icon: string;
   color: string;
@@ -29,7 +29,7 @@ const generateNotifications = (): Item[] => [
     color: "#FFB800",
   },
   {
-    name: "Game Session Ended",
+    name: "battleman won 20 points",
     description: "Retro Racing",
     time: "5m ago",
     icon: "🏁",
@@ -81,7 +81,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
   );
 };
 
-export default function AnimatedListDemo() {
+export default function YourScore() {
   // Generate more notifications to fill the list
   const notifications = Array.from({ length: 10 }, () => generateNotifications()).flat();
 

@@ -154,16 +154,7 @@ const Header = () => {
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
-
-            {/* <Link
-              href="/accounts/signin"
-              className="text-regular font-medium text-waterloo hover:text-primary"
-            >
-              Sign In
-            </Link> */}
-
             <ProfileModal />
-
           </div>
         </div>
       </div>
