@@ -9,7 +9,7 @@ const GameData: Game[] = [
     image: "/images/games/UP_Summer.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
-    playLink: "http://play2helpup.free.nf/",
+    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/tetrixGame/`,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const GameData: Game[] = [
     image: "/images/games/YUM_Summer.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
-    playLink: "http://play2helpyum.free.nf",
+    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/yumGame/`,
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const GameData: Game[] = [
     image: "/images/games/POP+WATER_AID.webp",
     alt: "Workflow 03",
     buttonText: "Play Now",
-    playLink: "https://daf7f8k0buj1j.cloudfront.net/bubble-invasion/index.html",
+    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/bubbleGame/`,
   },
   {
     id: 4,
