@@ -7,7 +7,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ToasterContext from "./utils/context/ToastContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import StoreProvider from "./utils/provider/StoreProvider";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/configs/redux/hooks";
@@ -41,7 +42,7 @@ export default function RootLayout({
             <ReduxInitializer>
             <Lines />
             <Header />
-            <ToasterContext />
+            <ToastContainer />
             {children}
             <Footer />
             <ScrollToTop />
