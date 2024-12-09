@@ -13,6 +13,7 @@ import StoreProvider from "./utils/provider/StoreProvider";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/configs/redux/hooks";
 import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
+import AppKitProvider from "./context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,6 @@ const ReduxInitializer = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -34,20 +34,22 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={` ${inter.className}`}>
-          <ThemeProvider
-            enableSystem={false}
-            attribute="class"
-            defaultTheme="light"
-          >
-            <ReduxInitializer>
-            <Lines />
-            <Header />
-            <ToastContainer />
-            {children}
-            <Footer />
-            <ScrollToTop />
-            </ReduxInitializer>
-          </ThemeProvider>
+          <AppKitProvider>
+            <ThemeProvider
+              enableSystem={false}
+              attribute="class"
+              defaultTheme="light"
+            >
+              <ReduxInitializer>
+                <Lines />
+                <Header />
+                <ToastContainer />
+                {children}
+                <Footer />
+                <ScrollToTop />
+              </ReduxInitializer>
+            </ThemeProvider>
+          </AppKitProvider>
         </body>
       </html>
     </StoreProvider>

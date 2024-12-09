@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ProfileModal } from "../accounts/profileModal";
+import { CustomConnectButton } from "../CustomConnectButton";
 
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
@@ -159,6 +160,7 @@ const Header = () => {
                   )}
                 </li>
               ))}
+              <CustomConnectButton />
             </ul>
           </nav>
 
