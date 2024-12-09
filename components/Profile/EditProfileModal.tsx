@@ -3,13 +3,13 @@ import React from "react";
 import { FaTimes, FaTwitter, FaTwitch, FaDiscord } from "react-icons/fa";
 
 const EditProfileModal = ({
-  isOpen,
+  isEditing,
   onClose,
   editedUser,
-  handleInputChange,
-  handleSubmit,
+  onChange,
+  onSubmit,
 }) => {
-  if (!isOpen) return null;
+  if (!isEditing) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
@@ -21,14 +21,14 @@ const EditProfileModal = ({
           <FaTimes className="text-xl" />
         </button>
         <h2 className="mb-6 text-2xl font-bold">Edit Profile</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label className="mb-2 block text-sm font-medium">Username</label>
             <input
               type="text"
               name="username"
               value={editedUser.username}
-              onChange={handleInputChange}
+              onChange={onChange}
               className="w-full rounded-lg bg-gray-700 px-4 py-2 text-white"
             />
           </div>
@@ -37,48 +37,30 @@ const EditProfileModal = ({
             <textarea
               name="bio"
               value={editedUser.bio}
-              onChange={handleInputChange}
+              onChange={onChange}
               className="h-24 w-full rounded-lg bg-gray-700 px-4 py-2 text-white"
             />
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Social Links</h3>
-            <div>
-              <label className="mb-2 flex items-center gap-2 text-sm font-medium">
-                <FaTwitter className="text-blue-400" /> Twitter
-              </label>
-              <input
-                type="text"
-                name="twitter"
-                value={editedUser.twitter}
-                onChange={handleInputChange}
-                className="w-full rounded-lg bg-gray-700 px-4 py-2 text-white"
-              />
-            </div>
-            <div>
-              <label className="mb-2 flex items-center gap-2 text-sm font-medium">
-                <FaTwitch className="text-purple-400" /> Twitch
-              </label>
-              <input
-                type="text"
-                name="twitch"
-                value={editedUser.twitch}
-                onChange={handleInputChange}
-                className="w-full rounded-lg bg-gray-700 px-4 py-2 text-white"
-              />
-            </div>
-            <div>
-              <label className="mb-2 flex items-center gap-2 text-sm font-medium">
-                <FaDiscord className="text-indigo-400" /> Discord
-              </label>
-              <input
-                type="text"
-                name="discord"
-                value={editedUser.discord}
-                onChange={handleInputChange}
-                className="w-full rounded-lg bg-gray-700 px-4 py-2 text-white"
-              />
-            </div>
+            {[
+              { label: "Twitter", icon: FaTwitter, name: "twitter" },
+              { label: "Twitch", icon: FaTwitch, name: "twitch" },
+              { label: "Discord", icon: FaDiscord, name: "discord" },
+            ].map(({ label, icon: Icon, name }) => (
+              <div key={name}>
+                <label className="mb-2 flex items-center gap-2 text-sm font-medium">
+                  <Icon className="text-blue-400" /> {label}
+                </label>
+                <input
+                  type="text"
+                  name={name}
+                  value={editedUser[name]}
+                  onChange={onChange}
+                  className="w-full rounded-lg bg-gray-700 px-4 py-2 text-white"
+                />
+              </div>
+            ))}
           </div>
           <button
             type="submit"
