@@ -8,8 +8,9 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ToasterContext from "@/app/utils/context/ToastContext";
-import StoreProvider from "@/app/utils/provider/StoreProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import StoreProvider from "./utils/provider/StoreProvider";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/configs/redux/hooks";
 import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
@@ -47,7 +48,7 @@ export default function RootLayout({
             <ReduxInitializer>
               <Lines />
               <Header />
-              <ToasterContext />
+              <ToastContainer />
               <LoadingProvider>
                 <LayoutWithLoader>{children}</LayoutWithLoader>
               </LoadingProvider>

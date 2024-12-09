@@ -6,6 +6,7 @@ import { useState } from "react";
 import { GoogleSignInButton } from "./googleSignIn";
 import { FacebookSignInButton } from "./facebookSignIn";
 import { MicrosoftSignInButton } from "./microsoftSignIn";
+import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -31,21 +32,52 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+    if (!formData.username) {
+      setError("Username is required");
+      setLoading(false);
+      return;
+    }
+    if (!formData.email) {
+      setError("Email is required");
+      setLoading(false);
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address");
+      setLoading(false);
+      return;
+    }
+    if (!formData.password) {
+      setError("Password is required");
+      setLoading(false);
+      return;
+    }
+    if (!formData.confirmPassword) {
+      setError("Confirm Password is required");
+      setLoading(false);
+      return;
+    }
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
+      setLoading(false);
+      return;
+    }
+    if(formData.password.length < 8) {
+      setError("Password must be at least 8 characters long");
       setLoading(false);
       return;
     }
 
     try {
       const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
-      await axios.post(`${baseUrl}/api/users/create/`, {
+      const res = await axios.post(`${baseUrl}/api/users/create/`, {
         name: formData.username,
         email: formData.email,
         password: formData.password,
         password2: formData.confirmPassword,
       });
+      toast.success('A verification email has been sent to your email address');
       router.push('/accounts/signin');
     } catch (err) {
       if (err instanceof Error) {
@@ -164,6 +196,8 @@ const Signup = () => {
                 />
 
               </div>
+
+              <div className="text-red-500 text-center">{error}</div>
 
               <div className="flex flex-wrap gap-10 md:justify-between xl:gap-15">
                 <div className="mb-4 flex items-center">

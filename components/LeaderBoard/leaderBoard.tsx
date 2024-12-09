@@ -26,6 +26,9 @@ export const LeaderBoard: React.FC = () => {
     'snakeGame',
     'Rail Rush',
     'zoomLand',
+    'tetris',
+    'bubble',
+    'yum',
   ];
 
   const getScores = async (game: string) => {
