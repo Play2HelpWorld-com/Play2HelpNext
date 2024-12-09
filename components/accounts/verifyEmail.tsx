@@ -1,6 +1,6 @@
 'use client' 
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -47,3 +47,11 @@ export const VerifyEmail = () => {
     </div>
   );
 }
+
+const VerifyEmailWrapper = () => (
+  <Suspense fallback={<h1 className="text-black mt-40">Loading...</h1>}>
+    <VerifyEmail />
+  </Suspense>
+);
+
+export default VerifyEmailWrapper;
