@@ -55,6 +55,7 @@ const Score = () => {
     const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getScores/`;
     try {
       const response = await protectedRoute.get(url);
+      console.log('the response is', response);
       if (response.status === 200) {
         const sortedScores = response.data.sort((a: ScoreDataInterface, b: ScoreDataInterface) => b.score - a.score);
         setLoading(false);
@@ -84,6 +85,12 @@ const Score = () => {
         <Star className="w-8 h-8 text-yellow-500 mr-2" />
         <h2 className="text-3xl font-bold text-gray-800">Your Scores</h2>
       </div>
+      <div className='flex justify-end mb-2'>
+        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+          Claim Rewards
+        </button>
+      </div>
+
 
       {scoreData.length === 0 ? (
         <div className="text-center text-gray-500 py-8">
