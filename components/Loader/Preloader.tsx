@@ -15,7 +15,7 @@ const Loader: FC<Props> = ({ isLoading, onTransitionEnd }) => (
       ${isLoading ? "visible scale-100 opacity-100" : "invisible scale-0 opacity-0"}
       transition-scale bg-gray-50 transition-opacity duration-300 dark:bg-gray-900`}
   >
-    <div className="relative h-40 w-40 rounded-lg bg-gradient-to-br from-gray-700 to-gray-900 shadow-lg dark:from-gray-800 dark:to-black">
+    <div className="relative h-40 w-40 rounded-lg bg-gradient-to-br from-gray-600/30 to-gray-800/10 shadow-md shadow-cyan-500/30 dark:from-gray-800/90 dark:to-black/70">
       {/* Console Screen */}
       <div className="absolute bottom-14 left-6 right-6 top-6 rounded-md bg-black dark:bg-gray-800">
         <div
