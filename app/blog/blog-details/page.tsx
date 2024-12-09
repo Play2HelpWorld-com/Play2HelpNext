@@ -71,7 +71,7 @@ const SingleBlogPage = async () => {
                 </ul>
               </div>
 
-              <RelatedPost />
+              {await RelatedPost()}
             </div>
 
             <div className="lg:w-2/3">
