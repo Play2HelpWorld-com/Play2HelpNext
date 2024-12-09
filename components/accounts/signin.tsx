@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useAppSelector, useAppDispatch } from "@/configs/redux/hooks";
+import { setUnVerified } from "@/configs/redux/auth/authSlice";
 import { useState } from "react";
 import { GoogleSignInButton } from "./googleSignIn";
 import { FacebookSignInButton } from "./facebookSignIn";
@@ -12,7 +14,8 @@ import axios from "axios";
 import { ResendVerification } from "./reSendVerification";
 
 export const Signin = () => {
-  const [isUnverified, setIsUnverified] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const isUnverified = useAppSelector((state) => state.auth.isUnVerified);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const saveTokensToLocal = useSaveTokens();
@@ -43,7 +46,7 @@ export const Signin = () => {
       if (err instanceof Error) {
         if (axios.isAxiosError(err) && err.response) {
           if (err.response.status === 405) {
-            setIsUnverified(true);
+            dispatch(setUnVerified(true));
           }
           setError(err.response.data.error);
           toast.error(err.response.data.error);

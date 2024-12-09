@@ -5,11 +5,13 @@ import { UserInterface } from "@/types/interface";
 interface AuthState {
   isAuthenticated: boolean;
   loogedInUser: UserInterface;
+  isUnVerified: boolean;
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
   loogedInUser: {} as UserInterface,
+  isUnVerified: false,
 };
 
 export const fetchLoggedInUser = createAsyncThunk(
@@ -42,7 +44,11 @@ export const fetchLoggedInUser = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    setUnVerified(state, action) {
+      state.isUnVerified = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchLoggedInUser.pending, (state) => {
       state.isAuthenticated = false;
@@ -58,4 +64,6 @@ const authSlice = createSlice({
     });
   },
 });
+
+export const { setUnVerified } = authSlice.actions;
 export const authReducer = authSlice.reducer;
