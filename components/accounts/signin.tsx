@@ -180,9 +180,9 @@ export const Signin = () => {
                       </label>
                     </div>
 
-                    <a href="#" className="hover:text-primary">
+                    <Link href="/accounts/forgetPassword" className="hover:text-primary">
                       Forgot Password?
-                    </a>
+                    </Link>
                   </div>
 
                   <button
