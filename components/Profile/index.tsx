@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import EditProfileModal from "./EditProfileModal";
 import GameStats from "./GameStats";
 import RecentActivity from "./RecentActivity";
+import CryptoTokens from "./CryptoTokens";
 
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -21,6 +22,7 @@ const UserProfile = () => {
       level: 42,
       gamesPlayed: 1289,
       achievements: 76,
+      tokens: 1250, // Added tokens
     },
     recentActivities: [
       {
@@ -83,11 +85,18 @@ const UserProfile = () => {
         onChange={handleInputChange}
         onSubmit={handleSubmit}
       />
+
+      {/* Game Stats Section */}
       <GameStats
         level={user.stats.level}
         gamesPlayed={user.stats.gamesPlayed}
         achievements={user.stats.achievements}
       />
+
+      {/* Crypto Tokens Section */}
+      <CryptoTokens tokens={user.stats.tokens} />
+
+      {/* Recent Activity Section */}
       <RecentActivity activities={user.recentActivities} />
     </div>
   );
