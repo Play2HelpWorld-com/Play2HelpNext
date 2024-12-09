@@ -16,7 +16,7 @@ import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
 import {
   LoadingProvider,
   useLoading,
-} from "@/app/utils/context/LoadingContext"; // Import LoadingProvider
+} from "@/app/utils/context/LoadingContext";
 import Loader from "@/components/Loader/Preloader";
 import RouteChangeHandler from "@/utils/loader/RouteChangeHandler";
 import AppKitProvider from "./context";

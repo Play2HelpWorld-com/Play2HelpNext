@@ -1,19 +1,24 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const ResendVerification = ({ emailProp }: { emailProp: string}) => {
   const [email, setEmail] = useState(emailProp);
+  const router = useRouter();
   const handleSendVerification = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('the email is', email);
     console.log('resend button has been clicked');
-
-    return;
     try {
       const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
-      await axios.post(`${baseUrl}/api/users/resendVerification/`, {
+      const response = await axios.post(`${baseUrl}/api/users/resendVerification/`, {
         email: email,
       });
+      if (response.status == 200) {
+        toast.success("Verification link sent!");
+        router.push('/accounts/signin');
+      }
       toast.success("Verification link sent!");
     } catch (err) {
       toast.error("Failed to send verification");
