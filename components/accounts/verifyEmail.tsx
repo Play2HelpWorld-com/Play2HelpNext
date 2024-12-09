@@ -1,17 +1,13 @@
 'use client' 
-import { useSearchParams } from "next/navigation";
-import { useEffect, Suspense } from "react";
+import { useEffect } from "react";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export const VerifyEmail = () => {
+export const VerifyEmail = ({token}:{token: string}) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token");
-
   const verifyEmail = async () => {
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/users/verifyEmail/`, {
@@ -47,11 +43,3 @@ export const VerifyEmail = () => {
     </div>
   );
 }
-
-const VerifyEmailWrapper = () => (
-  <Suspense fallback={<h1 className="text-black mt-40">Loading...</h1>}>
-    <VerifyEmail />
-  </Suspense>
-);
-
-export default VerifyEmailWrapper;
