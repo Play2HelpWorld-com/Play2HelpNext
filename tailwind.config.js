@@ -136,11 +136,17 @@ module.exports = {
           "0%, 100%": { transform: "translateY(100%)" },
           "50%": { transform: "translateY(0)" },
         },
+        fill: {
+          "0%": { width: "0%" },
+          "50%": { width: "50%" },
+          "100%": { width: "80%" },
+        },
       },
       animation: {
         line1: "line 3s linear infinite",
         line2: "line 6s linear infinite",
         line3: "line 9s linear infinite",
+        fill: "fill 2.5s ease-in-out infinite",
       },
     },
   },
