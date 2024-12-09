@@ -20,6 +20,8 @@ import {
 } from "@/app/utils/context/LoadingContext"; // Import LoadingProvider
 import Loader from "@/components/Loader/Preloader";
 import RouteChangeHandler from "@/utils/loader/RouteChangeHandler";
+import AppKitProvider from "./context";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,23 +41,23 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.className}`}>
-          <ThemeProvider
-            enableSystem={false}
-            attribute="class"
-            defaultTheme="light"
-          >
-            <ReduxInitializer>
-              <Lines />
-              <Header />
-              <ToastContainer />
-              <LoadingProvider>
-                <LayoutWithLoader>{children}</LayoutWithLoader>
-              </LoadingProvider>
-              <Footer />
-              <ScrollToTop />
-            </ReduxInitializer>
-          </ThemeProvider>
+        <body className={` ${inter.className}`}>
+          <AppKitProvider>
+            <ThemeProvider
+              enableSystem={false}
+              attribute="class"
+              defaultTheme="light"
+            >
+              <ReduxInitializer>
+                <Lines />
+                <Header />
+                <ToastContainer />
+                {children}
+                <Footer />
+                <ScrollToTop />
+              </ReduxInitializer>
+            </ThemeProvider>
+          </AppKitProvider>
         </body>
       </html>
     </StoreProvider>
