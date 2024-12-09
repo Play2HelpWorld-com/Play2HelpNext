@@ -12,8 +12,8 @@ const EditProfileModal = ({
   if (!isEditing) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-      <div className="relative w-full max-w-md rounded-xl bg-gray-800 p-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-200 bg-opacity-50 p-4 dark:bg-black">
+      <div className="relative w-full max-w-md rounded-xl bg-slate-400 p-6 dark:bg-gray-800">
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-gray-400 hover:text-white"
@@ -50,7 +50,7 @@ const EditProfileModal = ({
             ].map(({ label, icon: Icon, name }) => (
               <div key={name}>
                 <label className="mb-2 flex items-center gap-2 text-sm font-medium">
-                  <Icon className="text-blue-400" /> {label}
+                  <Icon className="text-blue-800 dark:text-blue-400" /> {label}
                 </label>
                 <input
                   type="text"

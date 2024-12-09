@@ -22,7 +22,10 @@ const GameStats = ({ level, gamesPlayed, achievements }) => {
   return (
     <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
       {stats.map(({ label, value, icon: Icon, color }) => (
-        <div key={label} className="rounded-xl bg-gray-800 p-6">
+        <div
+          key={label}
+          className="rounded-xl bg-slate-200 p-6 dark:bg-gray-800"
+        >
           <div className="flex items-center gap-4">
             <Icon className={`text-3xl ${color}`} />
             <div>
