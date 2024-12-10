@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BlogData from "./blogData";
 
-const RelatedPost = async () => {
+const RelatedPost = () => {
   return (
     <>
       <div className="animate_top rounded-md border border-stroke bg-white p-9 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const SingleBlogPage = async () => {
+const SingleBlogPage = () => {
   return (
     <>
       <section className="pb-20 pt-35 lg:pb-25 lg:pt-45 xl:pb-30 xl:pt-50">
