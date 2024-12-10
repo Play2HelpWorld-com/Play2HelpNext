@@ -24,9 +24,10 @@ const Header = () => {
   }
 
   const handleLinkClick = (
-    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    menuItem: MenuItem,
-  ) => {
+  e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+  menuItem: MenuItem,
+) => {
+  if (!e.ctrlKey) {
     e.preventDefault();
     setActiveMenu(menuItem.title);
     if (menuItem.id === 5 || menuItem.id === 6) {
@@ -34,7 +35,8 @@ const Header = () => {
     } else {
       setNavigationOpen(!navigationOpen);
     }
-  };
+  }
+};
   // Sticky menu
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {
