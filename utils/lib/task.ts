@@ -27,7 +27,7 @@ export async function runTask() {
         });
         const txReceipt = await txResponse.wait(1);
         console.log("Gas Used:", txReceipt.gasUsed.toString());
-        return txReceipt;
+        return "Executed";
     } catch (error) {
         console.error(error);
     }
