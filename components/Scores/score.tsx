@@ -3,6 +3,8 @@ import { AxiosReqInstance } from '../accounts/utils/axiosInstance';
 import { ScoreDataInterface } from './interface';
 import { Trophy, Star } from 'lucide-react';
 import { getGameIcon } from './GameIcon';
+import { toast } from 'react-toastify';
+import { useAccount } from 'wagmi';
 
 const ScoreCard = ({ score }: { score: ScoreDataInterface }) => {
   return (
@@ -27,7 +29,7 @@ const ScoreCard = ({ score }: { score: ScoreDataInterface }) => {
       </div>
       <div className="text-right">
         <p className="text-md font-medium text-gray-600">Reward</p>
-        <p className="text-sm font-bold text-blue-600">{score.reward} Token </p>
+        <p className="text-sm font-bold text-blue-600">{score.tokens} Token </p>
       </div>
     </div>
   );
@@ -42,23 +44,45 @@ const getGameBorderColor = (gameName: string) => {
     'MarioGo': 'border-indigo-500',
     'default': 'border-gray-300'
   };
-
   return gameColors[gameName] || gameColors['default'];
 };
+
 
 const Score = () => {
   const [scoreData, setScoreData] = useState<ScoreDataInterface[]>([]);
   const [loading, setLoading] = useState(true);
+  const [totalTokens, setTotalTokens] = useState<number | null>(null);
   const protectedRoute = AxiosReqInstance();
+
+  const { address, isConnected } = useAccount();
+
+  const HandleClaim = async () => {
+    console.log('Claiming Rewards.....');
+    const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/users/getUserAndGameInfo/`;
+    try {
+      const response = await protectedRoute.get(url);
+      if (response.status === 200) {
+        const { total_tokens } = response.data;
+        setTotalTokens(total_tokens);
+        if (!isConnected || address === null) {
+          toast.info('Please connect your wallet first');
+        }
+      }
+      console.log('total tokens are are', totalTokens);
+      console.log('the address is', address);
+    } catch (error) {
+      console.error('Error while getting userInfo at score.tsx', error);
+    }
+  }
 
   const getScore = async () => {
     const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getScores/`;
     try {
       const response = await protectedRoute.get(url);
-      console.log('the response is', response);
       if (response.status === 200) {
-        const sortedScores = response.data.sort((a: ScoreDataInterface, b: ScoreDataInterface) => b.score - a.score);
+        const sortedScores = response.data.scores.sort((a: ScoreDataInterface, b: ScoreDataInterface) => b.score - a.score);
         setLoading(false);
+        setTotalTokens(response.data.total_tokens);
         setScoreData(sortedScores);
       }
     } catch (error) {
@@ -85,8 +109,23 @@ const Score = () => {
         <Star className="w-8 h-8 text-yellow-500 mr-2" />
         <h2 className="text-3xl font-bold text-gray-800">Your Scores</h2>
       </div>
-      <div className='flex justify-end mb-2'>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+      <div className="flex justify-between items-center p-4 bg-gray-100 rounded-lg shadow-md">
+        <p className="text-lg text-blue-700 font-bold">
+          {totalTokens} <span className="text-gray-600 font-medium">Tokens</span>
+        </p>
+        <button
+          className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-full shadow-lg hover:from-blue-600 hover:to-blue-700 focus:ring-2 focus:ring-blue-300 transition duration-300 ease-in-out"
+          onClick={HandleClaim}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
           Claim Rewards
         </button>
       </div>
