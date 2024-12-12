@@ -25,11 +25,8 @@ const Hero = () => {
                 </span>
               </h1>
               <p>
-                Play2Help is a free gaming platform that allows you to play
-                games for free and donate to charity. Play games and help people
-                in need. Play2Help is a free gaming platform that allows you to
-                play games for free and donate to charity. Play games and help
-                people in need.
+              Play2Help is a free gaming platform where you can enjoy your favorite games while supporting charitable causes. 
+              Play, donate, and make a difference — every game helps people in need!
               </p>
 
               <div className="mt-10">

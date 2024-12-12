@@ -25,7 +25,7 @@ const Header = () => {
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    menuItem: MenuItem,
+    menuItem: MenuItem
   ) => {
     e.preventDefault();
     setActiveMenu(menuItem.title);
@@ -35,7 +35,8 @@ const Header = () => {
       setNavigationOpen(!navigationOpen);
     }
   };
-  // Sticky menu
+
+  // Sticky menu logic
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {
       setStickyMenu(true);
@@ -46,7 +47,8 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
-  });
+    return () => window.removeEventListener("scroll", handleStickyMenu); // Cleanup on unmount
+  }, []);
 
   return (
     <header
@@ -60,16 +62,16 @@ const Header = () => {
             <Image
               src="/images/logo/logo-dark.png"
               alt="logo"
-              width={119.03}
-              height={30}
-              className="hidden h-8 w-full dark:block"
+              width={300} // Increased the width to make the logo bigger
+              height={100} // Increased the height to make the logo bigger
+              className="h-12 w-full dark:block" // Made the image larger (h-12)
             />
             <Image
               src="/images/logo/logo-dark.png"
               alt="logo"
-              width={119.03}
-              height={30}
-              className="h-8 w-full dark:hidden"
+              width={300} // Increased the width
+              height={100} // Increased the height
+              className="h-12 w-full dark:hidden"
             />
           </a>
 
@@ -114,7 +116,7 @@ const Header = () => {
           {/* <!-- Hamburger Toggle BTN --> */}
         </div>
 
-        {/* Nav Menu Start   */}
+        {/* Nav Menu Start */}
         <div
           className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
             navigationOpen &&
@@ -127,7 +129,7 @@ const Header = () => {
                 <li
                   onClick={(e) => handleLinkClick(e, menuItem)}
                   key={key}
-                  className={menuItem.submenu && "group relative"}
+                  className={menuItem.submenu ? "group relative" : ""}
                 >
                   {menuItem.submenu ? (
                     <>
@@ -190,7 +192,5 @@ const Header = () => {
     </header>
   );
 };
-
-// w-full delay-300
 
 export default Header;
