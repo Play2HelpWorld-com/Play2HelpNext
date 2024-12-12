@@ -59,9 +59,7 @@ const FunFact = () => {
               Fun Facts About Us
             </h2>
             <p className="mx-auto lg:w-11/12">
-              We are a organization that provides free gaming platform that
-              allows you to play games for free and donate to charity. Play
-              games and help people in need.
+            We are an organization offering a free gaming platform where you can enjoy games and contribute to charity. Play, earn, and make a difference in the lives of those in need.
             </p>
           </motion.div>
 

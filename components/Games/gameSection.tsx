@@ -18,9 +18,7 @@ export default function GameSection() {
               Play our games
             </h2>
             <p className="text-lg text-gray-400 dark:text-indigo-200/65">
-              Play games to donate to charity and help the world. Play, Win,
-              Earn Points and Get Rewards. We have a wide range of games to
-              choose from. Play now! 🎮
+            Play games, donate to charity, and make a positive impact on the world. Explore our diverse selection of games—start playing today! 🎮
             </p>
           </div>
           {/* Spotlight items */}
