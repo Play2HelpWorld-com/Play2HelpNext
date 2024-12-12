@@ -73,9 +73,7 @@ const About = () => {
                 </span>
               </h2>
               <p>
-                Play games and earn rewards. Use rewards to donate to charity
-                and help people in need. Play games and earn rewards. Use
-                rewards to donate to charity and help people in need.
+              Play Games, Earn Rewards, and Give Back!
               </p>
 
               <div className="mt-7.5 flex items-center gap-5">
@@ -86,9 +84,9 @@ const About = () => {
                 </div>
                 <div className="w-3/4">
                   <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    Sign Up & Get Bonus
+                   Sign Up & Get a Bonus:
                   </h3>
-                  <p>Sign up now and get bonuses.</p>
+                  <p>Sign up today and instantly get 500 points to kickstart your journey!.</p>
                 </div>
               </div>
               <div className="mt-7.5 flex items-center gap-5">
@@ -99,10 +97,11 @@ const About = () => {
                 </div>
                 <div className="w-3/4">
                   <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    Play & Earn Rewards
+                  Play, Watch, and Earn: 
                   </h3>
-                  <p>Play games, watch ads & answer surveys.</p>
+                  <p>Play games, watch ads, and take surveys to earn rewards.</p>
                 </div>
+
               </div>
             </motion.div>
           </div>
