@@ -2,6 +2,7 @@ import { MerkleTree } from "merkletreejs";
 import { keccak256 } from "ethers";
 import ethers from "ethers"
 import { TokenReward } from "@/types/tokenReward";
+import { MerkleResult } from "@/types/merkleResult";
 
 
 /// @dev this function receives an array of objects
@@ -14,7 +15,7 @@ import { TokenReward } from "@/types/tokenReward";
 
 
 
-const GenerateMerkleDatastructure = (tokenRewards: TokenReward[] = []): string => {
+const GenerateMerkleDatastructure = (tokenRewards: TokenReward[] = []): MerkleResult => {
     let merkleTree: MerkleTree, merkleRoot: string;
     const leaves = tokenRewards.map((claim: TokenReward) =>
         keccak256(
@@ -29,7 +30,7 @@ const GenerateMerkleDatastructure = (tokenRewards: TokenReward[] = []): string =
 
         // Serialize data
        const serializedLeaves = JSON.stringify(leaves.map((leaf) => Buffer.from(leaf).toString('hex')));
-       return serializedLeaves;
+       return {serializedLeaves, merkleRoot};
 }
 
 const RegenerateMerkleTree = (serializedLeaves: string) => {
