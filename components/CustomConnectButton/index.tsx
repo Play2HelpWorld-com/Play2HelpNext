@@ -2,16 +2,17 @@
 import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
+
 export const CustomConnectButton = () => {
   return (
     <ConnectButton.Custom>
       {({
-        account,
-        chain,
-        openAccountModal,
-        openChainModal,
-        openConnectModal,
-        mounted,
+        account,            // Account details (e.g., address, ENS name)
+        chain,              // Chain details (e.g., name, ID)
+        openAccountModal,   // Opens the account modal
+        openChainModal,     // Opens the network switch modal
+        openConnectModal,   // Opens the wallet connect modal
+        mounted,            // Checks if the button is ready to display
       }) => {
         const ready = mounted;
         const connected = ready && account && chain;
@@ -20,13 +21,14 @@ export const CustomConnectButton = () => {
           <div
             style={{
               display: 'flex',
-              justifyContent: 'center',
+              flexDirection: 'column',
               alignItems: 'center',
+              gap: '10px',
             }}
           >
             {!connected && (
               <button
-                onClick={openConnectModal}
+                onClick={openConnectModal} // Trigger wallet connection modal
                 style={{
                   padding: '10px 20px',
                   fontSize: '16px',
@@ -42,37 +44,56 @@ export const CustomConnectButton = () => {
             )}
 
             {connected && chain.unsupported && (
-              <button
-                onClick={openChainModal}
-                style={{
-                  padding: '10px 20px',
-                  fontSize: '16px',
-                  background: '#f44336',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                }}
-              >
-                Wrong Network
-              </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <button
+                  onClick={openChainModal} // Trigger network switch modal
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '16px',
+                    background: '#f44336',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Wrong Network
+                </button>
+              </div>
             )}
 
             {connected && !chain.unsupported && (
-              <button
-                onClick={openAccountModal}
-                style={{
-                  padding: '10px 20px',
-                  fontSize: '16px',
-                  background: '#2196F3',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                }}
-              >
-               {account.balanceSymbol} {account.displayBalance} {account.displayName}
-              </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <button
+                  onClick={openAccountModal} // Trigger account modal
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '16px',
+                    background: '#2196F3',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {account.balanceSymbol} {account.displayBalance} {account.displayName}
+                </button>
+
+                <button
+                  onClick={openChainModal} // Trigger network switch modal
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '16px',
+                    background: '#FFC107',
+                    color: 'black',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Change Network
+                </button>
+              </div>
             )}
           </div>
         );
