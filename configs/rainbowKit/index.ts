@@ -13,7 +13,7 @@ export const config = getDefaultConfig({
     projectId,
     chains: [
       bsc,
-      mainnet,
+      bscTestnet,
       ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [bscTestnet] : []),
     ],
     ssr: true,

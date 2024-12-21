@@ -9,7 +9,7 @@ interface LeaderboardEntry {
   user: string;
   score: number;
   rank?: number;
-  reward?: number;
+  tokens?: number;
 }
 
 export const LeaderBoard: React.FC = () => {
@@ -161,7 +161,7 @@ export const LeaderBoard: React.FC = () => {
                           Score: {entry.score}
                         </span>
                         <span className="text-gray-500 font-medium">
-                          Tokens: {entry.reward}
+                          Tokens: {entry.tokens}
                         </span>
                       </div>
                     </div>
