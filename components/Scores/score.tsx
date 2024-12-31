@@ -1,15 +1,17 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { AxiosReqInstance } from "../accounts/utils/axiosInstance";
 import { ScoreDataInterface, TokenInfoInterface } from "./interface";
 import { Trophy, Star } from "lucide-react";
 import { getGameIcon } from "./GameIcon";
 import { toast } from "react-toastify";
-import { MerkleTree } from "merkletreejs";
-import { keccak256 } from "ethers";
+import { ethers, keccak256 } from "ethers";
 import { useAccount, useWriteContract } from "wagmi";
 import GameTokenDistributor from "../../abis/GameTokenDistributor.json";
+import { RegenerateMerkleTree } from "@/utils/lib/generateMerkleDataStructure";
 
 const contractAddress = process.env.NEXT_PUBLIC_TOKEN_DISTRIBUTOR_ADDRESS || "0x"
+const { NEXT_PUBLIC_BACKEND_BASE_URL } = process.env;
 
 const ScoreCard = ({ score, handleClaim } : {score: ScoreDataInterface, handleClaim: (gameName, tokens) => void}) => {
   return (
@@ -93,15 +95,18 @@ const Score = () => {
       toast.success(`Transaction hash: ${hash}`, {
         position: "top-right",
       });
-     //succesfully token table => address primary key [ tokenname, symbol, tokenAddress: PK]
-     //rewards => fk address => token table [score, token, amount, tokenClamed]
+     //update the table here after a succesful claim 
+     //token token-field: increment by 30
+     //display claimable tokens =.> token - token_claimed 80 - 60 = 20
+     
+
     }
   }, [hash, isSuccess]);
 
   useEffect(() => {
     if (isError) {
-      console.log("Error from mutation ", error);
-      toast.error(`Error sending transaction`, {
+      console.log("Error from claiming rewards ", error);
+      toast.error(`Error claiming rewards`, {
         position: "top-right",
       });
     }
@@ -132,28 +137,35 @@ const Score = () => {
         console.log('bnb token address is', tokenInfo.bnb_contract_address);
       } 
 
+        const leaf = keccak256(
+              ethers.AbiCoder.defaultAbiCoder().encode(["address", "address", "uint256"], [
+                address,
+                tokenInfo?.bnb_contract_address,
+                ethers.parseEther(tokens.toString()),
+        ]))
 
-      //structure => totalToken = amount
-      //       const leaf = keccak256(
-      //         ethers.AbiCoder.defaultAbiCoder().encode(["address", "address", "uint256"], [
-      //           accounts[1].address,
-      //           mockERC20Address,
-      //           tokenAmount1,
-      //         ])
-      // );
-      //      const proof = merkleTree.getHexProof(leaf);
+        let merkelDataResponse = await fetch(`${NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getMerkelDataView/`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          
+      });
 
-
+      const merkelData = await merkelDataResponse.json();
+      console.log("Merkel Data is", merkelData);
+      const {merkelTree} = RegenerateMerkleTree(merkelData.serialized_leaves);
+      const proof = merkelTree.getHexProof(leaf);
       
-      // writeContract({
-      //   address: contractAddress as any,
-      //   abi: GameTokenDistributor,
-      //   functionName: "claimTokens",
-      //   args: [],
-     
-      // });
+      //i need the date modified here of the gane token row 
+      //so as to determine if i call the transition
 
-
+      writeContract({
+        address: contractAddress as any,
+        abi: GameTokenDistributor,
+        functionName: "claimTokens",
+        args: [ tokenInfo?.bnb_contract_address, tokens, proof, ],
+      });
 
     } catch (error) {
       if (error.response.statusText === 'Unauthorized') {
@@ -220,3 +232,5 @@ const Score = () => {
 };
 
 export default Score;
+
+

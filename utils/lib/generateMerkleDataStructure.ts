@@ -12,9 +12,6 @@ import { MerkleResult } from "@/types/merkleResult";
 /// @dev there should be a table to save the serialized leaves and the date it was modified. Table should have
 /// @dev two fields of serializedLeaves and date modified. when the data is saved we update the date modified
 
-
-
-
 const GenerateMerkleDatastructure = (tokenRewards: TokenReward[] = []): MerkleResult => {
     let merkleTree: MerkleTree, merkleRoot: string;
     const leaves = tokenRewards.map((claim: TokenReward) =>

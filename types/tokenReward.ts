@@ -5,3 +5,4 @@ export type TokenReward = {
     amount: string;  //the amount the fellow is been rewarded with
   };
   
+  
