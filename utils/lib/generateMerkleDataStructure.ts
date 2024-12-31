@@ -1,6 +1,5 @@
 import { MerkleTree } from "merkletreejs";
-import { keccak256 } from "ethers";
-import ethers from "ethers"
+import { keccak256, ethers } from "ethers";
 import { TokenReward } from "@/types/tokenReward";
 import { MerkleResult } from "@/types/merkleResult";
 
@@ -17,17 +16,17 @@ const GenerateMerkleDatastructure = (tokenRewards: TokenReward[] = []): MerkleRe
     const leaves = tokenRewards.map((claim: TokenReward) =>
         keccak256(
             ethers.AbiCoder.defaultAbiCoder().encode(
-            ["address", "address", "uint256"],
-            [claim.address, claim.token, ethers.parseEther(claim.amount)]
+                ["address", "address", "uint256"],
+                [claim.userWalletAddress, claim.tokenAddress, ethers.parseEther(claim.tokenAmount.toString())]
             )
         )
-        );
-        merkleTree = new MerkleTree(leaves, keccak256, { sortPairs: true });
-        merkleRoot = merkleTree.getHexRoot();
+    );
+    merkleTree = new MerkleTree(leaves, keccak256, { sortPairs: true });
+    merkleRoot = merkleTree.getHexRoot();
 
-        // Serialize data
-       const serializedLeaves = JSON.stringify(leaves.map((leaf) => Buffer.from(leaf).toString('hex')));
-       return {serializedLeaves, merkleRoot};
+    // Serialize data
+    const serializedLeaves = JSON.stringify(leaves.map((leaf) => Buffer.from(leaf).toString('hex')));
+    return { serializedLeaves, merkleRoot };
 }
 
 const RegenerateMerkleTree = (serializedLeaves: string) => {
@@ -42,4 +41,4 @@ const RegenerateMerkleTree = (serializedLeaves: string) => {
 }
 
 
-export {GenerateMerkleDatastructure, RegenerateMerkleTree};
+export { GenerateMerkleDatastructure, RegenerateMerkleTree };

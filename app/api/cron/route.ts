@@ -1,6 +1,7 @@
 import { GenerateMerkleDatastructure } from '@/utils/lib/generateMerkleDataStructure';
 import { NextResponse } from 'next/server';
 import { ethers } from 'ethers';
+import { TokenReward } from '@/types/tokenReward';
 
 const { NEXT_PUBLIC_BACKEND_BASE_URL, CRON_SECRET, PRIVATE_KEY,
     NEXT_PUBLIC_RPC_URL, NEXT_PUBLIC_TOKEN_DISTRIBUTOR_ADDRESS } = process.env;
@@ -33,17 +34,21 @@ export async function GET(request: Request) {
 async function executeCronJob() {
     try {
         //fetch the token rewards from the database
-        const responseTokenRewards = await fetch(`${NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/dontexistyet/`, {
+        const responseTokenRewards = await fetch(`${NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getAllScoresWithTokenInfo`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         });
 
-        const tokenRewards = await responseTokenRewards.json();
+        const tokenRewards: TokenReward[] = await responseTokenRewards.json();
 
+        const filterTokenRewards = tokenRewards.filter((reward) => reward.tokenAddress !== null && reward.userWalletAddress !== null && reward.tokenAmount !== null)
         //generate the merkle tree
-        const { serializedLeaves, merkleRoot } = GenerateMerkleDatastructure(tokenRewards);
+        const { serializedLeaves, merkleRoot } = GenerateMerkleDatastructure(filterTokenRewards);
+
+        console.log("serializedLeaves: ", serializedLeaves);
+        console.log("merkleRoot: ", merkleRoot);
 
         const body = {
             "serialized_leaves": serializedLeaves,
@@ -61,7 +66,7 @@ async function executeCronJob() {
         const data = await response.json();
         //send the merkle root to the smart contract
         const contractMerkleRoot = await readMerkleRoot();
-        if ( contractMerkleRoot === merkleRoot ){
+        if (contractMerkleRoot === merkleRoot) {
             console.log("not sending transaction: merklerook are the same")
             return "no-transaction-sent"
         }
@@ -78,30 +83,50 @@ async function sendMerkleRootTransaction(merkleRoot: string) {
         // Create provider and wallet
         const provider = new ethers.JsonRpcProvider(NEXT_PUBLIC_RPC_URL);
         const wallet = new ethers.Wallet(PRIVATE_KEY!, provider);
+
         // Contract ABI - only including the function we need
         const contractABI = [
             "function updateMerkleRoot(bytes32 _merkleRoot) external"
         ];
+
         // Create contract instance
         const contract = new ethers.Contract(NEXT_PUBLIC_TOKEN_DISTRIBUTOR_ADDRESS!, contractABI, wallet);
-        const gasPrice = await provider.getFeeData();
-        const maxFeePerGas = gasPrice.maxFeePerGas ?
-            (gasPrice.maxFeePerGas * BigInt(120)) / BigInt(100) : BigInt(100_000_000_000);
-        const maxPriorityFeePerGas = gasPrice.maxPriorityFeePerGas ?
-            (gasPrice.maxPriorityFeePerGas * BigInt(120)) / BigInt(100) : undefined;
+
+        // Check if the network supports EIP-1559
+        const feeData = await provider.getFeeData();
+        const supportsEIP1559 = feeData.maxFeePerGas !== null && feeData.maxPriorityFeePerGas !== null;
+
+        let transactionOptions: any = {};
+
+        if (supportsEIP1559) {
+            const maxFeePerGas = feeData.maxFeePerGas
+                ? (feeData.maxFeePerGas * BigInt(120)) / BigInt(100) // Add 20% buffer
+                : BigInt(100_000_000_000); // Default value if maxFeePerGas is null
+            const maxPriorityFeePerGas = feeData.maxPriorityFeePerGas
+                ? (feeData.maxPriorityFeePerGas * BigInt(120)) / BigInt(100) // Add 20% buffer
+                : BigInt(1_500_000_000); // Default value if maxPriorityFeePerGas is null
+
+            transactionOptions = { maxFeePerGas, maxPriorityFeePerGas };
+        } else {
+            const gasPrice = feeData.gasPrice
+                ? (feeData.gasPrice * BigInt(120)) / BigInt(100) // Add 20% buffer
+                : BigInt(100_000_000_000); // Default value if gasPrice is null
+
+            transactionOptions = { gasPrice };
+        }
+
         const gasLimit = await contract.updateMerkleRoot.estimateGas(merkleRoot);
         const gasLimitWithBuffer = (gasLimit * BigInt(120)) / BigInt(100); // Add 20% buffer
 
-        const tx = await contract.updateMerkleRoot(merkleRoot, {
-            maxFeePerGas,
-            maxPriorityFeePerGas,
-            gasLimit: gasLimitWithBuffer
-        });
+        // Add gasLimit to transaction options
+        transactionOptions.gasLimit = gasLimitWithBuffer;
+
+        const tx = await contract.updateMerkleRoot(merkleRoot, transactionOptions);
 
         const receipt = await Promise.race([
             tx.wait(2), // Wait for 2 confirmations
             new Promise((_, reject) =>
-                setTimeout(() => reject(new Error('Transaction timeout')), 180000) // 3 minute timeout
+                setTimeout(() => reject(new Error('Transaction timeout')), 180000) // 3-minute timeout
             )
         ]);
 
@@ -117,7 +142,7 @@ async function sendMerkleRootTransaction(merkleRoot: string) {
             hash: receipt.hash,
             blockNumber: receipt.blockNumber,
             gasUsed: receipt.gasUsed.toString(),
-            effectiveGasPrice: receipt.effectiveGasPrice.toString()
+            effectiveGasPrice: receipt.effectiveGasPrice?.toString()
         });
 
         return receipt.hash;
@@ -142,7 +167,6 @@ async function sendMerkleRootTransaction(merkleRoot: string) {
         throw new Error(`Failed to send transaction: ${errorMessage}`);
     }
 }
-
 
 async function readMerkleRoot() {
     try {

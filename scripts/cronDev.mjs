@@ -16,6 +16,7 @@ console.log('Starting development cron service...');
 // Run every day at midnight
 cron.schedule('0 0 * * *', async () => {
     try {
+        console.log("calling the api")
         const response = await fetch('http://localhost:3000/api/cron', {
             method: 'GET',
             headers: {
