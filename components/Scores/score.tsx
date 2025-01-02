@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { AxiosReqInstance } from "../accounts/utils/axiosInstance";
 import { ScoreDataInterface, TokenInfoInterface } from "./interface";
 import { Trophy, Star } from "lucide-react";
@@ -85,6 +85,7 @@ const Score = () => {
   const [gameName, setGameName] = useState<string>("");
   const [claimableTokens, setClaimableTokens] = useState<number>(0.0);
   const [claimArgs, setClaimArgs] = useState<readonly [string, bigint, `0x${string}`[]] | undefined>(undefined);
+  const [claimCalled, setClaimCalled] = useState(false)
 
   const {
     data: hash,
@@ -103,7 +104,7 @@ const Score = () => {
   });
 
   useEffect(() => {
-    if (simulateError) {
+    if (simulateError && claimCalled) {
       console.error('Simulation error:', simulateError);
       toast.error(`Transaction would fail: ${simulateError.message}`);
     }
@@ -155,6 +156,7 @@ const Score = () => {
     //serialMerkle => dateModified
     console.log("Claiming Rewards.....");
     setClaimableTokens( claimableTokens);
+    
     console.log('the claimable tokens are', claimableTokens);
     const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getScoreData/`;
     try {
@@ -193,8 +195,8 @@ const Score = () => {
 
       const merkelData = await merkelDataResponse.json();
       console.log("Merkel Data is", merkelData);
-      const {merkelTree} = RegenerateMerkleTree(merkelData.serialized_leaves);
-      const proof = merkelTree.getHexProof(leaf);
+      const {merkleTree} = RegenerateMerkleTree(merkelData.serialized_leaves);
+      const proof = merkleTree.getHexProof(leaf);
 
       
       if (!tokenInfo?.bnb_contract_address) {
@@ -208,6 +210,7 @@ const Score = () => {
         proof as `0x${string}`[],
       ] as const;
 
+      setClaimCalled(true);
       setClaimArgs(args);
       
       await new Promise(resolve => setTimeout(resolve, 0));
@@ -230,6 +233,8 @@ const Score = () => {
       } else {
         toast.error("An unexpected error occurred");
       }
+    }finally{
+      setClaimCalled(false)
     }
   };
 

@@ -1,7 +1,8 @@
-import { GenerateMerkleDatastructure } from '@/utils/lib/generateMerkleDataStructure';
+import { GenerateMerkleDatastructure, RegenerateMerkleTree } from '@/utils/lib/generateMerkleDataStructure';
 import { NextResponse } from 'next/server';
 import { ethers } from 'ethers';
 import { TokenReward } from '@/types/tokenReward';
+import MerkleTree from 'merkletreejs';
 
 const { NEXT_PUBLIC_BACKEND_BASE_URL, CRON_SECRET, PRIVATE_KEY,
     NEXT_PUBLIC_RPC_URL, NEXT_PUBLIC_TOKEN_DISTRIBUTOR_ADDRESS } = process.env;
@@ -47,13 +48,13 @@ async function executeCronJob() {
         //generate the merkle tree
         const { serializedLeaves, merkleRoot } = GenerateMerkleDatastructure(filterTokenRewards);
 
-        console.log("filtered token: ", filterTokenRewards);
-        
+        // console.log("filtered token: ", filterTokenRewards);
+        console.log("merkleTree", serializedLeaves)
+
         const body = {
             "serialized_leaves": serializedLeaves,
             "modified_date": new Date().toISOString()
         }
-
         const response = await fetch(`${NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/setMerkelDatastructure/`, {
             method: 'POST',
             headers: {
@@ -63,7 +64,9 @@ async function executeCronJob() {
         });
 
         const data = await response.json();
-        //send the merkle root to the smart contract
+
+        console.log("data from saving merkel ", data)
+        //send the merkle root to the start contract
         const contractMerkleRoot = await readMerkleRoot();
         if (contractMerkleRoot === merkleRoot) {
             console.log("not sending transaction: merklerook are the same")
@@ -194,3 +197,5 @@ async function readMerkleRoot() {
         throw new Error(`Failed to read merkle root: ${errorMessage}`);
     }
 }
+
+
