@@ -497,10 +497,6 @@ tokenList.forEach(getPriceFromPanCake);
 
 
 
-
-
-
-
 // Load env variables for the script
 config({ path: '.env.local' });
 
