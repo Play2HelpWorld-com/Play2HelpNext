@@ -26,17 +26,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"], // Define alias for project root
+      "@/*": ["./*"],
       "react": ["./node_modules/@types/react"]
     },
-    "target": "ES2017" // Set the JavaScript version target
+    "target": "ES2017"
   },
   "include": [
-    "next-env.d.ts", // Next.js environment declarations
-    "**/*.ts", // Include all TypeScript files
-    "**/*.tsx", // Include all TSX files
-    ".next/types/**/*.ts", // Include Next.js type declarations
-    "scripts/cronDev.mjs" // Specific inclusion for your script
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx", 
+    ".next/types/**/*.ts",
+    "scripts/cronDev.mjs"
   ],
   "exclude": ["node_modules"],
   "typeRoots": ["node_modules/@types"]
