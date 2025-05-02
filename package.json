@@ -57,7 +57,7 @@
     "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "eslint-config-next": "^15.0.4",
-    "next": "^15.0.4",
+    "next": "^15.2.3",
     "node-cron": "^3.0.3",
     "ts-node": "^10.9.2"
   }
