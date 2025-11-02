@@ -20,6 +20,19 @@ interface ScoreCardProps {
 
 const ScoreCard: React.FC<ScoreCardProps> = ({ score, handleClaim }) => {
   const claimableTokens = score.tokens - score.claimed_tokens;
+  const formatToken = (value: number) => {
+    if (!isFinite(value)) return String(value);
+    // show integer without decimals
+    if (Math.abs(value - Math.round(value)) < Number.EPSILON) {
+      return String(Math.round(value));
+    }
+    // For small non-zero values, show a lower bound
+    if (Math.abs(value) > 0 && Math.abs(value) < 0.0001) {
+      return "<0.0001";
+    }
+    // Otherwise show up to 4 decimal places and trim trailing zeros
+    return Number(value.toFixed(4)).toString();
+  };
   return (
     <div
       className={`
@@ -40,7 +53,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({ score, handleClaim }) => {
       </div>
       <div className="text-right">
         <p className="text-md font-medium text-gray-600">Reward</p>
-        <p className="text-sm font-bold text-blue-600">{claimableTokens} Token </p>
+  <p className="text-sm font-bold text-blue-600">{formatToken(claimableTokens)} Token </p>
       </div>
 
       <button

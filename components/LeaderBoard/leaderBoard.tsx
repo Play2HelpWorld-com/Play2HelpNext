@@ -12,6 +12,20 @@ interface LeaderboardEntry {
   tokens?: number;
 }
 
+// Helper to format token numbers for display
+const formatToken = (value?: number | null): string => {
+  if (value === null || value === undefined) return '0';
+  if (typeof value !== 'number' || Number.isNaN(value)) return '0';
+  if (value === 0) return '0';
+  // For very small positive numbers, show a caret-like minimal value
+  const abs = Math.abs(value);
+  if (abs > 0 && abs < 0.0001) return '<0.0001';
+  // If integer, show without decimal
+  if (Number.isInteger(value)) return value.toString();
+  // Otherwise show up to 4 decimal places, trimming trailing zeros
+  return parseFloat(value.toFixed(4)).toString();
+};
+
 export const LeaderBoard: React.FC = () => {
   const [activeGame, setActiveGame] = useState<string>('spaceShotter');
   const [loading, setLoading] = useState<boolean>(true);
@@ -160,8 +174,8 @@ export const LeaderBoard: React.FC = () => {
                         <span className="text-blue-600 font-semibold">
                           Score: {entry.score}
                         </span>
-                        <span className="text-gray-500 font-medium">
-                          Tokens: {entry.tokens}
+                            <span className="text-gray-500 font-medium">
+                              Tokens: {formatToken(entry.tokens)}
                         </span>
                       </div>
                     </div>
