@@ -260,7 +260,7 @@ const Score = () => {
 
   useEffect(() => {
     getScore();
-  }, [getScore]);
+  }, []);
 
   if (loading) {
     return (
