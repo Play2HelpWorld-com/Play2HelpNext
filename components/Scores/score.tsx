@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useCallback} from "react";
 import { AxiosReqInstance } from "../accounts/utils/axiosInstance";
 import { ScoreDataInterface, TokenInfoInterface } from "./interface";
 import { Trophy, Star } from "lucide-react";
@@ -253,8 +253,7 @@ const Score = () => {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getScore = async () => {
+  const getScore = useCallback(async () => {
     const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getScores/`;
     try {
       const response = await protectedRoute.get(url);
@@ -269,11 +268,13 @@ const Score = () => {
       console.error("Error while getting score at score.tsx in Rewards", error);
       setLoading(false);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
+    console.log('getting scroes')
     getScore();
-  }, []);
+  }, [getScore]);
 
   if (loading) {
     return (
