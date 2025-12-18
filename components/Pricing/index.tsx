@@ -14,7 +14,7 @@ const Pricing = () => {
               headerInfo={{
                 title: `PRICING PLANS`,
                 subtitle: `Simple Pricing`,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
+                description: `Choose the perfect plan for your family. Access game experiences that deliver proven benefits in education, health, money tips, sport coaching, and creative arts.`,
               }}
             />
           </div>
@@ -42,7 +42,7 @@ const Pricing = () => {
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 Small Pack
               </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+              <p>Perfect for families starting their journey to healthy happiness and economic sustainability.</p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>
@@ -97,7 +97,7 @@ const Pricing = () => {
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 Medium Pack
               </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+              <p>Unlock more educational content and sport coaching features for your entire family.</p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>
@@ -148,7 +148,7 @@ const Pricing = () => {
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 Large Pack
               </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+              <p>Complete access to all features including art & music creation, health tips, and premium support.</p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>
