@@ -13,7 +13,7 @@ const Integration = () => {
             headerInfo={{
               title: `Play Anywhere, Anytime`,
               subtitle: `Remotely play games with your friends and family`,
-              description: `Play games from your desktop, laptop, or mobile device. Play2Help is a free gaming platform that allows you to play games for free and donate to charity. Play games and help people in need.`,
+              description: `Play games from your desktop, laptop, or mobile device. weplay2help is a free gaming platform that allows you to play games for free and donate to charity. Play games and help people in need.`,
             }}
           />
 

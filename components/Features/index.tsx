@@ -15,7 +15,7 @@ const Feature = () => {
             headerInfo={{
               title: "GRAB EXTRA REWARDS",
               subtitle: "Core Visions of P2H",
-              description: `Play2Help is a free gaming platform that allows you to play games for free and donate to charity.
+              description: `weplay2help is a free gaming platform that allows you to play games for free and donate to charity.
               Play games and help people in need.`,
             }}
           />

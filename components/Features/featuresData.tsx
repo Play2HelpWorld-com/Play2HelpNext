@@ -6,7 +6,7 @@ const featuresData: Feature[] = [
     icon: "/images/icon/icon-01.svg",
     title: "Join Now",
     description:
-      "Join Play2Help and play games for free. Donate to charity and help people in need.",
+      "Join weplay2help and play games for free. Donate to charity and help people in need.",
   },
   {
     id: 2,

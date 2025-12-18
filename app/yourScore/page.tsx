@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import YourScore from "@/components/Scores";
 
 export const metadata: Metadata = {
-  title: "Rewards Page - Play2Help | Play for Free Donation",
+  title: "Rewards Page - weplay2help | Play for Free Donation",
   description: "This is built by Moyasi",
 };
 
