@@ -86,14 +86,14 @@ const Hero = () => {
                 />
                 <div className=" relative w-full">
                   <Image
-                    className="shadow-solid-l dark:hidden h-[400px] w-auto"
+                    className="shadow-solid-l dark:hidden w-auto"
                     src="/images/hero/hero-light.jpg"
                     alt="Hero"
                     width={1300}
                     height={1244}
                   />
                   <Image
-                    className="hidden shadow-solid-l dark:block h-[400px] w-auto"
+                    className="hidden shadow-solid-l dark:block  w-auto"
                     src="/images/hero/hero-light.jpg"
                     alt="Hero"
                     width={1200}
