@@ -15,44 +15,48 @@ const Hero = () => {
         <div className="">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className=" md:w-1/2">
-              <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
-                🔥 weplay2help - A Complete Gaming Experience
+              <h4 className="mb-4.5 text-lg font-semibold text-primary dark:text-white">
+                🎮 Transform Lives Through Gaming
               </h4>
-              <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-                Free Gaming Platform
-                <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
-                  &nbsp;
+              <h1 className="mb-6 pr-16 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero ">
+                Play, Learn & Grow with
+                <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark ">
+                  themagicworlds.org
                 </span>
               </h1>
-              <p>
-                weplay2help is a free gaming platform that allows you to play
-                games for free and donate to charity. Play games and help people
-                in need. weplay2help is a free gaming platform that allows you to
-                play games for free and donate to charity. Play games and help
-                people in need.
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                Experience game-based learning that delivers proven benefits in education, health, 
+                financial literacy, sport coaching, and creative arts. Join thousands of families 
+                achieving healthy happiness and economic sustainability through play.
               </p>
 
-              <div className="mt-10">
+              <div className="mt-11">
                 <form onSubmit={handleSubmit}>
-                  <div className="flex flex-wrap gap-5">
+                  <div className="flex flex-wrap gap-4">
                     <input
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       type="text"
-                      placeholder="Enter your email address"
-                      className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
+                      placeholder="Enter your email to start your journey"
+                      className="w-full rounded-full border-2 border-stroke bg-white px-6 py-3.5 text-base shadow-solid-2 transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary sm:w-auto sm:flex-1"
                     />
                     <button
                       aria-label="get started button"
-                      className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
+                      className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl dark:from-btndark dark:to-btndark/80 sm:w-auto"
                     >
-                      Get Started
+                      Start Playing Free
+                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
                     </button>
                   </div>
                 </form>
 
-                <p className="mt-5 text-black dark:text-white">
-                  Free to play. No credit card required.
+                <p className="mt-6 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <svg className="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  100% Free Forever • No Credit Card • Instant Access
                 </p>
               </div>
             </div>

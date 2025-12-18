@@ -13,10 +13,11 @@ const Feature = () => {
           {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
-              title: "GRAB EXTRA REWARDS",
-              subtitle: "Core Visions of P2H",
-              description: `weplay2help is a free gaming platform that allows you to play games for free and donate to charity.
-              Play games and help people in need.`,
+              title: "💎 UNLOCK YOUR REWARDS",
+              subtitle: "How themagicworlds.org Works",
+              description: `Experience multiple pathways to growth and rewards. From educational games to 
+              creative challenges, every activity delivers proven benefits while building your family's 
+              healthy happiness and economic sustainability.`,
             }}
           />
           {/* <!-- Section Title End --> */}

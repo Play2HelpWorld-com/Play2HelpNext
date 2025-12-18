@@ -24,15 +24,15 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
         whileInView="visible"
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="animate_top z-10 rounded-lg border border-white bg-white p-7.5 shadow-solid-3 transition-all hover:shadow-solid-4 dark:border-strokedark dark:bg-blacksection dark:hover:bg-hoverdark xl:p-12.5"
+        className="animate_top group z-10 rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-2xl dark:border-strokedark dark:bg-blacksection dark:hover:border-primary/50 dark:hover:bg-hoverdark xl:p-10"
       >
-        <div className="relative flex h-16 w-16 items-center justify-center rounded-[4px] bg-primary">
-          <Image src={icon} width={36} height={36} alt="title" />
+        <div className="relative mb-6 flex h-20 w-20 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 shadow-lg transition-transform duration-300 group-hover:scale-110">
+          <Image src={icon} width={40} height={40} alt="title" className="brightness-0 invert" />
         </div>
-        <h3 className="mb-5 mt-7.5 text-xl font-semibold text-black dark:text-white xl:text-itemtitle">
+        <h3 className="mb-4 text-2xl font-bold text-black transition-colors dark:text-white">
           {title}
         </h3>
-        <p>{description}</p>
+        <p className="leading-relaxed text-gray-600 dark:text-gray-300">{description}</p>
       </motion.div>
     </>
   );

@@ -46,9 +46,12 @@ const Footer = () => {
                   />
                 </Link>
 
-                <p className="mb-10 mt-5">
-                Helping families improve their lives through game experiences that deliver proven benefits in education, health, and more.
-                  contact
+                <p className="mb-10 mt-5 leading-relaxed text-gray-600 dark:text-gray-300">
+                  Helping families improve their lives through game experiences that deliver proven benefits in education, health, and more.
+                </p>
+
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-black dark:text-white">
+                  Contact Us
                 </p>
                 <a
                   href="#"
