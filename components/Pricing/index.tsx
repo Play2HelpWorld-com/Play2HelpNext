@@ -41,7 +41,7 @@ const Pricing = () => {
                   Free
                 </h3>
                 <h4 className="mb-3 text-xl font-bold text-black dark:text-white">
-                  🎮 Small Pack
+                  Small Pack
                 </h4>
                 <p className="leading-relaxed text-gray-600 dark:text-gray-300">Perfect for families starting their journey to healthy happiness and economic sustainability.</p>
               </div>
@@ -114,7 +114,7 @@ const Pricing = () => {
                   </span>
                 </h3>
                 <h4 className="mb-3 text-xl font-bold text-black dark:text-white">
-                  🌟 Medium Pack
+                  Medium Pack
                 </h4>
                 <p className="leading-relaxed text-gray-600 dark:text-gray-300">Unlock more educational content and sport coaching features for your entire family.</p>
               </div>
@@ -183,7 +183,7 @@ const Pricing = () => {
                   </span>
                 </h3>
                 <h4 className="mb-3 text-xl font-bold text-black dark:text-white">
-                  🚀 Large Pack
+                  Large Pack
                 </h4>
                 <p className="leading-relaxed text-gray-600 dark:text-gray-300">Complete access to all features including art & music creation, health tips, and premium support.</p>
               </div>

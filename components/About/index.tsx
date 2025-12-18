@@ -62,7 +62,7 @@ const About = () => {
             >
               <span className="font-semibold uppercase tracking-wide text-primary dark:text-white">
                 <span className="mb-4 mr-3 inline-flex rounded-full bg-gradient-to-r from-primary to-primary/80 px-5 py-1.5 text-xs font-bold uppercase text-white shadow-lg">
-                  ✨ NEW
+                  NEW
                 </span>{" "}
                 Game-Powered Learning
               </span>
@@ -86,7 +86,7 @@ const About = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="mb-1 text-xl font-bold text-black dark:text-white">
-                    🎁 Join & Get Welcome Bonus
+                    Join & Get Welcome Bonus
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">Start your journey with instant rewards and unlock premium features.</p>
                 </div>
@@ -99,7 +99,7 @@ const About = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="mb-1 text-xl font-bold text-black dark:text-white">
-                    🎮 Play, Learn & Earn
+                    Play, Learn & Earn
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">Engage with educational games, health activities, and creative challenges.</p>
                 </div>

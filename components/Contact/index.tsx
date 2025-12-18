@@ -54,49 +54,95 @@ const Contact = () => {
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_top w-full rounded-lg bg-white p-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black md:w-3/5 lg:w-3/4 xl:p-15"
+              className="animate_top w-full rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-xl dark:border-strokedark dark:bg-black md:w-3/5 lg:w-3/4 xl:p-12"
             >
-              <h2 className="mb-15 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-                Send a message
-              </h2>
+              <div className="mb-10">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                  </svg>
+                  <span>Get In Touch</span>
+                </div>
+                <h2 className="mb-3 text-4xl font-bold text-black dark:text-white xl:text-sectiontitle2">
+                  Let's Connect & Grow Together
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300">
+                  Have questions about our game experiences? Want to learn more about how we're helping families achieve healthy happiness? We'd love to hear from you!
+                </p>
+              </div>
 
               <form
                 action="https://formbold.com/s/unique_form_id"
                 method="POST"
               >
-                <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                  <input
-                    type="text"
-                    placeholder="Full name"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:gap-8">
+                  <div className="group relative w-full lg:w-1/2">
+                    <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 transition-colors group-focus-within:text-primary">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Full name"
+                      className="w-full border-b-2 border-gray-200 bg-transparent py-4 pl-8 pr-4 font-medium text-black placeholder:text-gray-400 focus:border-primary focus:outline-none dark:border-strokedark dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                    />
+                  </div>
 
-                  <input
-                    type="email"
-                    placeholder="Email address"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                  <div className="group relative w-full lg:w-1/2">
+                    <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 transition-colors group-focus-within:text-primary">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                      </svg>
+                    </div>
+                    <input
+                      type="email"
+                      placeholder="Email address"
+                      className="w-full border-b-2 border-gray-200 bg-transparent py-4 pl-8 pr-4 font-medium text-black placeholder:text-gray-400 focus:border-primary focus:outline-none dark:border-strokedark dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                    />
+                  </div>
                 </div>
 
-                <div className="mb-12.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                  <input
-                    type="text"
-                    placeholder="Subject"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:gap-8">
+                  <div className="group relative w-full lg:w-1/2">
+                    <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 transition-colors group-focus-within:text-primary">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Subject"
+                      className="w-full border-b-2 border-gray-200 bg-transparent py-4 pl-8 pr-4 font-medium text-black placeholder:text-gray-400 focus:border-primary focus:outline-none dark:border-strokedark dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                    />
+                  </div>
 
-                  <input
-                    type="text"
-                    placeholder="Phone number"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                  <div className="group relative w-full lg:w-1/2">
+                    <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 transition-colors group-focus-within:text-primary">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Phone number (optional)"
+                      className="w-full border-b-2 border-gray-200 bg-transparent py-4 pl-8 pr-4 font-medium text-black placeholder:text-gray-400 focus:border-primary focus:outline-none dark:border-strokedark dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                    />
+                  </div>
                 </div>
 
-                <div className="mb-11.5 flex">
+                <div className="group relative mb-8 flex">
+                  <div className="pointer-events-none absolute left-0 top-4 text-gray-400 transition-colors group-focus-within:text-primary">
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
                   <textarea
-                    placeholder="Message"
-                    rows={4}
-                    className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    placeholder="Your message... Tell us how we can help!"
+                    rows={5}
+                    className="w-full border-b-2 border-gray-200 bg-transparent py-4 pl-8 pr-4 font-medium text-black placeholder:text-gray-400 focus:border-primary focus:outline-none dark:border-strokedark dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
                   ></textarea>
                 </div>
 
@@ -174,31 +220,56 @@ const Contact = () => {
               viewport={{ once: true }}
               className="animate_top w-full md:w-2/5 md:p-7.5 lg:w-[26%] xl:pt-15"
             >
-              <h2 className="mb-12.5 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-                Find us
-              </h2>
+              <div className="mb-8">
+                <h2 className="mb-3 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle2">
+                  Contact Info
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Reach out to our team at themagicworlds.org
+                </p>
+              </div>
 
-              <div className="5 mb-7">
-                <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Our Loaction
-                </h3>
-                <p>United Kingdom</p>
-              </div>
-              <div className="5 mb-7">
-                <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Email Address
-                </h3>
-                <p>
-                  <a href="#">mflynn1999@gmail.com</a>
-                </p>
-              </div>
-              <div>
-                <h4 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Phone Number
-                </h4>
-                <p>
-                  <a href="#">+009 XXXXX 0000 843</a>
-                </p>
+              <div className="space-y-6">
+                <div className="group rounded-2xl border-2 border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl dark:border-strokedark dark:bg-blacksection">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70">
+                    <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+                    Our Location
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">United Kingdom</p>
+                </div>
+
+                <div className="group rounded-2xl border-2 border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl dark:border-strokedark dark:bg-blacksection">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-secondary/70">
+                    <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+                    Email Address
+                  </h3>
+                  <p className="break-all text-gray-600 dark:text-gray-300">
+                    <a href="mailto:mflynn1999@gmail.com" className="transition-colors hover:text-primary">mflynn1999@gmail.com</a>
+                  </p>
+                </div>
+
+                <div className="group rounded-2xl border-2 border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl dark:border-strokedark dark:bg-blacksection">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-meta to-meta/70">
+                    <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                  </div>
+                  <h4 className="mb-2 text-lg font-bold text-black dark:text-white">
+                    Phone Number
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    <a href="tel:+009XXXXX0000843" className="transition-colors hover:text-primary">+009 XXXXX 0000 843</a>
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>

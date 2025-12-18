@@ -16,7 +16,7 @@ const Hero = () => {
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className=" md:w-1/2">
               <h4 className="mb-4.5 text-lg font-semibold text-primary dark:text-white">
-                🎮 Transform Lives Through Gaming
+                Transform Lives Through Gaming
               </h4>
               <h1 className="mb-6 pr-16 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero ">
                 Play, Learn & Grow with

@@ -7,7 +7,7 @@ export default function BoosterCard() {
         Our Retro Recommendations
       </h2>
       <p className="text-muted-foreground max-w-[85%] pb-1 leading-normal sm:pb-1 sm:text-lg sm:leading-7 lg:pb-10">
-        Here are some of our fav games 🎮
+        Here are some of our fav games
       </p>
 
       <MagicContainer

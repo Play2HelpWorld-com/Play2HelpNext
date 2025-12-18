@@ -11,7 +11,7 @@ const Blog = () => {
         <div className="animate_top mx-auto text-center">
           <SectionHeader
             headerInfo={{
-              title: `💖 CHARITABLE CAUSES`,
+              title: `CHARITABLE CAUSES`,
               subtitle: `Play for Purpose - Support Global Charities`,
               description: `Transform your playtime into meaningful impact. Browse our featured charitable causes and see how your gaming contributes to real-world change across education, health, and humanitarian efforts.`,
             }}
