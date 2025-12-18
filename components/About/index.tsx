@@ -8,7 +8,7 @@ const About = () => {
     <>
       {/* <!-- ===== About Start ===== --> */}
       <section className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
-        <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
+        <div className=" ">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
               variants={{
@@ -112,7 +112,7 @@ const About = () => {
 
       {/* <!-- ===== About Two Start ===== --> */}
       <section>
-        <div className="mx-auto max-w-c-1235 overflow-hidden px-4 md:px-8 2xl:px-0">
+        <div className="">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
               variants={{

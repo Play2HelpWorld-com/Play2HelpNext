@@ -17,7 +17,7 @@ const FAQ = () => {
     <>
       {/* <!-- ===== FAQ Start ===== --> */}
       <section className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
-        <div className="relative mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
+        <div className="relative">
           <div className="absolute -bottom-16 -z-1 h-full w-full">
             <Image
               fill

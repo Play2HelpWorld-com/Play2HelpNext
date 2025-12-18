@@ -21,9 +21,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <main className="mx-auto max-w-[95rem] px-4 md:px-8 xl:px-1">
       <Hero />
-      <Brands />
       <Feature />
       <About />
       <GameSection />
@@ -33,6 +32,7 @@ export default function Home() {
       <CTA />
       <FAQ />
       <Testimonial />
+      {/* <Brands /> */}
       {/* <Pricing /> */}
       <Contact />
       <Blog />
