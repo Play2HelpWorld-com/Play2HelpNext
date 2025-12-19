@@ -21,7 +21,7 @@ const Hero = () => {
               <h1 className="mb-6 pr-16 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero ">
                 Play, Learn & Grow with
                 <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark ">
-                  themagicworlds.org
+                  weplay2help
                 </span>
               </h1>
               <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">

@@ -225,7 +225,7 @@ const Contact = () => {
                   Contact Info
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Reach out to our team at themagicworlds.org
+                  Reach out to our team at weplay2help
                 </p>
               </div>
 

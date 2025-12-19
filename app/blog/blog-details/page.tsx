@@ -111,7 +111,7 @@ const SingleBlogPage = () => {
 
                 <div className="blog-details">
                   <p>
-                    At themagicworlds.org, we're revolutionizing how families engage with gaming.
+                    At weplay2help, we're revolutionizing how families engage with gaming.
                     Our platform delivers proven benefits across education, health, financial literacy,
                     sport coaching, and creative arts. By combining entertainment with meaningful outcomes,
                     we're building a future where gaming contributes to healthy happiness and economic

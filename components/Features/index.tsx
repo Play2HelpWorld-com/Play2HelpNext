@@ -14,7 +14,7 @@ const Feature = () => {
           <SectionHeader
             headerInfo={{
               title: "UNLOCK YOUR REWARDS",
-              subtitle: "How themagicworlds.org Works",
+              subtitle: "How weplay2help Works",
               description: `Experience multiple pathways to growth and rewards. From educational games to 
               creative challenges, every activity delivers proven benefits while building your family's 
               healthy happiness and economic sustainability.`,
