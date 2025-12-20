@@ -4,89 +4,99 @@ import GameData from "@/components/Games/gameData";
 
 export default function GameSection() {
   return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section className="relative overflow-hidden bg-gradient-to-b from-transparent via-primary/5 to-transparent py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="pb-12 md:pb-20">
           {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-            <h2 className="mt-20 font-nacelle animate-[gradient_6s_linear_infinite] bg-gray-500 bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold text-transparent dark:bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] md:text-4xl">
-              Play our games
+          <div className="mx-auto max-w-4xl pb-16 text-center md:pb-24">
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-primary/10 px-6 py-2 backdrop-blur-sm">
+              <span className="flex h-2 w-2 animate-pulse rounded-full bg-primary"></span>
+              <span className="text-sm font-semibold text-primary">Featured Games</span>
+            </div>
+            <h2 className="mb-6 font-nacelle animate-[gradient_6s_linear_infinite] bg-gradient-to-r from-gray-900 via-primary to-gray-900 bg-[length:200%_auto] bg-clip-text text-4xl font-bold text-transparent dark:from-white dark:via-primary dark:to-white md:text-5xl lg:text-6xl">
+              Level Up Your Skills
             </h2>
-            <p className="text-lg text-gray-400 dark:text-indigo-200/65">
-              Play games to donate to charity and help the world. Play, Win,
-              Earn Points and Get Rewards. We have a wide range of games to
-              choose from. Play now!
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+              Master professional skills through engaging gameplay. Each game is designed to boost your career potential while you earn rewards and have fun.
             </p>
           </div>
           {/* Spotlight items */}
-          <Spotlight className="group mx-auto grid max-w-sm items-start gap-6 lg:max-w-none lg:grid-cols-3">
+          <Spotlight className="group mx-auto grid max-w-sm items-start gap-8 lg:max-w-none lg:grid-cols-3">
             {GameData.slice(0, 6).map((game) => (
               <div
                 key={game.id}
-                className=" group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 after:hover:opacity-20 before:group-hover:opacity-100"
+                className="group/card relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 p-[2px] transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-primary/40 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-primary after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 after:hover:opacity-10 before:group-hover:opacity-100"
               >
-                <div className="relative z-2 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-gradient-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                  {/* Play Button */}
-                  <a
-                    href={game.playLink || "#"}
-                    className="absolute bottom-8 right-8 z-50 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                    aria-label="Play Game"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={50}
-                      height={50}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      className="text-white"
+                <div className="relative z-2 h-full overflow-hidden rounded-[inherit] bg-white dark:bg-gray-900 backdrop-blur-xl">
+                  {/* Image Container */}
+                  <div className="relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"></div>
+                    {/* Play Button */}
+                    <a
+                      href={game.playLink || "#"}
+                      className="absolute left-1/2 top-1/2 z-50 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full border-2 border-white/20 bg-primary/90 text-white opacity-0 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-primary group-hover/card:opacity-100"
+                      aria-label="Play Game"
                     >
-                      <path fill="currentColor" d="M8 5v14l11-7z" />
-                    </svg>
-                  </a>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={24}
+                        height={24}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="ml-1"
+                      >
+                        <path fill="currentColor" d="M8 5v14l11-7z" />
+                      </svg>
+                    </a>
 
-                  {/* Image */}
-                  <Image
-                    className="inline-flex"
-                    src={game.image}
-                    width={350}
-                    height={288}
-                    alt={game.alt}
-                  />
+                    {/* Image */}
+                    <Image
+                      className="h-64 w-full object-cover transition-transform duration-500 group-hover/card:scale-110"
+                      src={game.image}
+                      width={350}
+                      height={288}
+                      alt={game.alt}
+                    />
+                  </div>
                   {/* Content */}
                   <div className="p-6">
-                    <span className="bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+                    <h3 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">
                       {game.title}
-                    </span>
-                    <div className="mb-3">
-                      <span className="btn-sm text-md relative rounded-full bg-gray-100 px-2.5 py-0.5 font-normal text-gray-800 shadow-sm shadow-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,theme(colors.gray.700/.15),theme(colors.gray.700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-200 dark:bg-gray-800/40 dark:text-gray-200 dark:hover:bg-gray-800/60">
-                        <span className="bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                          {game.buttonText}
-                        </span>
+                    </h3>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                          <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                        </svg>
+                        {game.buttonText}
                       </span>
+                      <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Free</span>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </Spotlight>
-          <div className="mt-12 flex justify-center">
+          <div className="mt-16 flex justify-center">
             <a
               href="/games"
-              className="relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-lg bg-gray-800 p-3 text-lg font-semibold text-indigo-200 transition-all duration-500 before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-lg before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-lg after:bg-gradient-to-br after:from-indigo-400/50 after:to-indigo-600/50 after:opacity-0 after:transition-opacity after:duration-500 hover:text-white hover:before:opacity-100 hover:after:opacity-100"
+              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/50"
             >
-              <span>Discover More Games</span>
+              <span className="relative z-10">Discover More Games</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={14}
-                height={14}
+                width={18}
+                height={18}
                 fill="none"
-                className="relative z-20"
+                className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
               >
                 <path
                   fill="currentColor"
-                  d="M7 0L6.293.707 11.586 6H0v2h11.586l-5.293 5.293L7 14l7-7-7-7z"
+                  d="M9 0L8.293.707 13.586 6H0v2h13.586l-5.293 5.293L9 14l7-7-7-7z"
                 />
               </svg>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             </a>
           </div>
         </div>
