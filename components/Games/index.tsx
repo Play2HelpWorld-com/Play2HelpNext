@@ -7,13 +7,20 @@ import { GameInterface } from "@/types/game";
 export default function Game() {
   const HandleLinkClick = async (game: GameInterface): Promise<void> => {
     const accessToken = localStorage.getItem("accessToken");
+    const backendBaseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL || "";
     if (!accessToken) {
       alert(
         "You are not logged in. Your score will not be saved. Please login to save your score.",
       );
     }
-    const playLinkWithSession = `${game.playLink}?to=${encodeURIComponent(accessToken || "")}`;
-    window.open(playLinkWithSession, "_blank");
+
+    const playUrl = new URL(game.playLink, window.location.origin);
+    playUrl.searchParams.set("to", accessToken || "");
+    if (backendBaseUrl) {
+      playUrl.searchParams.set("backend", backendBaseUrl);
+    }
+
+    window.open(playUrl.toString(), "_blank");
   };
 
   return (

@@ -1,0 +1,304 @@
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-image: url("../assets/images/bg.jpg");
+    background-size: cover;
+}
+
+#container {
+    position: relative;
+    height: 100vh;
+    width: 40%;
+    left: 30%;
+    background-color: #292929;
+    overflow: hidden;
+}
+
+/*Styling the Road Surface Markings*/
+.line_1,
+.line_2,
+.line_3,
+.line_4 {
+    position: absolute;
+    height: 200px;
+    width: 4%;
+    margin-left: 48%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.line_1 {
+    top: -150px;
+}
+
+.line_2 {
+    top: 145px;
+}
+
+.line_3 {
+    top: 440px;
+}
+
+.line_4 {
+    top: 735px;
+}
+
+.line_5,
+.line_6 {
+    position: absolute;
+    width: 10px;
+    height: 200%;
+    top: -100%;
+    background: linear-gradient(black 50%, white 50%);
+    background-size: 10px 5%;
+}
+
+.line_6 {
+    right: 0;
+}
+
+/*Styling the cars*/
+.car {
+    position: absolute;
+    width: 35px;
+    height: 75px;
+}
+
+#car {
+    bottom: 8%;
+    left: 45%;
+}
+
+#car_1 {
+    top: -100px;
+    left: 60%;
+}
+
+#car_2 {
+    top: -230px;
+    left: 40%;
+}
+
+#car_3 {
+    top: -360px;
+    left: 50%;
+}
+
+img {
+    width: 35px;
+}
+
+/*Styling the Restart feature*/
+#restart_div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #292929;
+    text-align: center;
+    display: none;
+}
+
+/*Text on the restart button*/
+#restart {
+    font-family: "Luckiest Guy";
+    border: none;
+    padding: 25px;
+    color: whitesmoke;
+    background-color: #8a4f25b9;
+    font-size: 40px;
+    margin-top: 30%;
+    border: 2px solid whitesmoke;
+}
+
+#cur-score,
+#high-score {
+    font-size: 52%;
+}
+
+.small_text {
+    font-size: 42%;
+}
+
+
+/* Styling the car selection div */
+
+#carSelection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.car-selection h2 {
+    color:#fdf332 ;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.car-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.car-options img {
+    width: 60px; 
+    height: auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.car-options img:hover {
+    transform: scale(1.1); 
+}
+
+
+
+/*Styling the choosing car feature*/
+
+#choose_div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #292929;
+    color: white;
+    font-family: sans-serif;
+    font-size: 40px;
+    text-align: center;
+    display: none;
+}
+
+
+#score,
+#level_score {
+    width: 3rem;
+    font-family: "Luckiest Guy";
+    text-align: center;
+    font-size: 1.55rem;
+    color: #fdf332;
+    padding: 1.5rem ;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px #58758b53;
+    background: linear-gradient(to right, #212121, #024354);
+    transition: background 0.3s ease;
+    border: none;
+    border-radius: 1rem;
+}
+
+#score {
+    top: 15%;
+    left: 60%;
+    position: absolute;
+}
+
+#level_score {
+    top: 55%;
+    left: 60%;
+    position: absolute;
+}
+
+/* Styling for scoreboard */
+#scoreboard {
+    position: absolute;
+    top: 30.5%;
+    left: 4%;
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+label {
+    font-family: "Luckiest Guy";
+    font-size: 1.55rem;
+    color: #fdf332;
+    padding: 1rem 0;
+    text-align: center;
+    display: block; /* Ensure labels take up full width */
+}
+
+#y_score {
+    top: 20%;
+    left: 10%;
+    position: absolute;
+}
+
+#l_score {
+    top: 55%;
+    left: 10%;
+    position: absolute;
+}
+
+.mute,
+.return {
+    position: absolute;
+    padding: 1rem 2rem;
+    font-size: 1.55rem;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fdf332;
+    transition: background 0.3s ease;
+    background: linear-gradient(to right, #212121, #024354);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #58758b53;
+    top: 2%;
+    left: 4%;
+}
+
+.mute:hover,
+.return:hover {
+    background: linear-gradient(to left, #273c4b, #024354);
+}
+
+.mute:active,
+.return:active {
+    background-color: linear-gradient(to left, #273c4b, #024354);
+    box-shadow: 0 0 20px #58758b53;
+    transform: translateY(4px);
+}
+
+.mute {
+    top: 2%;
+    right: 4%;
+    left: 90%;
+}
+
+#countdown {
+    font-family: "Press Start 2P", cursive;
+    font-size: 900%;
+    color: white;
+    text-align: center;
+    margin-top: 30%;
+    letter-spacing: 4px;
+    /* Increase the letter spacing for a more pixelated effect */
+}
+
+
+#end_of_game {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    opacity: 0;
+    /* Initially set opacity to 0 */
+    transition: opacity 1s ease-in-out;
+    /* Add a transition for the opacity property */
+}
+
+/* Add a class to trigger the slide down effect */
+#end_of_game.active {
+    opacity: 1;
+}
+
+#game_end_img {
+    width: 100%;
+    height: 100%;
+}

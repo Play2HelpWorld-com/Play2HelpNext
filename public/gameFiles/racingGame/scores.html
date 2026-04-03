@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+    />
+    <link rel="stylesheet" href="css/score.css" />
+    <title>Score History</title>
+
+    
+  </head>
+
+  <body>
+    <div class="menu-container">
+      <h1 class="game-title" id="menu-title">Menu</h1>
+      <ul class="menu-list">
+        <li><a href="#" id="score-history">Score History</a></li>
+        <li><a href="#" id="highest-score">Highest Score</a></li>
+        <li><a href="#" id="clear-history">Clear History</a></li>
+        <li><a href="#" id="back">Back</a></li>
+      </ul>
+    </div>
+
+    <div id="menu-content">
+      <h1 id="content-title"></h1>
+      <div id="score-history-container">
+        <table id="score-table"></table>
+      </div>
+
+      <div id="highest-score-container"></div>
+
+      <div id="clear-message"></div>
+    </div>
+    <script src="./js/scoreStorage.js"></script>
+    <script src="./js/score.js"></script>  
+  </body>
+</html>

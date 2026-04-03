@@ -1,0 +1,36 @@
+/* Default: Hide controls */
+#mobile-controls {
+  display: none;
+}
+
+/* Show only on mobile screens */
+@media (max-width: 768px) {
+  #mobile-controls {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 9999;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .mobile-button {
+    flex: 1;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .mobile-button:active {
+    background-color: #555;
+  }
+}

@@ -9,7 +9,7 @@ const GameData: Game[] = [
     image: "/images/games/UP_Summer.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
-    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/tetrixGame/`,
+    playLink: "/gameFiles/tetrixGame/index.html",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const GameData: Game[] = [
     image: "/images/games/YUM_Summer.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
-    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/yumGame/`,
+    playLink: "/gameFiles/yumGame/index.html",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const GameData: Game[] = [
     image: "/images/games/POP+WATER_AID.webp",
     alt: "Workflow 03",
     buttonText: "Play Now",
-    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/bubbleGame/`,
+    playLink: "/gameFiles/bubbleGame/index.html",
   },
   {
     id: 4,
@@ -38,8 +38,7 @@ const GameData: Game[] = [
     image: "/images/games/HISS+WWF-UK.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/snakeGame/`,
+    playLink: "/gameFiles/snakeGame/index.html",
   },
   {
     id: 5,
@@ -49,8 +48,7 @@ const GameData: Game[] = [
     image: "/images/games/321+RED_CROSS.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/racingGame/`,
+    playLink: "/gameFiles/racingGame/index.html",
   },
   {
     id: 6,
@@ -60,8 +58,7 @@ const GameData: Game[] = [
     image: "/images/games/MORE+MSF.webp",
     alt: "Workflow 03",
     buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/railrushGame/`,
+    playLink: "/gameFiles/railrushGame/index.html",
   },
   {
     id: 7,
@@ -71,7 +68,7 @@ const GameData: Game[] = [
     image: "/images/games/GRRR+ALZEIMERS.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
-    playLink: `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/grrGame`,
+    playLink: "/gameFiles/grrGame/index.html",
   },
   {
     id: 8,
@@ -81,8 +78,7 @@ const GameData: Game[] = [
     image: "/images/games/FLY+UNICEF.webp",
     alt: "Workflow 02",
     buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/spaceShotter/`,
+    playLink: "/gameFiles/spaceShotter/index.html",
   },
   {
     id: 10,
@@ -92,8 +88,7 @@ const GameData: Game[] = [
     image: "/images/games/GO+KIVA.webp",
     alt: "Workflow 01",
     buttonText: "Play Now",
-    playLink:
-      `${process.env.NEXT_PUBLIC_GAME_SERVER_URI}/goGame/`,
+    playLink: "/gameFiles/goGame/index.html",
   },
 ];
 

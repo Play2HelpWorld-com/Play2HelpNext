@@ -1,8 +1,29 @@
+"use client";
 import Image from "next/image";
 import Spotlight from "@/components/Games/spotlight";
 import GameData from "@/components/Games/gameData";
+import { GameInterface } from "@/types/game";
 
 export default function GameSection() {
+  const HandleLinkClick = (game: GameInterface): void => {
+    const accessToken = localStorage.getItem("accessToken");
+    const backendBaseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL || "";
+
+    if (!accessToken) {
+      alert(
+        "You are not logged in. Your score will not be saved. Please login to save your score.",
+      );
+    }
+
+    const playUrl = new URL(game.playLink, window.location.origin);
+    playUrl.searchParams.set("to", accessToken || "");
+    if (backendBaseUrl) {
+      playUrl.searchParams.set("backend", backendBaseUrl);
+    }
+
+    window.open(playUrl.toString(), "_blank");
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-transparent via-primary/5 to-transparent py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -33,7 +54,7 @@ export default function GameSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"></div>
                     {/* Play Button */}
                     <a
-                      href={game.playLink || "#"}
+                      onClick={() => HandleLinkClick(game)}
                       className="absolute left-1/2 top-1/2 z-50 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full border-2 border-white/20 bg-primary/90 text-white opacity-0 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-primary group-hover/card:opacity-100"
                       aria-label="Play Game"
                     >
