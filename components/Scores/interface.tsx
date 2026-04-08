@@ -1,6 +1,7 @@
 export interface ScoreDataInterface {
   game: string;
   score: number;
+  source_site: string;
   tokens: number;
   claimed_tokens: number;
   last_claimed_date: string;

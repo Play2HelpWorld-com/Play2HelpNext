@@ -5,24 +5,23 @@ import axios from 'axios';
 import { Trophy, Loader2 } from 'lucide-react';
 import { getGameIcon } from '../Scores/GameIcon';
 
+const FRONTEND_SITE = 'weplay2help';
+
 interface LeaderboardEntry {
   user: string;
   score: number;
   rank?: number;
   tokens?: number;
+  source_site?: string;
 }
 
-// Helper to format token numbers for display
 const formatToken = (value?: number | null): string => {
   if (value === null || value === undefined) return '0';
   if (typeof value !== 'number' || Number.isNaN(value)) return '0';
   if (value === 0) return '0';
-  // For very small positive numbers, show a caret-like minimal value
   const abs = Math.abs(value);
   if (abs > 0 && abs < 0.0001) return '<0.0001';
-  // If integer, show without decimal
   if (Number.isInteger(value)) return value.toString();
-  // Otherwise show up to 4 decimal places, trimming trailing zeros
   return parseFloat(value.toFixed(4)).toString();
 };
 
@@ -52,7 +51,7 @@ export const LeaderBoard: React.FC = () => {
     setIsMobileMenuOpen(false);
 
     try {
-      const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getAllScores?game=${game}`;
+      const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getAllScores?game=${game}&source_site=${FRONTEND_SITE}`;
       const response = await axios.get(url);
 
       if (response.status === 200) {
@@ -80,7 +79,6 @@ export const LeaderBoard: React.FC = () => {
   return (
     <div className={`${isMobileMenuOpen ? 'mt-20' : ''} mt-10 min-h-screen bg-gray-50 p-4 flex items-center justify-center`}>
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
-        {/* Mobile Game Selection Toggler */}
         <div className="md:hidden flex items-center justify-between bg-gray-100 p-4">
           <div className="flex items-center">
             <Trophy className="w-6 h-6 text-yellow-500 mr-2" />
@@ -105,7 +103,6 @@ export const LeaderBoard: React.FC = () => {
         </div>
 
         <div className="flex flex-col md:flex-row relative">
-          {/* Game Selection Column - Mobile Dropdown */}
           <div
             className={`md:w-1/3 bg-gray-100 ${isMobileMenuOpen ? 'block' : 'hidden'} md:block relative md:static z-10 w-full md:w-auto md:rounded-l-xl`}
           >
@@ -124,7 +121,6 @@ export const LeaderBoard: React.FC = () => {
                       : 'bg-white text-gray-700 hover:bg-gray-200'
                       }`}
                   >
-                    {/* <Gamepad2 className="w-5 h-5" /> */}
                     {getGameIcon(game)}
                     <span className="font-medium">{game}</span>
                   </button>
@@ -133,7 +129,6 @@ export const LeaderBoard: React.FC = () => {
             </div>
           </div>
 
-          {/* Leaderboard Scores Column */}
           <div className="md:w-2/3 p-4 md:p-6 relative">
             <h3 className="text-xl font-semibold mb-4 text-gray-800 hidden md:block">
               {activeGame} Leaderboard
@@ -152,7 +147,7 @@ export const LeaderBoard: React.FC = () => {
                 ) : (
                   scores.slice(0, 10).map((entry) => (
                     <div
-                      key={`${entry.user}-${entry.score}`}
+                      key={`${entry.user}-${entry.score}-${entry.source_site ?? FRONTEND_SITE}`}
                       className="flex flex-col md:flex-row items-center justify-between py-3 space-y-2 md:space-y-0"
                     >
                       <div className="flex items-center space-x-3 w-full md:w-auto">
@@ -174,8 +169,8 @@ export const LeaderBoard: React.FC = () => {
                         <span className="text-blue-600 font-semibold">
                           Score: {entry.score}
                         </span>
-                            <span className="text-gray-500 font-medium">
-                              Tokens: {formatToken(entry.tokens)}
+                        <span className="text-gray-500 font-medium">
+                          Tokens: {formatToken(entry.tokens)}
                         </span>
                       </div>
                     </div>

@@ -24,6 +24,7 @@ function getAccessToken() {
 
 function sendScore(score, gameName) {
   var formattedScore = score;
+  var frontendSite = 'weplay2help';
   if (score !== null && score !== undefined) {
     var n = Number(score);
     if (isFinite(n)) {
@@ -52,6 +53,7 @@ function sendScore(score, gameName) {
       score: formattedScore,
       game: gameName,
       tokens: tokens,
+      source_site: frontendSite,
     }),
   })
     .then(function (response) {

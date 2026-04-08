@@ -1,4 +1,5 @@
 const DEFAULT_BACKEND_BASE_URL = "http://127.0.0.1:8000";
+const FRONTEND_SITE = "weplay2help";
 
 const getQueryParam = (name) => {
   return new URLSearchParams(window.location.search).get(name);
@@ -56,6 +57,7 @@ export const sendScore = async (score, gameName) => {
         score: formattedScore,
         game: gameName,
         tokens,
+        source_site: FRONTEND_SITE,
       }),
     });
 
