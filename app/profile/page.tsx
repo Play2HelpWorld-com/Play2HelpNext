@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import UserProfile from "@/components/Profile";
 
 export const metadata: Metadata = {
-  title: "Profile Page - Play2Help",
+  title: "Profile Page - weplay2help",
   description: "This is profile page for P2H",
   // other metadata
 };

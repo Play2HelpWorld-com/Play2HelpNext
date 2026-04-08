@@ -1,0 +1,163 @@
+/* General styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* #landscapeNotice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+} */
+
+/* #gameCanvas {
+  display: none;
+  background-color: #87ceeb;
+}
+
+@media (orientation: landscape) {
+  #landscapeNotice {
+    display: none;
+  }
+
+  #gameCanvas {
+    display: block;
+  }
+} */
+
+/* Overlay that covers the entire canvas */
+#gameOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
+
+/* Overlay content */
+.overlay-content {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Game Over text */
+.game-message-container {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #f44336; /* Red for emphasis */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* High score text */
+.high-score-text {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #ffd700; /* Gold for the high score */
+}
+
+/* Retry button */
+.retry-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #4caf50; /* Green button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.retry-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  transform: scale(1.1); /* Subtle zoom effect */
+}
+
+.next-level-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #ff9800; /* Orange button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.next-level-button:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: scale(1.1); /* Subtle zoom effect */
+}
+
+/* Position mobile control buttons at the bottom */
+.mobile-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 40px);
+  z-index: 100;
+}
+
+.control-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-button:active {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-controls {
+    display: none;
+  }
+}

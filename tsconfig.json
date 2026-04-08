@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -26,18 +24,23 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"], // Define alias for project root
-      "react": ["./node_modules/@types/react"]
+      "@/*": [
+        "./*"
+      ],
+      "react": [
+        "./node_modules/@types/react"
+      ]
     },
-    "target": "ES2017" // Set the JavaScript version target
+    "strictNullChecks": true,
+    "target": "ES2017"
   },
   "include": [
-    "next-env.d.ts", // Next.js environment declarations
-    "**/*.ts", // Include all TypeScript files
-    "**/*.tsx", // Include all TSX files
-    ".next/types/**/*.ts", // Include Next.js type declarations
-    "scripts/cronDev.mjs" // Specific inclusion for your script
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
-  "typeRoots": ["node_modules/@types"]
+  "exclude": [
+    "node_modules"
+  ]
 }

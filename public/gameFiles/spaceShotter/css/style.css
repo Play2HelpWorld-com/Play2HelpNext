@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+
+#gameArea {
+
+  background: url('../assets/background.svg') no-repeat center center;
+  background-size: cover;
+
+}
+
+#wholeContainer {
+  height: 95vh;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#canvasContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+}
+
+#keyDiv {
+  bottom: -12px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0.1;
+  border-radius: 50%;
+  padding-bottom: 5px;
+}
+
+#keyDiv img {
+  width: 50px;
+}
+
+#leftRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#topDown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

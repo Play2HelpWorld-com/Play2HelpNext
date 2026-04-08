@@ -8,7 +8,7 @@ const CTA = () => {
     <>
       {/* <!-- ===== CTA Start ===== --> */}
       <section className="overflow-hidden px-4 py-20 md:px-8 lg:py-25 xl:py-30 2xl:px-0">
-        <div className="mx-auto max-w-c-1390 rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] px-7.5 py-12.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark md:px-12.5 xl:px-17.5 xl:py-0">
+        <div className="rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] px-7.5 py-12.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark md:px-12.5 xl:px-17.5 xl:py-0">
           <div className="flex flex-wrap gap-8 md:flex-nowrap md:items-center md:justify-between md:gap-0">
             <motion.div
               variants={{
@@ -28,13 +28,12 @@ const CTA = () => {
               viewport={{ once: true }}
               className="animate_left md:w-[70%] lg:w-1/2"
             >
-              <h2 className="mb-4 w-11/12 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle4">
-                Join With Us Today & Help People
+              <h2 className="mb-5 w-11/12 text-4xl font-bold leading-tight text-black dark:text-white xl:text-sectiontitle4">
+                Ready to Transform Your Family&apos;s Future?
               </h2>
-              <p>
-                Play2Help is a free gaming platform that allows you to play
-                games for free and donate to charity. Play games and help people
-                in need.
+              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                Join thousands of families experiencing healthy happiness through game-based learning. 
+                Start earning rewards in education, health, finance, sports, and creative arts—completely free, forever.
               </p>
             </motion.div>
             <motion.div
@@ -65,9 +64,9 @@ const CTA = () => {
                 />
                 <a
                   href="/auth/signup"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white hover:opacity-90 dark:bg-white dark:text-black"
+                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:from-white dark:to-gray-100 dark:text-black"
                 >
-                  Sign up free
+                  Start Your Journey Free
                   <Image
                     width={20}
                     height={20}

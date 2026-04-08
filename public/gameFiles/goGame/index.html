@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mario Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- <div id="landscapeNotice">
+      Please rotate your device to landscape mode to play the game.
+    </div> -->
+    <div id="gameContainer">
+      <canvas id="gameCanvas"></canvas>
+      <div id="gameOverlay" class="overlay">
+        <div class="overlay-content">
+          <div id="gameMessageContainer" class="game-message-container"></div>
+          <div id="highestScoreText" class="high-score-text">
+            Highest Score: <span id="highestScore">0</span>
+          </div>
+          <button
+            id="nextLevelButton"
+            class="next-level-button"
+            style="display: none"
+          >
+            Next Level
+          </button>
+          <button id="startOverButton" style="display: none">Start Over</button>
+          <button id="retryButton" class="retry-button">Retry</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile control buttons -->
+    <div id="mobileControls" class="mobile-controls">
+      <div class="leftContainer">
+        <button id="leftButton" class="control-button">Left</button>
+        <button id="rightButton" class="control-button">Right</button>
+      </div>
+      <div class="rightContainer">
+        <button id="jumpButton" class="control-button">Jump</button>
+      </div>
+    </div>
+
+    <script src="js/main.js" type="module"></script>
+    <script src="../sendScoreToGameServerEs5.js"></script>
+  </body>
+</html>

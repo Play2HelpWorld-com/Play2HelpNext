@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useCallback} from "react";
+import { AxiosError } from "axios";
 import { AxiosReqInstance } from "../accounts/utils/axiosInstance";
 import { ScoreDataInterface, TokenInfoInterface } from "./interface";
 import { Trophy, Star } from "lucide-react";
@@ -10,16 +11,27 @@ import { useAccount, useWriteContract, useSimulateContract } from "wagmi";
 import GameTokenDistributor from "../../abis/GameTokenDistributor.json";
 import { RegenerateMerkleTree } from "@/utils/lib/generateMerkleDataStructure";
 
-const contractAddress = process.env.NEXT_PUBLIC_TOKEN_DISTRIBUTOR_ADDRESS || "0x"
+const contractAddress = process.env.NEXT_PUBLIC_TOKEN_DISTRIBUTOR_ADDRESS || "0x";
+const FRONTEND_SITE = "weplay2help";
 console.log('the contract address is', contractAddress);
 
 interface ScoreCardProps {
   score: ScoreDataInterface;
-  handleClaim: (gameName: string, tokens: number) => void;
+  handleClaim: (gameName: string, tokens: number, sourceSite: string) => void;
 }
 
 const ScoreCard: React.FC<ScoreCardProps> = ({ score, handleClaim }) => {
   const claimableTokens = score.tokens - score.claimed_tokens;
+  const formatToken = (value: number) => {
+    if (!isFinite(value)) return String(value);
+    if (Math.abs(value - Math.round(value)) < Number.EPSILON) {
+      return String(Math.round(value));
+    }
+    if (Math.abs(value) > 0 && Math.abs(value) < 0.0001) {
+      return "<0.0001";
+    }
+    return Number(value.toFixed(4)).toString();
+  };
   return (
     <div
       className={`
@@ -40,12 +52,12 @@ const ScoreCard: React.FC<ScoreCardProps> = ({ score, handleClaim }) => {
       </div>
       <div className="text-right">
         <p className="text-md font-medium text-gray-600">Reward</p>
-        <p className="text-sm font-bold text-blue-600">{claimableTokens} Token </p>
+        <p className="text-sm font-bold text-blue-600">{formatToken(claimableTokens)} Token </p>
       </div>
 
       <button
         className="flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-5 py-2.5 font-medium text-white shadow-lg transition duration-300 ease-in-out hover:from-blue-600 hover:to-blue-700 focus:ring-2 focus:ring-blue-300"
-        onClick={() => { handleClaim(score.game, claimableTokens) }}
+        onClick={() => { handleClaim(score.game, claimableTokens, score.source_site) }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -87,8 +99,9 @@ const Score = () => {
   const { address, isConnected } = useAccount();
   const [gameName, setGameName] = useState<string>("");
   const [claimableTokens, setClaimableTokens] = useState<number>(0.0);
+  const [claimSourceSite, setClaimSourceSite] = useState<string>(FRONTEND_SITE);
   const [claimArgs, setClaimArgs] = useState<readonly [string, bigint, `0x${string}`[]] | undefined>(undefined);
-  const [claimCalled, setClaimCalled] = useState(false)
+  const [claimCalled, setClaimCalled] = useState(false);
 
   const {
     data: hash,
@@ -118,17 +131,14 @@ const Score = () => {
         toast.success(`Transaction hash: ${hash}`, {
           position: "top-right",
         });
-        
-        //update the table here after a succesful claim 
-        //token token-field: increment by 30
-        //display claimable tokens =.> token - token_claimed 80 - 60 = 20
 
         const currentDate = new Date().toISOString();
         const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/setClaimTokens/`;
         const body = {
-          "claimed_tokens": claimableTokens,
-          "last_claimed_date": currentDate,
-          "game": gameName,
+          claimed_tokens: claimableTokens,
+          last_claimed_date: currentDate,
+          game: gameName,
+          source_site: claimSourceSite,
         };
         try {
           const response = await protectedRoute.post(url, body);
@@ -141,24 +151,22 @@ const Score = () => {
       }
     };
     updateClaimedTokens();
-  }, [hash, isSuccess, claimableTokens, gameName, protectedRoute]);
+  }, [hash, isSuccess, claimableTokens, claimSourceSite, gameName, protectedRoute]);
 
   useEffect(() => {
     if (isError) {
       console.log("Error from claiming rewards ", error);
-      toast.error(`Error claiming rewards`, {
+      toast.error("Error claiming rewards", {
         position: "top-right",
       });
     }
   }, [isError, error]);
 
-  const HandleClaim = async (gameName: string, claimableTokens: number) => {
-    //claim their Reward
-    //address, token, amount, dateModified
-    //serialMerkle => dateModified
+  const HandleClaim = async (gameName: string, claimableTokens: number, sourceSite: string) => {
     console.log("Claiming Rewards.....");
-    setClaimableTokens( claimableTokens);
-    
+    setClaimableTokens(claimableTokens);
+    setClaimSourceSite(sourceSite);
+
     console.log('the claimable tokens are', claimableTokens);
     const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getScoreData/`;
     try {
@@ -171,28 +179,20 @@ const Score = () => {
           toast.info("Please connect your wallet first");
           return;
         }
-        // console.log("All Token info is", tokenInfo); 
-        // console.log("the address is", address);
-        // console.log('the token amount are', claimableTokens);
-        // console.log('token name is', tokenInfo.token_name);
-        // console.log('token symbol is', tokenInfo.token_symbol);
-        // console.log('solana token address is', tokenInfo.solana_contract_address);
-        // console.log('bnb token address is', tokenInfo.bnb_contract_address);
-      } 
+      }
 
-        const leaf = keccak256(
-              ethers.AbiCoder.defaultAbiCoder().encode(["address", "address", "uint256"], [
-                address,
-                tokenInfo?.bnb_contract_address,
-                ethers.parseEther(claimableTokens.toString()),
-        ]))
+      const leaf = keccak256(
+        ethers.AbiCoder.defaultAbiCoder().encode(["address", "address", "uint256"], [
+          address,
+          tokenInfo?.bnb_contract_address,
+          ethers.parseEther(claimableTokens.toString()),
+        ]));
 
-        const merkelDataResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/tokens/getMerkelDataView/`, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          
+      const merkelDataResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/tokens/getMerkelDataView/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
 
       const merkelData = await merkelDataResponse.json();
@@ -200,7 +200,6 @@ const Score = () => {
       const {merkleTree} = RegenerateMerkleTree(merkelData.serialized_leaves);
       const proof = merkleTree.getHexProof(leaf);
 
-      
       if (!tokenInfo?.bnb_contract_address) {
         toast.error("Token address not found");
         return;
@@ -214,10 +213,8 @@ const Score = () => {
 
       setClaimCalled(true);
       setClaimArgs(args);
-      
+
       await new Promise(resolve => setTimeout(resolve, 0));
-      //i need the date modified here of the gane token row 
-      //so as to determine if i call the transition
       console.log('the bnb contract address is', tokenInfo?.bnb_contract_address);
       if (!simulateError) {
         writeContract({
@@ -227,24 +224,24 @@ const Score = () => {
           args: args,
         });
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error while getting userInfo at score.tsx", error);
-      if (error.response?.statusText === 'Unauthorized') {
+      if ((error as AxiosError).response?.statusText === 'Unauthorized') {
         toast.error("Please login to claim your rewards");
       } else {
         toast.error("An unexpected error occurred");
       }
-    }finally{
-      setClaimCalled(false)
+    } finally {
+      setClaimCalled(false);
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getScore = async () => {
+  const getScore = useCallback(async () => {
     const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/games/getScores/`;
     try {
-      const response = await protectedRoute.get(url);
+      const response = await protectedRoute.get(url, {
+        params: { source_site: FRONTEND_SITE },
+      });
       if (response.status === 200) {
         const sortedScores = response.data.scores.sort(
           (a: ScoreDataInterface, b: ScoreDataInterface) => b.score - a.score,
@@ -256,9 +253,10 @@ const Score = () => {
       console.error("Error while getting score at score.tsx in Rewards", error);
       setLoading(false);
     }
-  };
+  }, [protectedRoute]);
 
   useEffect(() => {
+    console.log('getting scroes');
     getScore();
   }, [getScore]);
 
@@ -289,7 +287,7 @@ const Score = () => {
       ) : (
         <div className="space-y-4">
           {scoreData.map((score, index) => (
-            <ScoreCard key={index} score={score} handleClaim={HandleClaim} />
+            <ScoreCard key={`${score.game}-${score.source_site}-${index}`} score={score} handleClaim={HandleClaim} />
           ))}
         </div>
       )}
@@ -298,5 +296,3 @@ const Score = () => {
 };
 
 export default Score;
-
-

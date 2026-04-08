@@ -9,7 +9,7 @@ export const testimonialData: Testimonial[] = [
     designation: "Founter @democompany",
     image: image1,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "These game experiences have transformed how our family learns together. The educational benefits are real, and my kids are more engaged than ever before.",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const testimonialData: Testimonial[] = [
     designation: "Founter @democompany",
     image: image2,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "The health and wellness features combined with gaming have helped our family develop better habits. It's amazing to see economic sustainability meet fun gameplay.",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ export const testimonialData: Testimonial[] = [
     designation: "Founter @democompany",
     image: image1,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "From sport coaching to art creation, this platform offers something for every family member. The money tips feature has been particularly valuable for teaching financial literacy.",
   },
   {
     id: 4,
@@ -33,6 +33,6 @@ export const testimonialData: Testimonial[] = [
     designation: "Founter @democompany",
     image: image2,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "The music creation tools have unlocked my children's creativity. This platform truly delivers on its promise of healthy happiness while maintaining strong brand quality across all platforms.",
   },
 ];

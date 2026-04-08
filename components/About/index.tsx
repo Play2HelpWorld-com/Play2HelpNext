@@ -8,7 +8,7 @@ const About = () => {
     <>
       {/* <!-- ===== About Start ===== --> */}
       <section className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
-        <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
+        <div className=" ">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
               variants={{
@@ -60,48 +60,48 @@ const About = () => {
               viewport={{ once: true }}
               className="animate_right md:w-1/2"
             >
-              <span className="font-medium uppercase text-black dark:text-white">
-                <span className="mb-4 mr-4 inline-flex rounded-full bg-meta px-4.5 py-1 text-metatitle uppercase text-white ">
-                  New
+              <span className="font-semibold uppercase tracking-wide text-primary dark:text-white">
+                <span className="mb-4 mr-3 inline-flex rounded-full bg-gradient-to-r from-primary to-primary/80 px-5 py-1.5 text-xs font-bold uppercase text-white shadow-lg">
+                  NEW
                 </span>{" "}
-                Play2Help Features
+                Game-Powered Learning
               </span>
-              <h2 className="relative mb-6 text-3xl font-bold text-black dark:text-white xl:text-hero">
-                You can have more
-                <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark">
-                  with Play2Help
+              <h2 className="relative mb-6 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero">
+                Unlock Your Family&apos;s
+                <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark">
+                  Full Potential
                 </span>
               </h2>
-              <p>
-                Play games and earn rewards. Use rewards to donate to charity
-                and help people in need. Play games and earn rewards. Use
-                rewards to donate to charity and help people in need.
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                Discover a revolutionary platform where gaming meets real-world benefits. 
+                Earn rewards while developing skills in education, health, finance, sports, 
+                and creative arts—all designed to promote healthy happiness and economic sustainability.
               </p>
 
-              <div className="mt-7.5 flex items-center gap-5">
-                <div className="flex h-15 w-15 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                  <p className="text-metatitle2 font-semibold text-black dark:text-white">
+              <div className="mt-8 flex items-center gap-6 rounded-2xl bg-gradient-to-r from-primary/5 to-transparent p-5 transition-all hover:from-primary/10 dark:from-primary/10">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-lg">
+                  <p className="text-2xl font-bold text-white">
                     01
                   </p>
                 </div>
-                <div className="w-3/4">
-                  <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    Sign Up & Get Bonus
+                <div className="flex-1">
+                  <h3 className="mb-1 text-xl font-bold text-black dark:text-white">
+                    Join & Get Welcome Bonus
                   </h3>
-                  <p>Sign up now and get bonuses.</p>
+                  <p className="text-gray-600 dark:text-gray-300">Start your journey with instant rewards and unlock premium features.</p>
                 </div>
               </div>
-              <div className="mt-7.5 flex items-center gap-5">
-                <div className="flex h-15 w-15 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
-                  <p className="text-metatitle2 font-semibold text-black dark:text-white">
+              <div className="mt-6 flex items-center gap-6 rounded-2xl bg-gradient-to-r from-primary/5 to-transparent p-5 transition-all hover:from-primary/10 dark:from-primary/10">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-secondary/70 shadow-lg">
+                  <p className="text-2xl font-bold text-white">
                     02
                   </p>
                 </div>
-                <div className="w-3/4">
-                  <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    Play & Earn Rewards
+                <div className="flex-1">
+                  <h3 className="mb-1 text-xl font-bold text-black dark:text-white">
+                    Play, Learn & Earn
                   </h3>
-                  <p>Play games, watch ads & answer surveys.</p>
+                  <p className="text-gray-600 dark:text-gray-300">Engage with educational games, health activities, and creative challenges.</p>
                 </div>
               </div>
             </motion.div>
@@ -112,7 +112,7 @@ const About = () => {
 
       {/* <!-- ===== About Two Start ===== --> */}
       <section>
-        <div className="mx-auto max-w-c-1235 overflow-hidden px-4 md:px-8 2xl:px-0">
+        <div className="">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
               variants={{
@@ -132,22 +132,25 @@ const About = () => {
               viewport={{ once: true }}
               className="animate_left md:w-1/2"
             >
-              <h4 className="font-medium uppercase text-black dark:text-white">
-                <span className="mb-4 mr-4 inline-flex rounded-full bg-meta px-4.5 py-1 text-metatitle uppercase text-white">
-                  New
+              <h4 className="font-semibold uppercase tracking-wide text-primary dark:text-white">
+                <span className="mb-4 mr-3 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-meta to-meta/80 px-5 py-1.5 text-xs font-bold uppercase text-white shadow-lg">
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                  </svg>
+                  Give Back
                 </span>{" "}
-                Charities
+                Support Charitable Causes
               </h4>
-              <h2 className="relative mb-6 text-3xl font-bold text-black dark:text-white xl:text-hero">
-                Play2Help
-                <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg2 dark:before:bg-titlebgdark">
-                  &nbsp;
+              <h2 className="relative mb-6 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero">
+                Play with
+                <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg2 before:to-secondary/30 dark:before:bg-titlebgdark">
+                  Purpose
                 </span>
               </h2>
-              <p>
-                Play games and earn rewards. Use rewards to donate to charity
-                and help people in need. Play games and earn rewards. Use
-                rewards to donate to charity and help people in need.
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                Every game you play contributes to global causes. Support education, health, 
+                environmental conservation, and humanitarian efforts while enjoying engaging 
+                gameplay experiences that benefit your family and communities worldwide.
               </p>
               <div>
                 <a

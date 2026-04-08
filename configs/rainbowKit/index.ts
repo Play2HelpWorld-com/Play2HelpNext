@@ -9,7 +9,7 @@ if (!projectId) throw new Error('Project ID is not defined')
 
 
 export const config = getDefaultConfig({
-    appName: 'Play2Help',
+    appName: 'weplay2help',
     projectId,
     chains: [
       bsc,

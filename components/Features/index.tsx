@@ -9,14 +9,15 @@ const Feature = () => {
     <>
       {/* <!-- ===== Features Start ===== --> */}
       <section id="features" className="py-20 lg:py-25 xl:py-30">
-        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+        <div className="px-4 md:px-8 xl:px-0">
           {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
-              title: "GRAB EXTRA REWARDS",
-              subtitle: "Core Visions of P2H",
-              description: `Play2Help is a free gaming platform that allows you to play games for free and donate to charity.
-              Play games and help people in need.`,
+              title: "UNLOCK YOUR REWARDS",
+              subtitle: "How weplay2help Works",
+              description: `Experience multiple pathways to growth and rewards. From educational games to 
+              creative challenges, every activity delivers proven benefits while building your family's 
+              healthy happiness and economic sustainability.`,
             }}
           />
           {/* <!-- Section Title End --> */}
