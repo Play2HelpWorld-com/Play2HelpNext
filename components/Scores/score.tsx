@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState, useCallback} from "react";
+import { AxiosError } from "axios";
 import { AxiosReqInstance } from "../accounts/utils/axiosInstance";
 import { ScoreDataInterface, TokenInfoInterface } from "./interface";
 import { Trophy, Star } from "lucide-react";
@@ -223,9 +224,9 @@ const Score = () => {
           args: args,
         });
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error while getting userInfo at score.tsx", error);
-      if (error.response?.statusText === 'Unauthorized') {
+      if ((error as AxiosError).response?.statusText === 'Unauthorized') {
         toast.error("Please login to claim your rewards");
       } else {
         toast.error("An unexpected error occurred");

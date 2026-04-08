@@ -67,7 +67,7 @@ const About = () => {
                 Game-Powered Learning
               </span>
               <h2 className="relative mb-6 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero">
-                Unlock Your Family's
+                Unlock Your Family&apos;s
                 <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark">
                   Full Potential
                 </span>

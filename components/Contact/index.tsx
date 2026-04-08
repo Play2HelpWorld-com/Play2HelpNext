@@ -65,10 +65,10 @@ const Contact = () => {
                   <span>Get In Touch</span>
                 </div>
                 <h2 className="mb-3 text-4xl font-bold text-black dark:text-white xl:text-sectiontitle2">
-                  Let's Connect & Grow Together
+                  Let&apos;s Connect & Grow Together
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300">
-                  Have questions about our game experiences? Want to learn more about how we're helping families achieve healthy happiness? We'd love to hear from you!
+                  Have questions about our game experiences? Want to learn more about how we&apos;re helping families achieve healthy happiness? We&apos;d love to hear from you!
                 </p>
               </div>
 

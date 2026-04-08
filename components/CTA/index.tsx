@@ -29,7 +29,7 @@ const CTA = () => {
               className="animate_left md:w-[70%] lg:w-1/2"
             >
               <h2 className="mb-5 w-11/12 text-4xl font-bold leading-tight text-black dark:text-white xl:text-sectiontitle4">
-                Ready to Transform Your Family's Future?
+                Ready to Transform Your Family&apos;s Future?
               </h2>
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 Join thousands of families experiencing healthy happiness through game-based learning. 
