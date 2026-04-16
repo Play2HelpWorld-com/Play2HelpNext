@@ -74,11 +74,57 @@ const doesEnemyHitAmmo = () => {
     }
   }
 }
-const displayScrore = () => {
-  ctx.font = "10px Arial";
-  ctx.fillStyle = "red";
-  ctx.textAlign = "center";
-  ctx.fillText("Score: " + score, 20, 10);
+const drawRoundRect = (x, y, width, height, radius) => {
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+  ctx.lineTo(x + width, y + height - r);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+  ctx.lineTo(x + r, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+};
+
+const displayScore = () => {
+  const fontSize = Math.max(24, Math.min(42, Math.round(canvas.width * 0.04)));
+  const paddingX = Math.round(fontSize * 0.6);
+  const panelHeight = Math.round(fontSize * 2.15);
+  const panelWidth = Math.round(fontSize * 6.7);
+  const panelX = 18;
+  const panelY = 18;
+
+  ctx.save();
+  ctx.shadowColor = "rgba(0, 0, 0, 0.45)";
+  ctx.shadowBlur = 16;
+  ctx.shadowOffsetY = 6;
+  ctx.fillStyle = "rgba(5, 12, 35, 0.82)";
+  drawRoundRect(panelX, panelY, panelWidth, panelHeight, 14);
+  ctx.fill();
+
+  ctx.shadowColor = "transparent";
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = "rgba(119, 231, 255, 0.95)";
+  drawRoundRect(panelX, panelY, panelWidth, panelHeight, 14);
+  ctx.stroke();
+
+  ctx.fillStyle = "rgba(119, 231, 255, 0.22)";
+  drawRoundRect(panelX + 8, panelY + 8, Math.round(fontSize * 2.8), panelHeight - 16, 10);
+  ctx.fill();
+
+  ctx.textAlign = "left";
+  ctx.textBaseline = "middle";
+  ctx.font = `800 ${Math.round(fontSize * 0.48)}px Arial`;
+  ctx.fillStyle = "#9ff3ff";
+  ctx.fillText("SCORE", panelX + paddingX, panelY + Math.round(panelHeight * 0.34));
+
+  ctx.font = `900 ${fontSize}px Arial`;
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText(String(score).padStart(2, "0"), panelX + paddingX, panelY + Math.round(panelHeight * 0.72));
+  ctx.restore();
 }
 
 const doesEnemyHitPlayer = () => {
@@ -281,7 +327,7 @@ const gameLoop = () => {
     updateAmmoPositions();
     doesEnemyHitAmmo();
     doesEnemyHitPlayer();
-    displayScrore();
+    displayScore();
     requestAnimationFrame(gameLoop);
   } else {
     requestAnimationFrame(gameLoop);

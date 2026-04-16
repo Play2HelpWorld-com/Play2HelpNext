@@ -1,12 +1,15 @@
 /* Shared WePlay2Help arcade reskin layer. Gameplay logic stays in each game. */
 :root {
-  --w2h-ink: #171514;
-  --w2h-paper: #fff7e8;
-  --w2h-mint: #2fbf8f;
-  --w2h-coral: #f05d4f;
-  --w2h-gold: #f8c537;
-  --w2h-plum: #4a2f56;
-  --w2h-teal: #116b69;
+  --w2h-ink: #173231;
+  --w2h-paper: #fbfdff;
+  --w2h-panel: rgba(255, 255, 255, 0.88);
+  --w2h-panel-strong: rgba(255, 255, 255, 0.95);
+  --w2h-mint: #42d9ad;
+  --w2h-teal: #15827f;
+  --w2h-coral: #ff6d5d;
+  --w2h-gold: #ffd84d;
+  --w2h-sky: #74d7ff;
+  --w2h-lilac: #d8c5ff;
 }
 
 html,
@@ -15,26 +18,59 @@ body {
 }
 
 body[data-skin-game] {
-  color: var(--w2h-paper);
+  --game-title: "WePlay2";
+  --skin-badge: "WePlay2Help Game";
+  --skin-a: #ffd84d;
+  --skin-b: #42d9ad;
+  --skin-c: #74d7ff;
+  --skin-d: #ff6d5d;
+  --skin-grid: rgba(21, 130, 127, 0.08);
+  --skin-pattern: 42px;
+  color: var(--w2h-ink);
   background:
-    radial-gradient(circle at 12% 18%, rgba(47, 191, 143, 0.35), transparent 28%),
-    radial-gradient(circle at 85% 80%, rgba(240, 93, 79, 0.32), transparent 30%),
-    linear-gradient(135deg, #171514 0%, #2b2330 42%, #143f3d 100%) !important;
+    linear-gradient(90deg, var(--skin-grid) 1px, transparent 1px),
+    linear-gradient(0deg, var(--skin-grid) 1px, transparent 1px),
+    radial-gradient(circle at 10% 12%, color-mix(in srgb, var(--skin-a) 50%, transparent), transparent 22%),
+    radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--skin-c) 42%, transparent), transparent 26%),
+    radial-gradient(circle at 78% 86%, color-mix(in srgb, var(--skin-d) 32%, transparent), transparent 24%),
+    linear-gradient(135deg, #fbfdff 0%, color-mix(in srgb, var(--skin-b) 16%, #ffffff) 45%, color-mix(in srgb, var(--skin-c) 18%, #ffffff) 100%) !important;
+  background-size: var(--skin-pattern) var(--skin-pattern), var(--skin-pattern) var(--skin-pattern), auto, auto, auto, auto !important;
   letter-spacing: 0;
 }
 
 body[data-skin-game]::before {
-  content: "WePlay2Help Arcade";
+  content: var(--skin-badge);
   position: fixed;
   top: 14px;
   left: 16px;
   z-index: 9999;
-  padding: 7px 10px;
-  border: 2px solid rgba(255, 247, 232, 0.7);
+  padding: 10px 14px;
+  border: 3px solid var(--w2h-ink);
   border-radius: 8px;
-  background: rgba(23, 21, 20, 0.72);
-  color: var(--w2h-paper);
-  font: 700 12px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffffff, color-mix(in srgb, var(--skin-b) 22%, #ffffff));
+  color: var(--w2h-ink);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--skin-d) 28%, rgba(23, 50, 49, 0.12));
+  font: 900 15px/1.05 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+body[data-skin-game]::after {
+  content: var(--game-title);
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  z-index: 9998;
+  width: min(72vw, 760px);
+  transform: translateX(-50%);
+  padding: 8px 16px 10px;
+  border: 4px solid var(--w2h-ink);
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--skin-a), #ffffff 42%, var(--skin-b));
+  color: var(--w2h-ink);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--skin-d) 32%, rgba(23, 50, 49, 0.16));
+  font: 1000 44px/0.96 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: center;
   text-transform: uppercase;
   pointer-events: none;
 }
@@ -43,59 +79,156 @@ body[data-skin-game] button,
 body[data-skin-game] input[type="button"],
 body[data-skin-game] .btn {
   border-radius: 8px !important;
-  border: 2px solid rgba(255, 247, 232, 0.75) !important;
-  background: linear-gradient(135deg, var(--w2h-coral), var(--w2h-gold)) !important;
-  color: #171514 !important;
-  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.25), 0 0 22px rgba(248, 197, 55, 0.22) !important;
+  border: 3px solid var(--w2h-ink) !important;
+  background: linear-gradient(135deg, var(--skin-a), #ffffff 54%, var(--skin-b)) !important;
+  color: var(--w2h-ink) !important;
+  box-shadow: 0 7px 0 rgba(23, 50, 49, 0.24), 0 0 18px color-mix(in srgb, var(--skin-b) 32%, transparent) !important;
   letter-spacing: 0 !important;
+  text-transform: uppercase;
 }
 
 body[data-skin-game] button:hover,
 body[data-skin-game] input[type="button"]:hover,
 body[data-skin-game] .btn:hover {
-  filter: saturate(1.15) brightness(1.05);
+  filter: saturate(1.12) brightness(1.02);
 }
 
 body[data-skin-game] canvas {
   border-radius: 8px;
-  box-shadow: 0 0 0 4px rgba(255, 247, 232, 0.25), 0 24px 70px rgba(0, 0, 0, 0.42);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.9), 0 0 0 9px rgba(23, 50, 49, 0.16), 0 20px 56px rgba(23, 50, 49, 0.25);
 }
 
 body[data-skin-game="bubble"] {
-  background:
-    radial-gradient(circle at 20% 22%, rgba(248, 197, 55, 0.38), transparent 20%),
-    radial-gradient(circle at 80% 70%, rgba(47, 191, 143, 0.35), transparent 24%),
-    linear-gradient(145deg, #173f3d, #4a2f56 58%, #171514) !important;
+  --game-title: "Bubble Burst Aid";
+  --skin-badge: "WePlay2Help Bubble Lab";
+  --skin-a: #9fe7ff;
+  --skin-b: #ffb9dc;
+  --skin-c: #b9f4cc;
+  --skin-d: #7f8cff;
+  --skin-grid: rgba(127, 140, 255, 0.1);
+  --skin-pattern: 34px;
+}
+
+body[data-skin-game="go"] {
+  --game-title: "Quest Runner";
+  --skin-badge: "WePlay2Help Quest Zone";
+  --skin-a: #d9f76f;
+  --skin-b: #7ed957;
+  --skin-c: #8bd4ff;
+  --skin-d: #ff8a5c;
+  --skin-grid: rgba(126, 217, 87, 0.12);
+  --skin-pattern: 50px;
+}
+
+body[data-skin-game="racing-home"],
+body[data-skin-game="racing-game"],
+body[data-skin-game="racing-score"] {
+  --game-title: "Skyline Sprint";
+  --skin-badge: "WePlay2Help Sprint Track";
+  --skin-a: #ffe066;
+  --skin-b: #85e6ff;
+  --skin-c: #c7f2ff;
+  --skin-d: #ff5f6d;
+  --skin-grid: rgba(255, 95, 109, 0.1);
+  --skin-pattern: 58px;
+}
+
+body[data-skin-game="rail"] {
+  --game-title: "Rail Rush Relay";
+  --skin-badge: "WePlay2Help Rail Yard";
+  --skin-a: #ffd166;
+  --skin-b: #8be0c8;
+  --skin-c: #c8f1ff;
+  --skin-d: #b388ff;
+  --skin-grid: rgba(179, 136, 255, 0.11);
+  --skin-pattern: 46px;
+}
+
+body[data-skin-game="snake"] {
+  --game-title: "Garden Run";
+  --skin-badge: "WePlay2Help Garden";
+  --skin-a: #d7ff70;
+  --skin-b: #6ee7a8;
+  --skin-c: #fff1a8;
+  --skin-d: #ff8f70;
+  --skin-grid: rgba(110, 231, 168, 0.14);
+  --skin-pattern: 38px;
+}
+
+body[data-skin-game="space"] {
+  --game-title: "Orbit Rescue";
+  --skin-badge: "WePlay2Help Orbit Bay";
+  --skin-a: #cdb4ff;
+  --skin-b: #a0e7ff;
+  --skin-c: #fff3b0;
+  --skin-d: #ff8ed1;
+  --skin-grid: rgba(160, 231, 255, 0.12);
+  --skin-pattern: 64px;
+}
+
+body[data-skin-game="tetrix"] {
+  --game-title: "Block Lift";
+  --skin-badge: "WePlay2Help Block Hub";
+  --skin-a: #ffdd57;
+  --skin-b: #7bdff2;
+  --skin-c: #b2f7ef;
+  --skin-d: #f7aef8;
+  --skin-grid: rgba(123, 223, 242, 0.14);
+  --skin-pattern: 30px;
+}
+
+body[data-skin-game="yum"] {
+  --game-title: "Candy Connect";
+  --skin-badge: "WePlay2Help Candy Stand";
+  --skin-a: #ffb3c6;
+  --skin-b: #fdffb6;
+  --skin-c: #caffbf;
+  --skin-d: #9bf6ff;
+  --skin-grid: rgba(255, 179, 198, 0.16);
+  --skin-pattern: 36px;
+}
+
+body[data-skin-game="godot"] {
+  --game-title: "Meadow Run";
+  --skin-badge: "WePlay2Help Meadow";
+  --skin-a: #caffbf;
+  --skin-b: #bde0fe;
+  --skin-c: #fdffb6;
+  --skin-d: #ffc6ff;
+  --skin-grid: rgba(189, 224, 254, 0.14);
+  --skin-pattern: 44px;
 }
 
 body[data-skin-game="bubble"] .canvas-container {
-  border: 3px solid rgba(255, 247, 232, 0.55);
+  border: 4px solid var(--w2h-ink);
   border-radius: 8px;
-  background: rgba(255, 247, 232, 0.12);
-  backdrop-filter: blur(4px);
+  background: var(--w2h-panel);
+  backdrop-filter: blur(3px);
+  box-shadow: 10px 10px 0 rgba(23, 50, 49, 0.14);
 }
 
 body[data-skin-game="bubble"] canvas {
-  filter: hue-rotate(42deg) saturate(1.18) contrast(1.05);
+  filter: hue-rotate(22deg) saturate(1.18) contrast(1.03) brightness(1.08);
 }
 
 body[data-skin-game="go"] #gameCanvas {
-  filter: hue-rotate(78deg) saturate(1.15) contrast(1.04);
+  filter: hue-rotate(44deg) saturate(1.12) contrast(1.02) brightness(1.08);
 }
 
 body[data-skin-game="go"] #gameOverlay {
-  background: rgba(23, 21, 20, 0.84) !important;
+  background: rgba(251, 253, 255, 0.88) !important;
 }
 
 body[data-skin-game="go"] .overlay-content {
-  border: 3px solid var(--w2h-gold);
+  border: 4px solid var(--w2h-ink);
   border-radius: 8px;
-  background: rgba(17, 107, 105, 0.86) !important;
+  background: var(--w2h-panel-strong) !important;
+  color: var(--w2h-ink) !important;
 }
 
 body[data-skin-game="go"] .game-message-container,
 body[data-skin-game="go"] .high-score-text {
-  color: var(--w2h-paper) !important;
+  color: var(--w2h-ink) !important;
 }
 
 body[data-skin-game="racing-home"] .container,
@@ -108,17 +241,19 @@ body[data-skin-game="racing-game"] #scoreboard,
 body[data-skin-game="racing-game"] #carSelection,
 body[data-skin-game="racing-score"] .menu-container,
 body[data-skin-game="racing-score"] #menu-content {
-  border: 3px solid rgba(255, 247, 232, 0.52) !important;
+  border: 4px solid var(--w2h-ink) !important;
   border-radius: 8px !important;
-  background: rgba(23, 21, 20, 0.78) !important;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45) !important;
+  background: var(--w2h-panel) !important;
+  color: var(--w2h-ink) !important;
+  box-shadow: 10px 10px 0 rgba(23, 50, 49, 0.16) !important;
 }
 
 body[data-skin-game="racing-home"] .game_title,
 body[data-skin-game="racing-score"] .game-title,
 body[data-skin-game="racing-game"] .car-selection h2 {
-  color: var(--w2h-gold) !important;
-  text-shadow: 0 4px 0 var(--w2h-teal), 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+  color: var(--w2h-teal) !important;
+  font-size: clamp(3.4rem, 8vw, 7.5rem) !important;
+  text-shadow: 4px 4px 0 var(--w2h-gold), 8px 8px 0 rgba(23, 50, 49, 0.12) !important;
 }
 
 body[data-skin-game="racing-game"] {
@@ -127,10 +262,16 @@ body[data-skin-game="racing-game"] {
 
 body[data-skin-game="racing-game"] #container {
   background:
-    linear-gradient(90deg, rgba(248, 197, 55, 0.18), transparent 16%, transparent 84%, rgba(47, 191, 143, 0.18)),
-    #2b2a26 !important;
-  border-left: 6px solid var(--w2h-coral);
-  border-right: 6px solid var(--w2h-mint);
+    linear-gradient(90deg, rgba(255, 216, 77, 0.36), transparent 18%, transparent 82%, rgba(66, 217, 173, 0.36)),
+    #4c5558 !important;
+  border-left: 8px solid var(--w2h-coral);
+  border-right: 8px solid var(--w2h-mint);
+}
+
+body[data-skin-game="racing-game"] label,
+body[data-skin-game="racing-game"] #score,
+body[data-skin-game="racing-game"] #level_score {
+  color: var(--w2h-ink) !important;
 }
 
 body[data-skin-game="racing-game"] .line_1,
@@ -142,128 +283,319 @@ body[data-skin-game="racing-game"] .line_4 {
 
 body[data-skin-game="racing-game"] .car img,
 body[data-skin-game="racing-game"] .car-options img {
-  filter: hue-rotate(105deg) saturate(1.3);
-}
-
-body[data-skin-game="rail"] {
-  background:
-    radial-gradient(circle at 50% -10%, rgba(248, 197, 55, 0.32), transparent 35%),
-    linear-gradient(180deg, #143f3d, #171514) !important;
+  filter: hue-rotate(90deg) saturate(1.24) brightness(1.08);
 }
 
 body[data-skin-game="rail"] .game-header {
-  color: var(--w2h-gold) !important;
-  text-shadow: 0 4px 0 var(--w2h-coral), 0 12px 22px #000 !important;
+  margin-top: 88px !important;
+  color: var(--w2h-teal) !important;
+  font-size: clamp(2.2rem, 5vw, 4.8rem) !important;
+  text-shadow: 4px 4px 0 var(--w2h-gold), 8px 8px 0 rgba(23, 50, 49, 0.14) !important;
 }
 
 body[data-skin-game="rail"] #gameContainer {
-  border-color: var(--w2h-mint) !important;
+  border-color: var(--w2h-ink) !important;
   border-radius: 8px !important;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 10px 10px 0 rgba(23, 50, 49, 0.16);
+}
+
+body[data-skin-game="rail"] #overlay {
+  background: rgba(251, 253, 255, 0.9) !important;
+  color: var(--w2h-ink) !important;
 }
 
 body[data-skin-game="rail"] canvas {
-  filter: hue-rotate(58deg) saturate(1.25) contrast(1.08);
-}
-
-body[data-skin-game="snake"] {
-  background:
-    linear-gradient(45deg, rgba(248, 197, 55, 0.16) 25%, transparent 25% 50%, rgba(47, 191, 143, 0.16) 50% 75%, transparent 75%),
-    #23201d !important;
-  background-size: 52px 52px, auto !important;
+  filter: hue-rotate(36deg) saturate(1.2) contrast(1.05) brightness(1.12);
 }
 
 body[data-skin-game="snake"] canvas,
 body[data-skin-game="snake"] #canvas {
-  background: #f9f0d8 !important;
-  border: 5px solid var(--w2h-teal);
+  background: #fbfdff !important;
+  border: 5px solid var(--w2h-ink);
   border-radius: 8px;
 }
 
 body[data-skin-game="snake"] #author {
-  color: var(--w2h-gold) !important;
+  color: var(--w2h-teal) !important;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  text-shadow: 3px 3px 0 var(--w2h-gold);
 }
 
 body[data-skin-game="snake"] #author span {
   display: none;
 }
 
-body[data-skin-game="space"] {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(47, 191, 143, 0.18), transparent 28%),
-    linear-gradient(160deg, #171514, #4a2f56 48%, #116b69) !important;
-}
-
 body[data-skin-game="space"] #gameArea {
-  filter: hue-rotate(124deg) saturate(1.18) contrast(1.08);
+  filter: hue-rotate(94deg) saturate(1.16) contrast(1.04) brightness(1.14);
 }
 
 body[data-skin-game="space"] #keyDiv {
-  opacity: 0.36 !important;
+  opacity: 0.5 !important;
 }
 
 body[data-skin-game="space"] #keyDiv img {
-  filter: hue-rotate(88deg) saturate(1.35);
+  filter: hue-rotate(58deg) saturate(1.24) brightness(1.08);
 }
 
 body[data-skin-game="tetrix"] {
-  --night: #171514;
-  --e-black: #2a2220;
-  --c-blue: #f8c537;
-  --cl-blue: #fff7e8;
-  --l-gray: rgba(255, 247, 232, 0.48);
-  --vl-gray: rgba(255, 247, 232, 0.78);
-  --p-green: #2fbf8f;
-  --green: #f05d4f;
-  background:
-    linear-gradient(135deg, rgba(248, 197, 55, 0.16), transparent 35%),
-    #171514 !important;
+  --night: #fbfdff;
+  --e-black: #e3fbf2;
+  --c-blue: #15827f;
+  --cl-blue: #173231;
+  --l-gray: rgba(23, 50, 49, 0.46);
+  --vl-gray: rgba(23, 50, 49, 0.76);
+  --p-green: #42d9ad;
+  --green: #ff6d5d;
+}
+
+body[data-skin-game="tetrix"] #splashScreen {
+  background-color: rgba(251, 253, 255, 0.8) !important;
 }
 
 body[data-skin-game="tetrix"] #splashScreen > h1 {
-  color: var(--w2h-gold);
+  color: var(--w2h-teal);
+  font-size: clamp(4rem, 11vw, 9rem) !important;
+  text-shadow: 5px 5px 0 var(--w2h-gold);
+}
+
+body[data-skin-game="yum"] #gameTitle {
+  color: var(--w2h-ink) !important;
+  background: var(--w2h-panel-strong) !important;
+  border: 4px solid var(--w2h-ink);
+  border-radius: 8px;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  text-shadow: 4px 4px 0 var(--w2h-gold);
+}
+
+body[data-skin-game="yum"] #canvas {
+  border-color: var(--w2h-ink) !important;
+  filter: hue-rotate(28deg) saturate(1.14) brightness(1.08);
+}
+
+body[data-skin-game="yum"] #gameBoard {
+  background-color: #dff9ef !important;
+}
+
+body[data-skin-game="godot"] #canvas {
+  filter: hue-rotate(50deg) saturate(1.1) contrast(1.04) brightness(1.08);
+}
+
+/* Distinct game-type skin patterns */
+body[data-skin-game="bubble"] {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.92) 0 12px, transparent 13px),
+    radial-gradient(circle at 30% 76%, rgba(159, 231, 255, 0.72) 0 18px, transparent 19px),
+    radial-gradient(circle at 72% 24%, rgba(255, 185, 220, 0.66) 0 24px, transparent 25px),
+    radial-gradient(circle at 88% 78%, rgba(185, 244, 204, 0.7) 0 15px, transparent 16px),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 32px, rgba(127, 140, 255, 0.12) 33px 35px),
+    linear-gradient(135deg, #f5fbff 0%, #fdf3ff 48%, #f1fff7 100%) !important;
+}
+
+body[data-skin-game="bubble"]::before {
+  background: #ffffff;
+  border-color: #6c72e8;
+  color: #3442a7;
+}
+
+body[data-skin-game="bubble"]::after {
+  background:
+    radial-gradient(circle at 8% 50%, #ffffff 0 10px, transparent 11px),
+    radial-gradient(circle at 92% 50%, #ffffff 0 10px, transparent 11px),
+    linear-gradient(90deg, #9fe7ff, #ffffff 48%, #ffb9dc);
+  border-color: #6c72e8;
+  color: #3442a7;
+}
+
+body[data-skin-game="go"] {
+  background:
+    linear-gradient(#bfe9ff 0 42%, transparent 42%),
+    radial-gradient(circle at 18% 20%, #ffffff 0 18px, transparent 19px),
+    radial-gradient(circle at 24% 20%, #ffffff 0 20px, transparent 21px),
+    radial-gradient(circle at 78% 17%, #ffffff 0 16px, transparent 17px),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(91, 154, 67, 0.16) 47px 50px),
+    linear-gradient(180deg, #bfe9ff 0%, #eefbd4 58%, #d8f7b8 100%) !important;
+}
+
+body[data-skin-game="go"]::before,
+body[data-skin-game="go"]::after {
+  border-color: #3f7c35;
+  color: #245a21;
+}
+
+body[data-skin-game="go"]::after {
+  background:
+    linear-gradient(0deg, #7ed957 0 12px, transparent 12px),
+    repeating-linear-gradient(90deg, #d9f76f 0 38px, #ffffff 38px 76px);
+}
+
+body[data-skin-game="racing-home"],
+body[data-skin-game="racing-game"],
+body[data-skin-game="racing-score"] {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 80px, rgba(255, 95, 109, 0.18) 80px 92px),
+    repeating-linear-gradient(45deg, rgba(255, 224, 102, 0.34) 0 12px, transparent 12px 28px),
+    linear-gradient(90deg, #effcff 0 18%, #eceff1 18% 82%, #effcff 82% 100%) !important;
+}
+
+body[data-skin-game="racing-home"]::before,
+body[data-skin-game="racing-game"]::before,
+body[data-skin-game="racing-score"]::before,
+body[data-skin-game="racing-home"]::after,
+body[data-skin-game="racing-game"]::after,
+body[data-skin-game="racing-score"]::after {
+  border-color: #2f3b40;
+  color: #2f3b40;
+}
+
+body[data-skin-game="racing-home"]::after,
+body[data-skin-game="racing-game"]::after,
+body[data-skin-game="racing-score"]::after {
+  background:
+    repeating-linear-gradient(90deg, #2f3b40 0 18px, #ffffff 18px 36px),
+    linear-gradient(180deg, #85e6ff, #ffffff);
+  color: #173231;
+}
+
+body[data-skin-game="rail"] {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 58px, rgba(179, 136, 255, 0.2) 58px 70px),
+    repeating-linear-gradient(20deg, transparent 0 28px, rgba(116, 92, 61, 0.22) 28px 36px),
+    linear-gradient(90deg, transparent 0 28%, rgba(116, 92, 61, 0.22) 28% 31%, transparent 31% 69%, rgba(116, 92, 61, 0.22) 69% 72%, transparent 72%),
+    linear-gradient(180deg, #fff7df 0%, #eafff8 100%) !important;
+}
+
+body[data-skin-game="rail"]::before,
+body[data-skin-game="rail"]::after {
+  border-color: #745c3d;
+  color: #4f3d28;
+}
+
+body[data-skin-game="rail"]::after {
+  background:
+    repeating-linear-gradient(90deg, rgba(116, 92, 61, 0.35) 0 22px, transparent 22px 46px),
+    linear-gradient(90deg, #ffd166, #ffffff 46%, #8be0c8);
+}
+
+body[data-skin-game="snake"] {
+  background:
+    radial-gradient(ellipse at 18% 24%, rgba(46, 154, 85, 0.22) 0 18px, transparent 19px),
+    radial-gradient(ellipse at 72% 78%, rgba(46, 154, 85, 0.18) 0 22px, transparent 23px),
+    repeating-linear-gradient(90deg, rgba(110, 231, 168, 0.2) 0 28px, transparent 28px 56px),
+    repeating-linear-gradient(0deg, rgba(215, 255, 112, 0.18) 0 28px, transparent 28px 56px),
+    linear-gradient(135deg, #f8ffe8, #efffe9 55%, #fff9e6) !important;
+}
+
+body[data-skin-game="snake"]::before,
+body[data-skin-game="snake"]::after {
+  border-color: #2e9a55;
+  color: #1f6f3b;
+}
+
+body[data-skin-game="snake"]::after {
+  background:
+    linear-gradient(45deg, #d7ff70 25%, #ffffff 25% 50%, #6ee7a8 50% 75%, #ffffff 75%);
+  background-size: 48px 48px;
+}
+
+body[data-skin-game="space"] {
+  background:
+    radial-gradient(circle at 14% 22%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 18%, #ffffff 0 3px, transparent 4px),
+    radial-gradient(circle at 82% 72%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(ellipse at 50% 50%, transparent 0 70px, rgba(142, 105, 255, 0.18) 71px 74px, transparent 75px),
+    radial-gradient(ellipse at 50% 50%, transparent 0 120px, rgba(255, 142, 209, 0.14) 121px 124px, transparent 125px),
+    linear-gradient(135deg, #f9f5ff, #edf9ff 52%, #fff7fd) !important;
+}
+
+body[data-skin-game="space"]::before,
+body[data-skin-game="space"]::after {
+  border-color: #6f56d9;
+  color: #44318f;
+}
+
+body[data-skin-game="space"]::after {
+  background:
+    radial-gradient(circle at 12% 50%, #ffffff 0 5px, transparent 6px),
+    radial-gradient(circle at 88% 50%, #ffffff 0 5px, transparent 6px),
+    linear-gradient(90deg, #cdb4ff, #ffffff 45%, #a0e7ff);
+}
+
+body[data-skin-game="tetrix"] {
+  background:
+    linear-gradient(90deg, rgba(23, 50, 49, 0.16) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(23, 50, 49, 0.16) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(255, 221, 87, 0.38) 0 36px, rgba(123, 223, 242, 0.3) 36px 72px, rgba(247, 174, 248, 0.26) 72px 108px),
+    linear-gradient(135deg, #fbfdff, #eefcff) !important;
+  background-size: 36px 36px, 36px 36px, auto, auto !important;
+}
+
+body[data-skin-game="tetrix"]::before,
+body[data-skin-game="tetrix"]::after {
+  border-color: #33515a;
+  color: #173231;
+}
+
+body[data-skin-game="tetrix"]::after {
+  background:
+    linear-gradient(90deg, #ffdd57 0 20%, #7bdff2 20% 40%, #b2f7ef 40% 60%, #f7aef8 60% 80%, #ffffff 80%);
 }
 
 body[data-skin-game="yum"] {
   background:
-    radial-gradient(circle at 20% 20%, rgba(248, 197, 55, 0.38), transparent 26%),
-    radial-gradient(circle at 80% 80%, rgba(47, 191, 143, 0.35), transparent 28%),
-    linear-gradient(135deg, #fff7e8, #f5b5a8 48%, #116b69) !important;
+    radial-gradient(circle at 18% 24%, #ffb3c6 0 12px, transparent 13px),
+    radial-gradient(circle at 72% 18%, #fdffb6 0 14px, transparent 15px),
+    radial-gradient(circle at 82% 74%, #caffbf 0 13px, transparent 14px),
+    repeating-linear-gradient(135deg, rgba(255, 179, 198, 0.32) 0 16px, rgba(255, 255, 255, 0.7) 16px 32px, rgba(202, 255, 191, 0.32) 32px 48px),
+    linear-gradient(135deg, #fff8fb, #fbfff0) !important;
 }
 
-body[data-skin-game="yum"] #gameTitle {
-  color: #171514 !important;
-  background: rgba(255, 247, 232, 0.72) !important;
-  border: 3px solid var(--w2h-coral);
-  border-radius: 8px;
+body[data-skin-game="yum"]::before,
+body[data-skin-game="yum"]::after {
+  border-color: #d94877;
+  color: #8d2445;
 }
 
-body[data-skin-game="yum"] #canvas {
-  border-color: var(--w2h-teal) !important;
-  filter: hue-rotate(38deg) saturate(1.15);
-}
-
-body[data-skin-game="yum"] #gameBoard {
-  background-color: #2c3f36 !important;
+body[data-skin-game="yum"]::after {
+  background:
+    repeating-linear-gradient(135deg, #ffb3c6 0 18px, #ffffff 18px 36px, #fdffb6 36px 54px);
 }
 
 body[data-skin-game="godot"] {
   background:
-    radial-gradient(circle at 50% 10%, rgba(248, 197, 55, 0.28), transparent 30%),
-    linear-gradient(180deg, #143f3d, #171514) !important;
+    radial-gradient(circle at 18% 18%, #fff8b8 0 38px, transparent 39px),
+    linear-gradient(170deg, transparent 0 56%, rgba(88, 183, 115, 0.28) 56% 68%, transparent 68%),
+    linear-gradient(190deg, transparent 0 62%, rgba(141, 211, 149, 0.32) 62% 76%, transparent 76%),
+    repeating-linear-gradient(90deg, rgba(82, 168, 95, 0.16) 0 10px, transparent 10px 24px),
+    linear-gradient(180deg, #eef8ff 0%, #f9fff2 60%, #efffe9 100%) !important;
 }
 
-body[data-skin-game="godot"] #canvas {
-  filter: hue-rotate(70deg) saturate(1.1) contrast(1.05);
+body[data-skin-game="godot"]::before,
+body[data-skin-game="godot"]::after {
+  border-color: #3d8750;
+  color: #245a34;
 }
 
-@media (max-width: 700px) {
+body[data-skin-game="godot"]::after {
+  background:
+    linear-gradient(0deg, #6fcf83 0 12px, transparent 12px),
+    linear-gradient(90deg, #caffbf, #ffffff 44%, #bde0fe);
+}
+
+@media (max-width: 900px) {
+  body[data-skin-game]::after {
+    top: 58px;
+    width: calc(100vw - 22px);
+    font-size: 30px;
+  }
+
   body[data-skin-game]::before {
     top: 8px;
     left: 8px;
-    font-size: 10px;
+    font-size: 11px;
   }
+}
 
+@media (max-width: 700px) {
   body[data-skin-game="racing-game"] #container {
     width: 100% !important;
     left: 0 !important;

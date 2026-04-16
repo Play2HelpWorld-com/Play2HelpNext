@@ -176,23 +176,31 @@ class Snake {
     this.index = i;
     this.delay = 5;
     this.size = W / cells;
-    this.color = "white";
+    this.color = "#116b46";
     this.history = [];
     this.total = 1;
   }
   draw() {
     let { x, y } = this.pos;
-    CTX.fillStyle = this.color;
-    CTX.shadowBlur = 20;
-    CTX.shadowColor = "rgba(255,255,255,.3 )";
-    CTX.fillRect(x, y, this.size, this.size);
+    CTX.fillStyle = "#116b46";
+    CTX.shadowBlur = 12;
+    CTX.shadowColor = "rgba(17, 107, 70, 0.45)";
+    CTX.fillRect(x + 1, y + 1, this.size - 2, this.size - 2);
+    CTX.lineWidth = 2;
+    CTX.strokeStyle = "#063d2a";
+    CTX.strokeRect(x + 2, y + 2, this.size - 4, this.size - 4);
+    CTX.fillStyle = "#d7ff70";
+    CTX.fillRect(x + this.size * 0.58, y + this.size * 0.24, 3, 3);
+    CTX.fillRect(x + this.size * 0.58, y + this.size * 0.58, 3, 3);
     CTX.shadowBlur = 0;
     if (this.total >= 2) {
       for (let i = 0; i < this.history.length - 1; i++) {
         let { x, y } = this.history[i];
-        CTX.lineWidth = 1;
-        CTX.fillStyle = "rgba(225,225,225,1)";
-        CTX.fillRect(x, y, this.size, this.size);
+        CTX.lineWidth = 1.5;
+        CTX.fillStyle = "#2fbf71";
+        CTX.fillRect(x + 2, y + 2, this.size - 4, this.size - 4);
+        CTX.strokeStyle = "#0b5d3d";
+        CTX.strokeRect(x + 3, y + 3, this.size - 6, this.size - 6);
       }
     }
   }
