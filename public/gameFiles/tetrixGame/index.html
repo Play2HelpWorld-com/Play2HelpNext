@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Tetrix</title>
+    <title>Block Lift</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./assets/titanicon.ico">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/boards.css">
     <link rel="stylesheet" href="./styles/mobilebtn.css">
+    <link rel="stylesheet" href="../arcade-reskin.css">
     <link rel="preload" href="./styles/menus.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="./styles/miscmenus.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="./styles/settings.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -20,7 +21,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/PixiPlugin.min.js"></script>
     <script defer src="./src/main.js" type="module"></script>
 </head>
-<body id="body">
+<body id="body" data-skin-game="tetrix">
     <!-- BOARD -->
     <div id="board">
         <progress id="garbageQueue" max="40" value="0"></progress>
@@ -31,8 +32,8 @@
 
     <!-- INFO OVERLAYS -->
     <div id="splashScreen" onclick="finishLoad()">
-        <h1>Tetrix</h1>
-        <p id="splashText">loading code</p>
+        <h1>Block Lift</h1>
+        <p id="splashText">loading run</p>
         <div class="spinner"></div>
     </div>
 

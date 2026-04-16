@@ -1,0 +1,271 @@
+/* Shared WePlay2Help arcade reskin layer. Gameplay logic stays in each game. */
+:root {
+  --w2h-ink: #171514;
+  --w2h-paper: #fff7e8;
+  --w2h-mint: #2fbf8f;
+  --w2h-coral: #f05d4f;
+  --w2h-gold: #f8c537;
+  --w2h-plum: #4a2f56;
+  --w2h-teal: #116b69;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body[data-skin-game] {
+  color: var(--w2h-paper);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(47, 191, 143, 0.35), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(240, 93, 79, 0.32), transparent 30%),
+    linear-gradient(135deg, #171514 0%, #2b2330 42%, #143f3d 100%) !important;
+  letter-spacing: 0;
+}
+
+body[data-skin-game]::before {
+  content: "WePlay2Help Arcade";
+  position: fixed;
+  top: 14px;
+  left: 16px;
+  z-index: 9999;
+  padding: 7px 10px;
+  border: 2px solid rgba(255, 247, 232, 0.7);
+  border-radius: 8px;
+  background: rgba(23, 21, 20, 0.72);
+  color: var(--w2h-paper);
+  font: 700 12px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+body[data-skin-game] button,
+body[data-skin-game] input[type="button"],
+body[data-skin-game] .btn {
+  border-radius: 8px !important;
+  border: 2px solid rgba(255, 247, 232, 0.75) !important;
+  background: linear-gradient(135deg, var(--w2h-coral), var(--w2h-gold)) !important;
+  color: #171514 !important;
+  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.25), 0 0 22px rgba(248, 197, 55, 0.22) !important;
+  letter-spacing: 0 !important;
+}
+
+body[data-skin-game] button:hover,
+body[data-skin-game] input[type="button"]:hover,
+body[data-skin-game] .btn:hover {
+  filter: saturate(1.15) brightness(1.05);
+}
+
+body[data-skin-game] canvas {
+  border-radius: 8px;
+  box-shadow: 0 0 0 4px rgba(255, 247, 232, 0.25), 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+body[data-skin-game="bubble"] {
+  background:
+    radial-gradient(circle at 20% 22%, rgba(248, 197, 55, 0.38), transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(47, 191, 143, 0.35), transparent 24%),
+    linear-gradient(145deg, #173f3d, #4a2f56 58%, #171514) !important;
+}
+
+body[data-skin-game="bubble"] .canvas-container {
+  border: 3px solid rgba(255, 247, 232, 0.55);
+  border-radius: 8px;
+  background: rgba(255, 247, 232, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+body[data-skin-game="bubble"] canvas {
+  filter: hue-rotate(42deg) saturate(1.18) contrast(1.05);
+}
+
+body[data-skin-game="go"] #gameCanvas {
+  filter: hue-rotate(78deg) saturate(1.15) contrast(1.04);
+}
+
+body[data-skin-game="go"] #gameOverlay {
+  background: rgba(23, 21, 20, 0.84) !important;
+}
+
+body[data-skin-game="go"] .overlay-content {
+  border: 3px solid var(--w2h-gold);
+  border-radius: 8px;
+  background: rgba(17, 107, 105, 0.86) !important;
+}
+
+body[data-skin-game="go"] .game-message-container,
+body[data-skin-game="go"] .high-score-text {
+  color: var(--w2h-paper) !important;
+}
+
+body[data-skin-game="racing-home"] .container,
+body[data-skin-game="racing-score"] {
+  background-image: none !important;
+}
+
+body[data-skin-game="racing-home"] .child,
+body[data-skin-game="racing-game"] #scoreboard,
+body[data-skin-game="racing-game"] #carSelection,
+body[data-skin-game="racing-score"] .menu-container,
+body[data-skin-game="racing-score"] #menu-content {
+  border: 3px solid rgba(255, 247, 232, 0.52) !important;
+  border-radius: 8px !important;
+  background: rgba(23, 21, 20, 0.78) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45) !important;
+}
+
+body[data-skin-game="racing-home"] .game_title,
+body[data-skin-game="racing-score"] .game-title,
+body[data-skin-game="racing-game"] .car-selection h2 {
+  color: var(--w2h-gold) !important;
+  text-shadow: 0 4px 0 var(--w2h-teal), 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+body[data-skin-game="racing-game"] {
+  background-image: none !important;
+}
+
+body[data-skin-game="racing-game"] #container {
+  background:
+    linear-gradient(90deg, rgba(248, 197, 55, 0.18), transparent 16%, transparent 84%, rgba(47, 191, 143, 0.18)),
+    #2b2a26 !important;
+  border-left: 6px solid var(--w2h-coral);
+  border-right: 6px solid var(--w2h-mint);
+}
+
+body[data-skin-game="racing-game"] .line_1,
+body[data-skin-game="racing-game"] .line_2,
+body[data-skin-game="racing-game"] .line_3,
+body[data-skin-game="racing-game"] .line_4 {
+  background: var(--w2h-gold) !important;
+}
+
+body[data-skin-game="racing-game"] .car img,
+body[data-skin-game="racing-game"] .car-options img {
+  filter: hue-rotate(105deg) saturate(1.3);
+}
+
+body[data-skin-game="rail"] {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(248, 197, 55, 0.32), transparent 35%),
+    linear-gradient(180deg, #143f3d, #171514) !important;
+}
+
+body[data-skin-game="rail"] .game-header {
+  color: var(--w2h-gold) !important;
+  text-shadow: 0 4px 0 var(--w2h-coral), 0 12px 22px #000 !important;
+}
+
+body[data-skin-game="rail"] #gameContainer {
+  border-color: var(--w2h-mint) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+}
+
+body[data-skin-game="rail"] canvas {
+  filter: hue-rotate(58deg) saturate(1.25) contrast(1.08);
+}
+
+body[data-skin-game="snake"] {
+  background:
+    linear-gradient(45deg, rgba(248, 197, 55, 0.16) 25%, transparent 25% 50%, rgba(47, 191, 143, 0.16) 50% 75%, transparent 75%),
+    #23201d !important;
+  background-size: 52px 52px, auto !important;
+}
+
+body[data-skin-game="snake"] canvas,
+body[data-skin-game="snake"] #canvas {
+  background: #f9f0d8 !important;
+  border: 5px solid var(--w2h-teal);
+  border-radius: 8px;
+}
+
+body[data-skin-game="snake"] #author {
+  color: var(--w2h-gold) !important;
+}
+
+body[data-skin-game="snake"] #author span {
+  display: none;
+}
+
+body[data-skin-game="space"] {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(47, 191, 143, 0.18), transparent 28%),
+    linear-gradient(160deg, #171514, #4a2f56 48%, #116b69) !important;
+}
+
+body[data-skin-game="space"] #gameArea {
+  filter: hue-rotate(124deg) saturate(1.18) contrast(1.08);
+}
+
+body[data-skin-game="space"] #keyDiv {
+  opacity: 0.36 !important;
+}
+
+body[data-skin-game="space"] #keyDiv img {
+  filter: hue-rotate(88deg) saturate(1.35);
+}
+
+body[data-skin-game="tetrix"] {
+  --night: #171514;
+  --e-black: #2a2220;
+  --c-blue: #f8c537;
+  --cl-blue: #fff7e8;
+  --l-gray: rgba(255, 247, 232, 0.48);
+  --vl-gray: rgba(255, 247, 232, 0.78);
+  --p-green: #2fbf8f;
+  --green: #f05d4f;
+  background:
+    linear-gradient(135deg, rgba(248, 197, 55, 0.16), transparent 35%),
+    #171514 !important;
+}
+
+body[data-skin-game="tetrix"] #splashScreen > h1 {
+  color: var(--w2h-gold);
+}
+
+body[data-skin-game="yum"] {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(248, 197, 55, 0.38), transparent 26%),
+    radial-gradient(circle at 80% 80%, rgba(47, 191, 143, 0.35), transparent 28%),
+    linear-gradient(135deg, #fff7e8, #f5b5a8 48%, #116b69) !important;
+}
+
+body[data-skin-game="yum"] #gameTitle {
+  color: #171514 !important;
+  background: rgba(255, 247, 232, 0.72) !important;
+  border: 3px solid var(--w2h-coral);
+  border-radius: 8px;
+}
+
+body[data-skin-game="yum"] #canvas {
+  border-color: var(--w2h-teal) !important;
+  filter: hue-rotate(38deg) saturate(1.15);
+}
+
+body[data-skin-game="yum"] #gameBoard {
+  background-color: #2c3f36 !important;
+}
+
+body[data-skin-game="godot"] {
+  background:
+    radial-gradient(circle at 50% 10%, rgba(248, 197, 55, 0.28), transparent 30%),
+    linear-gradient(180deg, #143f3d, #171514) !important;
+}
+
+body[data-skin-game="godot"] #canvas {
+  filter: hue-rotate(70deg) saturate(1.1) contrast(1.05);
+}
+
+@media (max-width: 700px) {
+  body[data-skin-game]::before {
+    top: 8px;
+    left: 8px;
+    font-size: 10px;
+  }
+
+  body[data-skin-game="racing-game"] #container {
+    width: 100% !important;
+    left: 0 !important;
+  }
+}

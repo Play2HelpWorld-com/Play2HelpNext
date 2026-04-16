@@ -3,20 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Car Racing</title>
+    <title>Skyline Sprint</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../arcade-reskin.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body>
+<body data-skin-game="racing-game">
 
     <div id="scoreboard">
-    <label id="y_score"> your score:</label>
+    <label id="y_score"> run score:</label>
     <div id="score">0</div>
 
-    <label id="l_score"> level score:</label>
+    <label id="l_score"> stage score:</label>
     <div id="level_score">0</div>
     </div>
 
@@ -63,7 +64,7 @@
      <!---div for choosing car feature -->
 
      <div id="carSelection" class="car-selection">
-        <h2>Select Your Car</h2>
+        <h2>Select Your Ride</h2>
         <div class="car-options">
             <img src="assets/images/car1.png" alt="Car 1" onclick="selectCar('car1.png')" />
             <img src="assets/images/car6.png" alt="Car 2" onclick="selectCar('car6.png')" />
