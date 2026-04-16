@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Yum Crush</title>
+  <title>Candy Connect</title>
 
   <!-- Load style sheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
 
   <link rel="stylesheet" href="mainLayout.css" />
+  <link rel="stylesheet" href="../arcade-reskin.css" />
 
   <!-- Use mobile-aware viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,15 +22,15 @@
   <script src="rules.js"></script>
 </head>
 
-<body>
+<body data-skin-game="yum">
   <div class="container">
     <div class="row">
       <div class="col-md-3" id="firstColumn">
-        <h1 id="gameTitle">Yum Crush</h1>
+        <h1 id="gameTitle">Candy Connect</h1>
         <label id="scoreLabel">0 points</label><br />
-        <input class="btn btn-default" type="button" id="newGame" value="New Game" /><br />
-        <input class="btn btn-default" type="button" id="showMove" value="Show Move" />
-        <input class="btn btn-default" type="button" id="saveScore" value="Save Score" />
+        <input class="btn btn-default" type="button" id="newGame" value="Fresh Board" /><br />
+        <input class="btn btn-default" type="button" id="showMove" value="Hint" />
+        <input class="btn btn-default" type="button" id="saveScore" value="Save Run" />
       </div>
 
       <div class="col-md-6" id="mainColumn">

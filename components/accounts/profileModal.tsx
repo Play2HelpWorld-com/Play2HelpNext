@@ -8,9 +8,16 @@ import { fetchLoggedInUser } from "@/configs/redux/auth/authSlice";
 interface ProfileModalProps {
   setNavopen: (open: boolean) => void;
   navOpen: boolean;
+  className?: string;
+  buttonText?: string;
 }
 
-export const ProfileModal = ({ setNavopen, navOpen }: ProfileModalProps) => {
+export const ProfileModal = ({
+  setNavopen,
+  navOpen,
+  className = "",
+  buttonText = "SIGN IN",
+}: ProfileModalProps) => {
   const authState = useAppSelector((state) => state.auth);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -25,7 +32,11 @@ export const ProfileModal = ({ setNavopen, navOpen }: ProfileModalProps) => {
     <>
       {authState.isAuthenticated ? (
         <div className="relative group">
-          <button type="button" className="text-[#757693] dark:text-white font-medium cursor-pointer hover:underline" onClick={() => { setIsModalOpen(!isModalOpen);}}>
+          <button
+            type="button"
+            className={`cursor-pointer font-medium text-[#757693] hover:underline dark:text-white ${className}`}
+            onClick={() => { setIsModalOpen(!isModalOpen);}}
+          >
             {authState.loogedInUser.name}
           </button>
           {isModalOpen && (
@@ -47,8 +58,12 @@ export const ProfileModal = ({ setNavopen, navOpen }: ProfileModalProps) => {
           )}
         </div>
       ) : (
-        <Link onClick={() => setNavopen(!navOpen)} href="/accounts/signin" className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-          SIGN IN
+        <Link
+          onClick={() => setNavopen(!navOpen)}
+          href="/accounts/signin"
+          className={`rounded-lg bg-blue-500 px-5 py-2 text-white transition-colors hover:bg-blue-600 ${className}`}
+        >
+          {buttonText}
         </Link>
       )}
     </>

@@ -123,6 +123,23 @@ const Header = () => {
             "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
           }`}
         >
+          <div className="mb-6 rounded-2xl bg-slate-50 p-4 xl:hidden dark:bg-blackho">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+              Quick access
+            </p>
+            <div className="flex flex-col gap-3">
+              <ProfileModal
+                navOpen={navigationOpen}
+                setNavopen={setNavigationOpen}
+                className="block w-full rounded-xl bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white no-underline hover:bg-blue-700"
+                buttonText="Sign In"
+              />
+              <div className="flex justify-center rounded-xl bg-white px-3 py-3 shadow-sm dark:bg-blacksection">
+                <CustomConnectButton />
+              </div>
+            </div>
+          </div>
+
           <nav>
             <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
               {menuData.map((menuItem, key) => (
@@ -176,16 +193,20 @@ const Header = () => {
                   )}
                 </li>
               ))}
-              <CustomConnectButton />
+              <li className="hidden xl:block">
+                <CustomConnectButton />
+              </li>
             </ul>
           </nav>
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
-            <ProfileModal
-              navOpen={navigationOpen}
-              setNavopen={setNavigationOpen}
-            />
+            <div className="hidden xl:block">
+              <ProfileModal
+                navOpen={navigationOpen}
+                setNavopen={setNavigationOpen}
+              />
+            </div>
           </div>
         </div>
       </div>

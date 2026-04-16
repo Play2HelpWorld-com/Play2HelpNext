@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Triple Rail Game</title>
+    <title>Rail Rush Relay</title>
     <style>
       body {
         font-family: "Press Start 2P", cursive; /* Use a retro game font */
@@ -176,14 +176,15 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="../arcade-reskin.css" />
   </head>
-  <body>
-    <h1 class="game-header">Triple Rail Game</h1>
+  <body data-skin-game="rail">
+    <h1 class="game-header">Rail Rush Relay</h1>
     <div id="gameContainer">
       <canvas id="gameCanvas" width="500" height="700"></canvas>
       <div id="overlay">
-        <h2>Welcome to Triple Rail Game</h2>
-        <button id="playButton" onclick="startGame()">Play</button>
+        <h2>Ready for the Rails?</h2>
+        <button id="playButton" onclick="startGame()">Start</button>
         <button id="retryButton" onclick="resetGame()" style="display: none">
           Retry
         </button>

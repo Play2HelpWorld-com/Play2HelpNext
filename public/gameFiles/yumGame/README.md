@@ -1,1 +1,1 @@
-# Yum Crush
+# Candy Connect
