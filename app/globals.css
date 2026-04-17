@@ -20,8 +20,12 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply relative z-1 font-inter text-regular font-normal text-waterloo dark:text-manatee;
+    @apply relative z-1 overflow-x-hidden font-inter text-regular font-normal text-waterloo dark:text-manatee;
   }
 }
 
@@ -36,7 +40,7 @@
 
 @media (max-width: 1280px) {
   .navbar {
-    @apply max-h-[400px] overflow-y-scroll;
+    @apply max-h-[calc(100vh-96px)] overflow-y-auto;
   }
 }
 

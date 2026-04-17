@@ -1,62 +1,45 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 
 const Hero = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-
   return (
     <>
-      <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
+      <section className="overflow-hidden pb-14 pt-28 sm:pb-16 md:pt-36 lg:pb-20 xl:pb-25 xl:pt-46">
         <div className="">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className=" md:w-1/2">
-              <h4 className="mb-4.5 text-lg font-semibold text-primary dark:text-white">
+            <div className="w-full md:w-1/2">
+              <h4 className="mb-4 text-base font-semibold text-primary dark:text-white sm:text-lg">
                 Transform Lives Through Gaming
               </h4>
-              <h1 className="mb-6 pr-16 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero ">
+              <h1 className="mb-5 max-w-full text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl xl:text-hero">
                 Play, Learn & Grow with
-                <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark ">
+                <span className="relative mt-1 inline-block sm:mx-2 sm:mt-0 before:absolute before:bottom-1.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark sm:before:bottom-2.5 sm:before:h-4">
                   weplay2help
                 </span>
               </h1>
-              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+              <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg">
                 Experience game-based learning that delivers proven benefits in education, health, 
                 financial literacy, sport coaching, and creative arts. Join thousands of families 
                 achieving healthy happiness and economic sustainability through play.
               </p>
 
-              <div className="mt-11">
-                <form onSubmit={handleSubmit}>
-                  <div className="flex flex-wrap gap-4">
-                    <input
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      type="text"
-                      placeholder="Enter your email to start your journey"
-                      className="w-full rounded-full border-2 border-stroke bg-white px-6 py-3.5 text-base shadow-solid-2 transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary sm:w-auto sm:flex-1"
-                    />
-                    <button
-                      aria-label="get started button"
-                      className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl dark:from-btndark dark:to-btndark/80 sm:w-auto"
-                    >
-                      Start Playing Free
-                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                    </button>
-                  </div>
-                </form>
+              <div className="mt-8 sm:mt-10">
+                <a
+                  href="#games"
+                  aria-label="go to games section"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary/80 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl dark:from-btndark dark:to-btndark/80 sm:w-auto sm:px-8"
+                >
+                  Start Playing Free
+                  <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
 
-                <p className="mt-6 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <svg className="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <p className="mt-5 flex items-start gap-2 text-sm leading-6 text-gray-600 dark:text-gray-400 sm:items-center">
+                  <svg className="mt-0.5 h-5 w-5 shrink-0 text-green-500 sm:mt-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  100% Free Forever • No Credit Card • Instant Access
+                  <span>100% Free Forever. No Credit Card. Instant Access.</span>
                 </p>
               </div>
             </div>

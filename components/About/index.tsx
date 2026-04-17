@@ -7,9 +7,9 @@ const About = () => {
   return (
     <>
       {/* <!-- ===== About Start ===== --> */}
-      <section className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
+      <section className="overflow-hidden pb-14 sm:pb-16 lg:pb-25 xl:pb-30">
         <div className=" ">
-          <div className="flex items-center gap-8 lg:gap-32.5">
+          <div className="flex flex-col items-start gap-8 md:flex-row md:items-center lg:gap-32.5">
             <motion.div
               variants={{
                 hidden: {
@@ -66,39 +66,39 @@ const About = () => {
                 </span>{" "}
                 Game-Powered Learning
               </span>
-              <h2 className="relative mb-6 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero">
+              <h2 className="relative mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl xl:text-hero">
                 Unlock Your Family&apos;s
-                <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark">
+                <span className="relative mt-1 inline-block sm:mx-2 sm:mt-0 before:absolute before:bottom-1.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-gradient-to-r before:from-titlebg before:to-primary/30 dark:before:bg-titlebgdark sm:before:bottom-2.5 sm:before:h-4">
                   Full Potential
                 </span>
               </h2>
-              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+              <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg">
                 Discover a revolutionary platform where gaming meets real-world benefits. 
                 Earn rewards while developing skills in education, health, finance, sports, 
                 and creative arts—all designed to promote healthy happiness and economic sustainability.
               </p>
 
-              <div className="mt-8 flex items-center gap-6 rounded-2xl bg-gradient-to-r from-primary/5 to-transparent p-5 transition-all hover:from-primary/10 dark:from-primary/10">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-lg">
-                  <p className="text-2xl font-bold text-white">
+              <div className="mt-8 flex flex-col gap-4 rounded-lg bg-gradient-to-r from-primary/5 to-transparent p-4 transition-all hover:from-primary/10 dark:from-primary/10 sm:flex-row sm:items-center sm:gap-6 sm:p-5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-lg sm:h-16 sm:w-16">
+                  <p className="text-xl font-bold text-white sm:text-2xl">
                     01
                   </p>
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-1 text-xl font-bold text-black dark:text-white">
+                  <h3 className="mb-1 text-lg font-bold text-black dark:text-white sm:text-xl">
                     Join & Get Welcome Bonus
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">Start your journey with instant rewards and unlock premium features.</p>
                 </div>
               </div>
-              <div className="mt-6 flex items-center gap-6 rounded-2xl bg-gradient-to-r from-primary/5 to-transparent p-5 transition-all hover:from-primary/10 dark:from-primary/10">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-secondary/70 shadow-lg">
-                  <p className="text-2xl font-bold text-white">
+              <div className="mt-5 flex flex-col gap-4 rounded-lg bg-gradient-to-r from-primary/5 to-transparent p-4 transition-all hover:from-primary/10 dark:from-primary/10 sm:mt-6 sm:flex-row sm:items-center sm:gap-6 sm:p-5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-secondary/70 shadow-lg sm:h-16 sm:w-16">
+                  <p className="text-xl font-bold text-white sm:text-2xl">
                     02
                   </p>
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-1 text-xl font-bold text-black dark:text-white">
+                  <h3 className="mb-1 text-lg font-bold text-black dark:text-white sm:text-xl">
                     Play, Learn & Earn
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">Engage with educational games, health activities, and creative challenges.</p>
@@ -113,7 +113,7 @@ const About = () => {
       {/* <!-- ===== About Two Start ===== --> */}
       <section>
         <div className="">
-          <div className="flex items-center gap-8 lg:gap-32.5">
+          <div className="flex flex-col items-start gap-8 md:flex-row md:items-center lg:gap-32.5">
             <motion.div
               variants={{
                 hidden: {
@@ -141,13 +141,13 @@ const About = () => {
                 </span>{" "}
                 Support Charitable Causes
               </h4>
-              <h2 className="relative mb-6 text-4xl font-bold leading-tight text-black dark:text-white xl:text-hero">
+              <h2 className="relative mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl xl:text-hero">
                 Play with
-                <span className="relative mx-2 inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-4 before:w-full before:bg-gradient-to-r before:from-titlebg2 before:to-secondary/30 dark:before:bg-titlebgdark">
+                <span className="relative mx-2 inline-block before:absolute before:bottom-1.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-gradient-to-r before:from-titlebg2 before:to-secondary/30 dark:before:bg-titlebgdark sm:before:bottom-2.5 sm:before:h-4">
                   Purpose
                 </span>
               </h2>
-              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+              <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg">
                 Every game you play contributes to global causes. Support education, health, 
                 environmental conservation, and humanitarian efforts while enjoying engaging 
                 gameplay experiences that benefit your family and communities worldwide.

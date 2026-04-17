@@ -23,7 +23,8 @@ export const useSaveTokens = () => {
     expirationDate.setMonth(expirationDate.getMonth() + 1);
     document.cookie = `${cookieName}=${cookieValue}; expires=${expirationDate.toUTCString()}; path=/; SameSite=strict`;
     HandleFetchUser();
-    router.push('/');
+    const redirectTo = new URLSearchParams(window.location.search).get("next") || "/";
+    router.push(redirectTo);
   }
   return SaveTokensToLocal;
 }
