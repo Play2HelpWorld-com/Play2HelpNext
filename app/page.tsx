@@ -22,9 +22,9 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-[95rem] px-4 md:px-8 xl:px-1">
       <Hero />
+      <GameSection />
       <Feature />
       <About />
-      <GameSection />
       <FeaturesTab />
       <FunFact />
       <Integration />

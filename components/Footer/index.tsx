@@ -27,7 +27,7 @@ const Footer = () => {
                 whileInView="visible"
                 transition={{ duration: 1, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="animate_top w-1/2 lg:w-1/4"
+                className="animate_top w-full sm:w-1/2 lg:w-1/4"
               >
                 <Link href="/" className="relative">
                   <Image
@@ -55,7 +55,7 @@ const Footer = () => {
                 </p>
                 <a
                   href="#"
-                  className="text-itemtitle font-medium text-black dark:text-white"
+                  className="break-words text-xl font-medium text-black dark:text-white sm:text-itemtitle"
                 >
                   hello@solid.com
                 </a>
@@ -264,7 +264,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <ul className="flex items-center gap-8">
+              <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 lg:justify-start lg:gap-8">
                 <li>
                   <a href="#" className="hover:text-primary">
                     English

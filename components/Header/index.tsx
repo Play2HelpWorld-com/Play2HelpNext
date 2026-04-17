@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-30 w-full bg-white py-7 dark:bg-black ${
+      className={`fixed left-0 top-0 z-30 w-full bg-white py-4 dark:bg-black sm:py-5 xl:py-7 ${
         stickyMenu ? "!py-4 shadow transition duration-100" : ""
       }`}
     >
@@ -64,14 +64,14 @@ const Header = () => {
               alt="logo"
               width={178.5}
               height={45}
-              className="hidden h-12 w-full dark:block"
+              className="hidden h-10 w-auto sm:h-12 dark:block"
             />
             <Image
               src="/images/logo/logo-dark.png"
               alt="logo"
               width={178.5}
               height={45}
-              className="h-12 w-full dark:hidden"
+              className="h-10 w-auto sm:h-12 dark:hidden"
             />
           </Link>
 
@@ -120,7 +120,7 @@ const Header = () => {
         <div
           className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
             navigationOpen &&
-            "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+            "navbar !visible mt-4 h-auto rounded-md bg-white p-5 shadow-solid-5 dark:bg-blacksection sm:p-7.5 xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
           }`}
         >
           <div className="mb-6 rounded-2xl bg-slate-50 p-4 xl:hidden dark:bg-blackho">

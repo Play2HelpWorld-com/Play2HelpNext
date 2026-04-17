@@ -6,6 +6,10 @@ export type Game = {
   alt: string;
   buttonText: string;
   playLink: string;
+  category: string;
+  charity: string;
+  playTime: string;
+  tags: string[];
 };
 
 export interface GameInterface {
@@ -16,4 +20,8 @@ export interface GameInterface {
   alt: string;
   buttonText: string;
   playLink: string;
+  category: string;
+  charity: string;
+  playTime: string;
+  tags: string[];
 };

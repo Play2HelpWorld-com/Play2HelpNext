@@ -7,8 +7,8 @@ const CTA = () => {
   return (
     <>
       {/* <!-- ===== CTA Start ===== --> */}
-      <section className="overflow-hidden px-4 py-20 md:px-8 lg:py-25 xl:py-30 2xl:px-0">
-        <div className="rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] px-7.5 py-12.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark md:px-12.5 xl:px-17.5 xl:py-0">
+      <section className="overflow-hidden px-4 py-14 md:px-8 lg:py-25 xl:py-30 2xl:px-0">
+        <div className="rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] px-5 py-10 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark sm:px-7.5 sm:py-12.5 md:px-12.5 xl:px-17.5 xl:py-0">
           <div className="flex flex-wrap gap-8 md:flex-nowrap md:items-center md:justify-between md:gap-0">
             <motion.div
               variants={{
@@ -28,10 +28,10 @@ const CTA = () => {
               viewport={{ once: true }}
               className="animate_left md:w-[70%] lg:w-1/2"
             >
-              <h2 className="mb-5 w-11/12 text-4xl font-bold leading-tight text-black dark:text-white xl:text-sectiontitle4">
+              <h2 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl xl:text-sectiontitle4">
                 Ready to Transform Your Family&apos;s Future?
               </h2>
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
                 Join thousands of families experiencing healthy happiness through game-based learning. 
                 Start earning rewards in education, health, finance, sports, and creative arts—completely free, forever.
               </p>
@@ -54,7 +54,7 @@ const CTA = () => {
               viewport={{ once: true }}
               className="animate_right lg:w-[45%]"
             >
-              <div className="flex items-center justify-end xl:justify-between">
+              <div className="flex items-center justify-start lg:justify-end xl:justify-between">
                 <Image
                   width={299}
                   height={299}
@@ -64,7 +64,7 @@ const CTA = () => {
                 />
                 <a
                   href="/auth/signup"
-                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:from-white dark:to-gray-100 dark:text-black"
+                  className="group inline-flex w-full items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-primary to-primary/80 px-6 py-3.5 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl dark:from-white dark:to-gray-100 dark:text-black sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
                 >
                   Start Your Journey Free
                   <Image
